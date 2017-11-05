@@ -19,6 +19,9 @@ Route::get('about', function () {
     return view('about', compact('arrayTest')); //about.blade.php
 });
 
+// Model Practice Routes
+Route::resource('practice', 'PracticeController');
+
 // HOME Routes
 Route::get('home', function () {
     return view('home'); //home.blade.php

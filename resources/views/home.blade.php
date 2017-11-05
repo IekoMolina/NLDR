@@ -88,6 +88,7 @@
             </div>
             <!-- row -->
             <div class="row">
+                <!-- Panel1 -->
                 <div class="col-lg-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -118,7 +119,40 @@
                     </div>
                     <!-- /.panel -->
                 </div>
-                <!-- /.col-lg-8 -->
+                <!-- /Panel1 -->
+
+                <!-- Panel2 -->
+                <div class="col-lg-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Damage per Region
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        Drill Down
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a href="/home">Damage per Region</a>
+                                        </li>
+                                        <li><a href="/homeDrillDown">Disaster Event per Region</a>
+                                        </li>
+                                        <li><a href="/homeDrillDown1">Aid Provided per Municipality</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <iframe width="1400" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiMGRlM2U5MWUtYjNmZS00YzQ5LWEyNWYtMDM1NWJlZmQ3ZDAyIiwidCI6ImYzNGEzNWJkLWE2NWQtNDYwNS1iMGZhLWQyNTcxZjgzMWY1ZSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe>
+
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.Panel2 -->
             </div>
             <!-- /.row -->
         </div>
