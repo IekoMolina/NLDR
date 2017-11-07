@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request; 
 use App\ReportModel;
-use App\GlideEvent;
 
 class reportController extends BaseController
 {
@@ -20,20 +19,28 @@ class reportController extends BaseController
         $disasterType = $req->input('disasterType');
         $year = $req->input('year');
 
-        return view('reportsDrillDown')->with([
+
+        //fix this model should be used
+        $yearlyData = ReportModel::getYearlyReportData(); /*->where([
+                                                                    ['REF_GLIDEEVENTTYPE.GLIDEEVENTDESCRIPTION', '=', $disasterType],
+                                                                    ['GLIDEEVENT.STARTDATE', '=', $year],
+                                                                ]);*/
+        return $yearlyData; 
+        //return view('reportsDrillDown')->with('yearlyData',$yearlyData);
+       /* return view('reportsDrillDown')->with([
             'disasterType'=> $disasterType,
             'year'=> $year
-            ]);
+            ]);*/
     }
 
     public function getData()
     {
-        $data = ReportModel::all();
-        $dateData = DB::table('GlideEvent')->pluck('STARTDATE');
-        
-        if(count($data)>0)
+       $data = ReportModel::getExistingDisaster();
+       $disasterData = ReportModel::getAllDisaster();
+
+       if(count($data)>0)
         {
-            return view('reports')->with('data', $data)->with('dateData', $dateData); 
+            return view('reports')->with('data', $data) ->with('disasterData', $disasterData); 
         }
 
         else
@@ -42,6 +49,38 @@ class reportController extends BaseController
         }
     }
 
+    //Report with Visuals
+    public function passDataVisual(Request $req)
+    {
+        $disasterType = $req->input('disasterType');
+        $year = $req->input('year');
+        $damages = $req->input('damages');
+        $regions = $req->input('regions');
+
+        return view('reportsVisualDetails')->with([
+            'disasterType'=> $disasterType,
+            'year'=> $year,
+            'damages'=> $damages,
+            'regions'=> $regions
+            ]);
+    }
+
+    public function getDataVisual()
+    {
+       $data = ReportModel::getExistingDisaster();
+       $disasterData = ReportModel::getAllDisaster();
+       $regions = ReportModel::getAllRegion();
+        
+        if(count($data)>0)
+        {
+            return view('reportsVisual')->with('data', $data)->with('disasterData', $disasterData)->with('regions', $regions); 
+        }
+
+        else
+        {
+            return view('reportsVisual');
+        }
+    }
 }
 
 

@@ -9,7 +9,7 @@ class PracticeController extends Controller
     
     public function index()
     {
-    	$users = Users::all();
+    	$users = Users::selectUsers();
     	return $users;
     	//return view('insertForm')->with('users', $users);
     }
