@@ -98,7 +98,7 @@
                                         <div class="form-group col-lg-6">
                                             <label>Disaster Type</label>
                                             <select class="form-control" name="disasterType">
-                                               @foreach($data as $value)
+                                               @foreach($disasterData as $value)
                                                 <option>{{ $value->GLIDEEVENTDESCRIPTION }}</option>
                                                 @endforeach 
                                             </select>
@@ -107,8 +107,8 @@
                                         <div class="form-group col-lg-6">
                                             <label>Year</label>
                                             <select class="form-control" name="year">
-                                               @foreach($dateData as $valueY)
-                                                <option> {{ $valueY }}</option> <!-- = date('Y', strtotime($dateData)) -->
+                                               @foreach($data as $valueY)
+                                                <option> {{ date('Y', strtotime($valueY->STARTDATE)) }}</option> <!-- = date('Y', strtotime($dateData)) -->
                                                 @endforeach 
                                             </select>
                                         </div>

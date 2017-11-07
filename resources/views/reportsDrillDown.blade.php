@@ -97,8 +97,8 @@
                                 Department of National Defense <br>                                       
                                 <b> OFFICE OF CIVIL DEFENSE </b>       <br>   
                                 Camp Emilio Aguinaldo, Quezon City     <br>
-                               <b> {{ $disasterType }}  AND THEIR  EFFECTS </b>  <br>                       
-                                ( {{$year}} )                                                             
+                               <b> {{ $yearlyData->GLIDEEVENTDESCRIPTION }}  AND THEIR  EFFECTS </b>  <br>                       
+                                ( {{$yearlyData->STARTDATE}} )                                                             
                             </div>
                             <br>
                              <!-- /.Report Header -->

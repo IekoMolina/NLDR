@@ -79,10 +79,10 @@ Route::get('updateDisasterInfoDetails', function () {
 
 
 // Routes for Report Generation
-Route::get('reports', 'reportController@getData'); 
-Route::get('reportsVisual', 'reportsVisualController@getData'); 
-Route::post('generateReport', 'reportController@passData');   
-Route::post('generateReportVisuals', 'reportsVisualController@passData');   
+Route::get('reports', 'reportController@getData');
+Route::post('generateReport', 'reportController@passData');
+Route::get('reportsVisual', 'reportController@getDataVisual'); 
+Route::post('generateReportVisuals', 'reportController@passDataVisual');   
 
 // Account Creattion routes
 Route::get('adminCreateAccount', function () {
