@@ -29,7 +29,18 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style type="text/css" media="screen">
+        body,
+        html {
+            width: 100%;
+            overflow: hidden;
+        }
 
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -99,7 +110,7 @@
                                             <label>Disaster Type</label>
                                             <select class="form-control" name="disasterType">
                                                 @foreach($disasterData as $value)
-                                                <option>{{ $value->GLIDEEVENTDESCRIPTION }}</option>
+                                                <option>{{ $value->DESCRIPTION }}</option>
                                                 @endforeach 
                                             </select>
                                         </div>
@@ -108,7 +119,7 @@
                                             <label>Year</label>
                                             <select class="form-control" name="year">
                                                  @foreach($data as $valueY)
-                                                <option> {{ $valueY->STARTDATE }}</option> <!-- = date('Y', strtotime($dateData)) -->
+                                                <option> {{ date('Y', strtotime($valueY->STARTDATE)) }}</option>
                                                 @endforeach 
                                             </select>
                                         </div>
