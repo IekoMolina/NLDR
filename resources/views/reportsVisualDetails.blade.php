@@ -118,10 +118,10 @@
                                              </div>
                                             <!-- ./Panel Body -->
                                             <div class="row" align="center">
-                                                <!-- Print Button -->
+                                                <!-- Print Button
                                                  <button class="btn btn-primary" onclick="myFunction()" style="inline-block">
                                                     <span class="glyphicon glyphicon-print"></span> Print
-                                                 </button>
+                                                 </button> -->
                                                  <!-- ./Print Button -->
                                             </div>
                                             <!-- /.table-->
@@ -164,7 +164,7 @@
     <script src="../data/morris-data.js"></script>
 
     <!-- Moris Bar chart Content -->
-        <!-- Morris/Graphs -->
+    <!-- Morris/Graphs -->
     <script>
         Morris.Bar({
           element: 'tenure',

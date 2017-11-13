@@ -25,12 +25,12 @@ class reportController extends BaseController
                                                                     ['REF_GLIDEEVENTTYPE.GLIDEEVENTDESCRIPTION', '=', $disasterType],
                                                                     ['GLIDEEVENT.STARTDATE', '=', $year],
                                                                 ]);*/
-        return $yearlyData; 
+        //return $yearlyData; 
         //return view('reportsDrillDown')->with('yearlyData',$yearlyData);
-       /* return view('reportsDrillDown')->with([
+       return view('reportsDrillDown')->with([
             'disasterType'=> $disasterType,
             'year'=> $year
-            ]);*/
+            ]);
     }
 
     public function getData()
