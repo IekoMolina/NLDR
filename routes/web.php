@@ -19,6 +19,9 @@ Route::get('about', function () {
     return view('about', compact('arrayTest')); //about.blade.php
 });
 
+// Model Practice Routes
+Route::resource('practice', 'PracticeController');
+
 // HOME Routes
 Route::get('home', function () {
     return view('home'); //home.blade.php
@@ -76,10 +79,10 @@ Route::get('updateDisasterInfoDetails', function () {
 
 
 // Routes for Report Generation
-Route::get('reports', 'reportController@getData'); 
-Route::get('reportsVisual', 'reportsVisualController@getData'); 
-Route::post('generateReport', 'reportController@passData');   
-Route::post('generateReportVisuals', 'reportsVisualController@passData');   
+Route::get('reports', 'reportController@getData');
+Route::post('generateReport', 'reportController@passData');
+Route::get('reportsVisual', 'reportController@getDataVisual'); 
+Route::post('generateReportVisuals', 'reportController@passDataVisual');   
 
 // Account Creattion routes
 Route::get('adminCreateAccount', function () {

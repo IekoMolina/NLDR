@@ -30,6 +30,27 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <style type="text/css" media="screen">
+
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        iframe {
+            width: 100%;
+            height: 500;
+            overflow: hidden;
+            border: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -88,6 +109,10 @@
             </div>
             <!-- row -->
             <div class="row">
+                
+                 <iframe width="1000" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiMGRlM2U5MWUtYjNmZS00YzQ5LWEyNWYtMDM1NWJlZmQ3ZDAyIiwidCI6ImYzNGEzNWJkLWE2NWQtNDYwNS1iMGZhLWQyNTcxZjgzMWY1ZSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true" style="border:none;" align="center" scrolling="no" allowfullscreen="true"></iframe>
+                 
+                 <!-- Panel1 
                 <div class="col-lg-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -108,17 +133,20 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
-                        <!-- /.panel-heading -->
+                        </div>-->
+                        <!-- /.panel-heading -
                         <div class="panel-body">
-                            <iframe width="1400" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiMGRlM2U5MWUtYjNmZS00YzQ5LWEyNWYtMDM1NWJlZmQ3ZDAyIiwidCI6ImYzNGEzNWJkLWE2NWQtNDYwNS1iMGZhLWQyNTcxZjgzMWY1ZSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe>
+                           
 
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-8 -->
+                        </div>->
+                        <!-- /.panel-body 
+                    </div>-->
+                    <!-- /.panel 
+                </div>-->
+                <!-- /Panel1 -->
+
+                <!-- Panel2 -->
+                <!-- /.Panel2 -->
             </div>
             <!-- /.row -->
         </div>
@@ -138,6 +166,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
-
+    <script type="
+    "></script>
 </body>
 </html>

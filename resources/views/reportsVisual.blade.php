@@ -29,7 +29,18 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style type="text/css" media="screen">
+        body,
+        html {
+            width: 100%;
+            overflow: hidden;
+        }
 
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -98,8 +109,8 @@
                                         <div class="form-group col-lg-6">
                                             <label>Disaster Type</label>
                                             <select class="form-control" name="disasterType">
-                                                @foreach($data as $value)
-                                                <option>{{ $value->GLIDEEVENTDESCRIPTION }}</option>
+                                                @foreach($disasterData as $value)
+                                                <option>{{ $value->DESCRIPTION }}</option>
                                                 @endforeach 
                                             </select>
                                         </div>
@@ -107,8 +118,8 @@
                                         <div class="form-group col-lg-6">
                                             <label>Year</label>
                                             <select class="form-control" name="year">
-                                                 @foreach($dateData as $valueY)
-                                                <option> {{ $valueY }}</option> <!-- = date('Y', strtotime($dateData)) -->
+                                                 @foreach($data as $valueY)
+                                                <option> {{ date('Y', strtotime($valueY->STARTDATE)) }}</option>
                                                 @endforeach 
                                             </select>
                                         </div>
@@ -126,7 +137,7 @@
                                             <label>Region </label>
                                             <select class="form-control" name="regions">
                                                  @foreach($regions as $valueR)
-                                                <option> {{ $valueR }}</option> <!-- = date('Y', strtotime($dateData)) -->
+                                                <option> {{ $valueR->REGIONCODE }}</option> <!-- = date('Y', strtotime($dateData)) -->
                                                 @endforeach 
                                             </select>
                                         </div>

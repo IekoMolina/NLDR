@@ -32,7 +32,18 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style type="text/css" media="screen">
+        body,
+        html {
+            width: 100%;
+            overflow: hidden;
+        }
 
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -97,8 +108,15 @@
                                 Department of National Defense <br>                                       
                                 <b> OFFICE OF CIVIL DEFENSE </b>       <br>   
                                 Camp Emilio Aguinaldo, Quezon City     <br>
-                               <b> {{ $disasterType }}  AND THEIR  EFFECTS </b>  <br>                       
-                                ( {{$year}} )                                                             
+                               <b> {{ $disasterType }}  AND THEIR  EFFECTS </b>  <br> 
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown">( {{$year}} )</a>
+                                  <ul class="dropdown-menu">
+                                    <li><a>2015</a></li>
+                                    <li><a>2016</a></li>
+                                  </ul>
+                            </div>                                                     
+                                                                                         
                             </div>
                             <br>
                              <!-- /.Report Header -->
@@ -307,10 +325,10 @@
                             </div>
                             <!-- ./Panel Body -->
                             <div class="row" align="center">
-                                <!-- Print Button -->
+                                <!-- Print Button 
                                  <button class="btn btn-primary" onclick="myFunction()" style="inline-block">
                                     <span class="glyphicon glyphicon-print"></span> Print
-                                 </button>
+                                 </button> -->
                                  <!-- ./Print Button -->
 
                                  <!-- Export Button -->
@@ -346,6 +364,8 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
 
 </body>
 <script>
@@ -366,5 +386,11 @@
     function myFunction() {
     window.print();
 }
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
 </script>
 </html>
