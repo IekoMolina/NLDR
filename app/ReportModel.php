@@ -34,17 +34,74 @@ class ReportModel extends Model
    	}
 
    	//GETS ALL THE INFORMATION ABOUTA DISASER THAN HAPPENED IN A REGION
-   	public static function getYearlyReportData()
+   	public static function getReportData()
    	{
    		$yearlyData = DB::table('REF_GLIDEEVENTTYPE')
-   						/*->join('GLIDEEVENT', 'REF_GLIDEEVENTTYPE.GLIDEEVENTTYPECODE','=','GLIDEEVENT.GLIDEEVENTTYPECODE')
-   						->join('PDNA','GLIDEEVENT.GLIDEEVENTID','=','PDNA.GLIDEEVENT_GLIDEEVENTID')
-   						->join('REF_BARANGAY','PDNA.BARANGAYID','=','REF_BARANGAY.BARANGAYID')
-   						->join('REF_CITY/MUNICIPALITY','REF_BARANGAY.CITY/MUNICIPALITYID','=','REF_CITY/MUNICIPALITY.CITY/MUNICIPALITYID')
+   						->join('GLIDEEVENT', 'REF_GLIDEEVENTTYPE.GLIDEEVENTTYPECODE','=','GLIDEEVENT.GLIDEEVENTTYPECODE')
+   						->join('PDNA','GLIDEEVENT.GLIDEEVENTID','=','PDNA.GLIDEEVENTID')
+              ->join('PDNADETAILS','PDNA.PDNAID','=','PDNADETAILS.PDNAID')
+              ->join('REF_INCIDENT','PDNA.INCIDENTTYPECODE','=','REF_INCIDENT.INCIDENTTYPECODE')
+              ->join('REF_INCIDENTSOURCE','REF_INCIDENT.INCIDENTSOURCEID','=','REF_INCIDENTSOURCE.INCIDENTSOURCEID') 
+              ->join('RESETTLEMENT','PDNADETAILS.RESETTLEMENTID','=','RESETTLEMENT.RESETTLEMENTID')
+              //recovery
+              ->join('INFRA','PDNADETAILS.INFRAID','=','INFRA.INFRAID')//infra
+              ->join('LIVELIHOOD','PDNADETAILS.LIVELIHOODID','=','LIVELIHOOD.LIVELIHOODID')//livelihhod
+              ->join('REF_LIVELIHOODDMG','LIVELIHOOD.LIVELIHOODDMGID','=','REF_LIVELIHOODDMG.LIVELIHOODDMGID')
+              ->join('SOCIAL','PDNADETAILS.SOCIALID','=','SOCIAL.SOCIALID')//social
+              //subsector Should it be where in?? or join pa din
+              //ref_dmg same here?
+   						->join('REF_CITY/MUNICIPALITY','PDNADETAILS.CITY/MUNICIPALITYID','=','REF_CITY/MUNICIPALITY.CITY/MUNICIPALITYID')
    						->join('REF_PROVINCE','REF_CITY/MUNICIPALITY.PROVINCEID','=','REF_PROVINCE.PROVINCEID')
    						->join('REF_REGION','REF_PROVINCE.REGIONCODE','=','REF_REGION.REGIONCODE')
-   						->select('GLIDEEVENT.*','REF_GLIDEEVENTTYPE.*','PDNA.*','REF_BARANGAY.*','REF_CITY/MUNICIPALITY.*','REF_PROVINCE.*','REF_REGION.*')*/
+   						->select('GLIDEEVENT.*','REF_GLIDEEVENTTYPE.*','PDNA.*','REF_CITY/MUNICIPALITY.*','REF_PROVINCE.*','REF_REGION.*','PDNADETAILS.*')
    						->get();
    		return $yearlyData;
    	}
+
+    public static function getReportDataFiltered($req)
+    {
+        $disasterType = $req->input('disasterType');
+        $year = $req->input('year');
+
+            $yearlyData = DB::table('REF_GLIDEEVENTTYPE')
+              ->join('GLIDEEVENT', 'REF_GLIDEEVENTTYPE.GLIDEEVENTTYPECODE','=','GLIDEEVENT.GLIDEEVENTTYPECODE')
+              ->join('PDNA','GLIDEEVENT.GLIDEEVENTID','=','PDNA.GLIDEEVENTID')
+              ->join('PDNADETAILS','PDNA.PDNAID','=','PDNADETAILS.PDNAID')
+              ->join('REF_INCIDENT','PDNA.INCIDENTTYPECODE','=','REF_INCIDENT.INCIDENTTYPECODE')
+              ->join('REF_INCIDENTSOURCE','REF_INCIDENT.INCIDENTSOURCEID','=','REF_INCIDENTSOURCE.INCIDENTSOURCEID') 
+              ->join('RESETTLEMENT','PDNADETAILS.RESETTLEMENTID','=','RESETTLEMENT.RESETTLEMENTID')
+              //recovery
+              ->join('INFRA','PDNADETAILS.INFRAID','=','INFRA.INFRAID')//infra
+              ->join('LIVELIHOOD','PDNADETAILS.LIVELIHOODID','=','LIVELIHOOD.LIVELIHOODID')//livelihhod
+              ->join('REF_LIVELIHOODDMG','LIVELIHOOD.LIVELIHOODDMGID','=','REF_LIVELIHOODDMG.LIVELIHOODDMGID')
+              ->join('SOCIAL','PDNADETAILS.SOCIALID','=','SOCIAL.SOCIALID')//social
+              //subsector Should it be where in?? or join pa din
+              //ref_dmg same here?
+              ->join('REF_CITY/MUNICIPALITY','PDNADETAILS.CITY/MUNICIPALITYID','=','REF_CITY/MUNICIPALITY.CITY/MUNICIPALITYID')
+              ->join('REF_PROVINCE','REF_CITY/MUNICIPALITY.PROVINCEID','=','REF_PROVINCE.PROVINCEID')
+              ->join('REF_REGION','REF_PROVINCE.REGIONCODE','=','REF_REGION.REGIONCODE')
+              ->select('GLIDEEVENT.*','REF_GLIDEEVENTTYPE.*','PDNA.*','REF_CITY/MUNICIPALITY.*','REF_PROVINCE.*','REF_REGION.*','PDNADETAILS.*')
+              ->where([
+                          ['REF_GLIDEEVENTTYPE.DESCRIPTION', '=', $disasterType],
+                          ['GLIDEEVENT.STARTDATE', '=', $year]
+                      ])
+              ->get();
+      return $yearlyData;
+    }
+    /*
+    public static function getPDNA()
+    {
+      $pdnaData = DB::table('')
+    }
+
+    public static function getSector()
+    {
+      $sectorData = DB::table('')
+    }
+
+    public static function getLocation()
+    {
+      $pdnaData = DB::table('')
+    }
+    */
 }
