@@ -105,9 +105,9 @@
                             <!-- Report Header -->
                             <br>
                             <div class="row" align="center">
-                                Department of National Defense <br>                                       
-                                <b> OFFICE OF CIVIL DEFENSE </b>       <br>   
-                                Camp Emilio Aguinaldo, Quezon City     <br>
+                                    Department of National Defense               <br>                                       
+                                <b> OFFICE OF CIVIL DEFENSE </b>                 <br>   
+                                    Camp Emilio Aguinaldo, Quezon City           <br>
                                <b> {{ $disasterType }}  AND THEIR  EFFECTS </b>  <br> 
                             <div class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown">( {{$year}} )</a>
