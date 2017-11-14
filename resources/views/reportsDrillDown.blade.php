@@ -31,7 +31,7 @@
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <![endif]
     <style type="text/css" media="screen">
         body,
         html {
@@ -43,7 +43,7 @@
             padding: 0;
             margin: 0;
         }
-    </style>
+    </style>-->
 </head>
 
 <body>
@@ -108,9 +108,9 @@
                                     Department of National Defense               <br>                                       
                                 <b> OFFICE OF CIVIL DEFENSE </b>                 <br>   
                                     Camp Emilio Aguinaldo, Quezon City           <br>
-                               <b> {{ $disasterType }}  AND THEIR  EFFECTS </b>  <br> 
+                               <b>  AND THEIR  EFFECTS </b>  <br> 
                             <div class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown">( {{$year}} )</a>
+                                <a class="dropdown-toggle" data-toggle="dropdown">( )</a>
                                   <ul class="dropdown-menu">
                                     <li><a>2015</a></li>
                                     <li><a>2016</a></li>
@@ -125,7 +125,7 @@
                          <!-- Panel Body -->
                          <div class="panel-body">
                              <div class="row col-lg-12">
-                                <table id="example" class="table table-bordered table-hover table-striped">
+                                <table id="example" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
                                         <th></th>
@@ -390,7 +390,12 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#example').DataTable();
+        $('#example').DataTable({
+            "bFilter": false,
+            "paging":   false,
+            "info":     false            
+        });
+
     } );
 </script>
 </html>
