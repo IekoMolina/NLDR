@@ -16,21 +16,23 @@ class reportController extends BaseController
     // get input data and pass to other page
     public function passData(Request $req)
     {
-        $disasterType = $req->input('disasterType');
-        $year = $req->input('year');
+
 
 
         //fix this model should be used
-        $yearlyData = ReportModel::getYearlyReportData(); /*->where([
-                                                                    ['REF_GLIDEEVENTTYPE.GLIDEEVENTDESCRIPTION', '=', $disasterType],
+        $yearlyData = ReportModel::getReportDataFiltered($req);/*->where([
+                                                                    ['REF_GLIDEEVENTTYPE.DESCRIPTION', '=', $disasterType],
                                                                     ['GLIDEEVENT.STARTDATE', '=', $year],
-                                                                ]);*/
-        //return $yearlyData; 
+                                                                ]); */
+        return $yearlyData; 
         //return view('reportsDrillDown')->with('yearlyData',$yearlyData);
-       return view('reportsDrillDown')->with([
+      /* return view('reportsDrillDown')->with([
             'disasterType'=> $disasterType,
             'year'=> $year
-            ]);
+            ]); 
+        $disasterType = $req->input('disasterType');
+        $year = $req->input('year');
+    */
     }
 
     public function getData()

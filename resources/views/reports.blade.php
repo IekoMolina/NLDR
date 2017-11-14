@@ -108,8 +108,9 @@
                                             <label>Year</label>
                                             <select class="form-control" name="year">
                                                @foreach($data as $valueY) 
-                                                <option> {{ date('Y', strtotime($valueY->STARTDATE)) }}</option>
+                                                <option> {{ $valueY->STARTDATE }}</option> <!-- date('Y', strtotime()) -->
                                                 @endforeach 
+
                                             </select>
                                         </div>
 
