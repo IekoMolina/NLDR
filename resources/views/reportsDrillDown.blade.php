@@ -108,15 +108,17 @@
                                     Department of National Defense               <br>                                       
                                 <b> OFFICE OF CIVIL DEFENSE </b>                 <br>   
                                     Camp Emilio Aguinaldo, Quezon City           <br>
-                               <b>  AND THEIR  EFFECTS </b>  <br> 
-                            <div class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown">( )</a>
-                                  <ul class="dropdown-menu">
-                                    <li><a>2015</a></li>
-                                    <li><a>2016</a></li>
-                                  </ul>
-                            </div>                                                     
-                                                                                         
+                               <b>
+                                @foreach ($yearlyData as $data)
+                                    {{ $data->RGDESC }}
+                                @endforeach
+                                 AND THEIR  EFFECTS
+                                </b>                                             <br> 
+                                <select>
+                                    @foreach ($date as $d)
+                                        <option>{{ date('Y', strtotime( $d->STARTDATE))}}</option>
+                                     @endforeach
+                                </select>                                          
                             </div>
                             <br>
                              <!-- /.Report Header -->
@@ -125,9 +127,11 @@
                          <!-- Panel Body -->
                          <div class="panel-body">
                              <div class="row col-lg-12">
-                                <table id="example" class="table table-bordered table-striped">
-                                    <thead>
+                                <table id="example" class="table table-striped">
+                                    <thead bgcolor="#00FF00">
                                     <tr>
+                                        <th>NAME</th>
+                                        <th>STARTDATE</th>
                                         <th></th>
                                         <th></th>
                                         <th>AFFECTED</th>
@@ -142,11 +146,10 @@
                                         <th></th>
                                         <th></th>
                                         <th>TOTAL COST OF DAMAGES</th>
-                                        <th></th>
-                                        <th>TOTAL COST OF ASSISTANCE</th>
-                                        <th></th>
                                     </tr>
                                     <tr>
+                                        <th></th>
+                                        <th></th>
                                         <th></th>
                                         <th></th>
                                         <th></th>
@@ -161,11 +164,10 @@
                                         <th></th>
                                         <th></th>
                                         <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
                                     </tr>
                                     <tr>
+                                        <th></th>
+                                        <th></th>
                                         <th>REG</th>
                                         <th>PROV</th>
                                         <th>CITY/MUNI</th>
@@ -178,169 +180,50 @@
                                         <th>PART</th>
                                         <th>AGRI</th>
                                         <th>INFRA</th>
-                                        <th>PVT</th>
-                                        <th></th>
-                                        <th></th>
                                         <th></th>
                                         <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>I</td>
-                                        <td>Ilocos Sur</td>
-                                        <td>11</td>
-                                        <td>924</td>
-                                        <td>3989</td>
-                                        <td>0</td>
-                                        <td>4</td>
-                                        <td>0</td>
-                                        <td>3</td>
-                                        <td>34</td>
-                                        <td>10,560,385.00</td>
-                                        <td>67,100,000.00</td>
-                                        <td>0</td>
-                                        <td>77,660,385.00</td>
-                                        <td> </td>
-                                        <td>60,412.00</td>
-                                        <td> </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>IV-A</td>
-                                        <td>Quezon</td>
-                                        <td>11</td>
-                                        <td>924</td>
-                                        <td>3989</td>
-                                        <td>0</td>
-                                        <td>4</td>
-                                        <td>0</td>
-                                        <td>3</td>
-                                        <td>34</td>
-                                        <td>10,560,385.00</td>
-                                        <td>67,100,000.00</td>
-                                        <td>0</td>
-                                        <td>77,660,385.00</td>
-                                        <td> </td>
-                                        <td>60,412.00</td>
-                                        <td> </td>
-                                    </tr> 
-                                    <tr>
-                                        <td>IV-B</td>
-                                        <td>Marinduque</td>
-                                        <td>11</td>
-                                        <td>924</td>
-                                        <td>3989</td>
-                                        <td>0</td>
-                                        <td>4</td>
-                                        <td>0</td>
-                                        <td>3</td>
-                                        <td>34</td>
-                                        <td>10,560,385.00</td>
-                                        <td>67,100,000.00</td>
-                                        <td>0</td>
-                                        <td>77,660,385.00</td>
-                                        <td> </td>
-                                        <td>60,412.00</td>
-                                        <td> </td>
-                                    </tr>  
-                                     <tr>
-                                        <td>V</td>
-                                        <td>Albay</td>
-                                        <td>11</td>
-                                        <td>924</td>
-                                        <td>3989</td>
-                                        <td>0</td>
-                                        <td>4</td>
-                                        <td>0</td>
-                                        <td>3</td>
-                                        <td>34</td>
-                                        <td>10,560,385.00</td>
-                                        <td>67,100,000.00</td>
-                                        <td>0</td>
-                                        <td>77,660,385.00</td>
-                                        <td> </td>
-                                        <td>60,412.00</td>
-                                        <td> </td>
-                                    </tr> 
-                                    <tr>
-                                        <td>VI</td>
-                                        <td>Capiz</td>
-                                        <td>11</td>
-                                        <td>924</td>
-                                        <td>3989</td>
-                                        <td>0</td>
-                                        <td>4</td>
-                                        <td>0</td>
-                                        <td>3</td>
-                                        <td>34</td>
-                                        <td>10,560,385.00</td>
-                                        <td>67,100,000.00</td>
-                                        <td>0</td>
-                                        <td>77,660,385.00</td>
-                                        <td> </td>
-                                        <td>60,412.00</td>
-                                        <td> </td>
-                                    </tr>  
-                                     <tr>
-                                        <td>VII</td>
-                                        <td>Southern Leyte</td>
-                                        <td>11</td>
-                                        <td>924</td>
-                                        <td>3989</td>
-                                        <td>0</td>
-                                        <td>4</td>
-                                        <td>0</td>
-                                        <td>3</td>
-                                        <td>34</td>
-                                        <td>10,560,385.00</td>
-                                        <td>67,100,000.00</td>
-                                        <td>0</td>
-                                        <td>77,660,385.00</td>
-                                        <td> </td>
-                                        <td>60,412.00</td>
-                                        <td> </td>
-                                    </tr> 
-                                   <tr>
-                                        <td>NCR</td>
-                                        <td>Coloocan City</td>
-                                        <td>11</td>
-                                        <td>924</td>
-                                        <td>3989</td>
-                                        <td>0</td>
-                                        <td>4</td>
-                                        <td>0</td>
-                                        <td>3</td>
-                                        <td>34</td>
-                                        <td>10,560,385.00</td>
-                                        <td>67,100,000.00</td>
-                                        <td>0</td>
-                                        <td>77,660,385.00</td>
-                                        <td> </td>
-                                        <td>60,412.00</td>
-                                        <td> </td>
-                                    </tr>                                                                                     
+                                    @foreach($yearlyData as $allData)                                                                           
+                                        <tr>
+                                            <td>{{ $allData->INCIDENTNAME}}</td>
+                                            <td>{{ $allData->STARTDATE}}</td>
+                                            <td>{{ $allData->REGIONCODE}}</td>
+                                            <td>{{ $allData->DESCRIPTION}}</td>
+                                            <td>{{ $allData->AFFECTEDFAM}}</td>
+                                            <td>{{ $allData->AFFECTEDPER}}</td>
+                                            <td>{{ $allData->DEAD}}</td>
+                                            <td>{{ $allData->INJURED}}</td>
+                                            <td>{{ $allData->MISSING}}</td>
+                                            <td>{{ $allData->DMGHOUSES}}</td>
+                                            <td>{{ $allData->DESHOUSES}}</td>
+                                            <td>{{ $allData->LDMG}}</td>
+                                            <td>{{ $allData->IDMG}}</td>
+                                            <td>{{ $allData->totalDMG}}</td>
+                                        </tr> 
+                                    @endforeach        
                                     </tbody>
                                 </table>
                             </div>
                             <!-- ./Panel Body -->
-                            <div class="row" align="center">
-                                <!-- Print Button 
-                                 <button class="btn btn-primary" onclick="myFunction()" style="inline-block">
-                                    <span class="glyphicon glyphicon-print"></span> Print
-                                 </button> -->
-                                 <!-- ./Print Button -->
-
-                                 <!-- Export Button -->
-                                <button class="btn btn-primary" style="inline-block">
-                                        <img src ="http://icons.iconarchive.com/icons/ncrow/mega-pack-1/128/Excel-icon.png" width="10%"; height="10%"> Export to Excel
-                                </button>
-                            <!-- ./Export Button -->
-                            </div>
                             <!-- /.table-->
                         </div>
                     </div>
                     <!-- /.panel-->
+                        <div class="row" align="center">
+                            <!-- Print Button 
+                             <button class="btn btn-primary" onclick="myFunction()" style="inline-block">
+                                <span class="glyphicon glyphicon-print"></span> Print
+                             </button> -->
+                             <!-- ./Print Button -->
+
+                            <!-- Export Button -->
+                            <button class="btn btn-primary" style="inline-block">
+                                    <img src ="http://icons.iconarchive.com/icons/ncrow/mega-pack-1/128/Excel-icon.png" width="10%"; height="10%"> Export to Excel
+                            </button>
+                            <!-- ./Export Button -->
+                        </div>
                 </div>
                 <!-- /.col-lg-12-->
             </div>

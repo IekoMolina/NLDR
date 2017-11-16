@@ -30,27 +30,6 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <style type="text/css" media="screen">
-
-        body,
-        html {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        * {
-            padding: 0;
-            margin: 0;
-        }
-
-        iframe {
-            width: 100%;
-            height: 500;
-            overflow: hidden;
-            border: none;
-        }
-    </style>
 </head>
 
 <body>
@@ -63,15 +42,14 @@
                      <a class="navbar-brand" href="https://www.gov.ph/">
                         <img src="../img/RNP.png" style="width:30px;height:30px; margin: 0px 0px 0px 0px;"> 
                      </a>        
-                    <a class="navbar-brand active" href="home">                     <font color="white">Home    </font></a>
+                    <a class="navbar-brand active" href="home">        <font color="white">Home    </font></a>
                     <div class="dropdown navbar-brand">
-                        <a class="dropdown-toggle" data-toggle="dropdown">          <font color="white">Reports  </font> </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown">  <font color="white">Reports  </font> </a>
                           <ul class="dropdown-menu">
                             <li><a href="reports">Yearly Reports</a></li>
                             <li><a href="reportsVisual">Visual Reports</a></li>
                           </ul>
                     </div>
-                    <a class="navbar-brand active" href="home">                      <font color="white">Query    </font></a>
             </div>
             <!-- /.navbar-header -->
 
@@ -98,56 +76,60 @@
 
             <!-- Banner row -->
             <div class="row">
-                <div class="col-lg-12" align="middle" style="background-color: rgba(100,149,237,0.6);" >               
-                 <h2>
-                     <img src="../img/OCDLogo.png" style="width:100px;height:100px;"> 
-                    <font color="white"> National Loss and Damage Registry </font>
+                <div class="col-lg-12" style="background-color: rgba(100,149,237,0.6);" >               
+                 <h2 align="left">                   
+                    <font> Generate Report </font>
                  </h2>
                     <!--<font style="font-size: 20px; color: white;">  National Disaster Risk Reduction and Management Council </font>  -->                 
-                 
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- row -->
             <div class="row">
-                
-                 <iframe width="1000" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiMGRlM2U5MWUtYjNmZS00YzQ5LWEyNWYtMDM1NWJlZmQ3ZDAyIiwidCI6ImYzNGEzNWJkLWE2NWQtNDYwNS1iMGZhLWQyNTcxZjgzMWY1ZSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true" style="border:none;" align="center" scrolling="no" allowfullscreen="true"></iframe>
-                 
-                 <!-- Panel1 
                 <div class="col-lg-12">
                     <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Damage per Region
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Drill Down
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="/home">Damage per Region</a>
-                                        </li>
-                                        <li><a href="/homeDrillDown">Disaster Event per Region</a>
-                                        </li>
-                                        <li><a href="/homeDrillDown1">Aid Provided per Municipality</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>-->
-                        <!-- /.panel-heading -
+                        <!-- Panel Body -->
                         <div class="panel-body">
-                           
-
-                        </div>->
-                        <!-- /.panel-body 
-                    </div>-->
-                    <!-- /.panel 
-                </div>-->
-                <!-- /Panel1 -->
-
-                <!-- Panel2 -->
-                <!-- /.Panel2 -->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <!-- Form -->
+                                    <form  class="form-horizontal" role="form" method="post">                             
+                                            <div class="form-group col-lg-4">
+                                                <label>Disaster</label>
+                                                    <select multiple class="form-control" name="regionsAffected">
+                                                        <option>I (Ilocos Region)</option>
+                                                    </select>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label>Region</label>
+                                                    <select multiple class="form-control" name="regionsAffected">
+                                                        <option>I (Ilocos Region)</option>
+                                                    </select>
+                                            </div>
+                                            <div class="form-group col-lg-2">
+                                                <label>Time Range</label>
+                                                    <select class="form-control" name="regionsAffected">
+                                                        <option>Yearly</option>
+                                                        <option>Monthly</option>
+                                                        <option>Weekly</option>
+                                                    </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-lg-2">
+                                        <a type="submit" name="submit" class="btn btn-default" href='/encodingNewDisasterAdditional'>Next</a>
+                                        </div>
+                                    </form>
+                                    <!-- /.form -->
+                                </div>
+                                <!-- /.col-lg-12-->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-8 -->
             </div>
             <!-- /.row -->
         </div>
@@ -167,7 +149,6 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
-    <script type="
-    "></script>
+
 </body>
 </html>
