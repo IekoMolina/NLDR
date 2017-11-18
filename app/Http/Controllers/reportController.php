@@ -16,16 +16,17 @@ class reportController extends BaseController
     // get input data and pass to other page
     public function passData(Request $req)
     {
+        $date = ReportModel::getExistingDisaster();
         $yearlyData = ReportModel::getReportDataFiltered($req);
         if(count($yearlyData)>0)
         {
-            return $yearlyData;
+            return view('reportsDrillDown')->with('yearlyData',$yearlyData)->with('date', $date);
         }
         else
-        {           
-            return view('reportsDrillDown');
+        {      
+            $yearlyData = array();
+            return view('reportsDrillDown')->with('yearlyData',$yearlyData)->with('date', $date);
         }         
-        //return view('reportsDrillDown')->with('yearlyData',$yearlyData);
       /* return view('reportsDrillDown')->with([
             'disasterType'=> $disasterType,
             'year'=> $year
