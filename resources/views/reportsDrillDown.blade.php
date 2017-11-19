@@ -32,6 +32,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]
+ -->
     <style type="text/css" media="screen">
         body,
         html {
@@ -43,7 +44,7 @@
             padding: 0;
             margin: 0;
         }
-    </style>-->
+    </style>
 </head>
 
 <body>
@@ -127,62 +128,52 @@
                          <!-- Panel Body -->
                          <div class="panel-body">
                              <div class="row col-lg-12">
-                                <table id="example" class="table table-striped">
-                                    <thead bgcolor="#00FF00">
-                                    <tr>
-                                        <th>NAME</th>
-                                        <th>STARTDATE</th>
-                                        <th></th>
-                                        <th></th>
-                                        <th>AFFECTED</th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th>CASUALTIES</th>
-                                        <th></th>
-                                        <th></th>
-                                        <th>DAMAGES</th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th>TOTAL COST OF DAMAGES</th>
-                                    </tr>
-                                    <tr>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th>Houses</th>
-                                        <th></th>
-                                        <th>Properties (PMILLIONS)</th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                    <tr>
-                                        <th></th>
-                                        <th></th>
-                                        <th>REG</th>
-                                        <th>PROV</th>
-                                        <th>CITY/MUNI</th>
-                                        <th>FAM</th>
-                                        <th>PERS</th>
-                                        <th>DEAD</th>
-                                        <th>INJ</th>
-                                        <th>MIS</th>
-                                        <th>TOT</th>
-                                        <th>PART</th>
-                                        <th>AGRI</th>
-                                        <th>INFRA</th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
+                                <table id="example" class="table table-bordered table-striped">
+                                    <thead bgcolor="#00FF00">                                    
+                                        <!--<div class="col-lg-12">
+                                            <p class="col-lg-1"></p>
+                                            <p class="col-lg-1"></p>
+                                            <p class="col-lg-1"></p>
+                                            <p class="col-lg-1"></p>
+                                            <p class="col-lg-1"></p>
+                                            <p class="col-lg-1"></p>
+                                            <p class="col-lg-1"></p>
+                                            <p class="col-lg-1"></p>
+                                            <p class="col-lg-1"><b>DAMAGES</b></p>
+                                            <p class="col-lg-1"></p>
+                                            <p class="col-lg-1"></p>
+                                            <p class="col-lg-1"></p>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <p class="col-lg-1"></p>
+                                            <p class="col-lg-1"></p>
+                                            <p class="col-lg-1"></p>
+                                            <p class="col-lg-1"><b>AFFECTED</b></p>
+                                            <p class="col-lg-1"><b></b></p>
+                                            <p class="col-lg-1"><b>CASUALTIES</b>   </p>
+                                            <p class="col-lg-1"></p>
+                                            <p class="col-lg-1"><b>HOUSES</b></p>
+                                            <p class="col-lg-1"><b>PROPERTIES(M)</b></p>
+                                            <p class="col-lg-1"></p>
+                                            <p class="col-lg-1"><b></b></p>
+                                            <p class="col-lg-1"><b></b></p>
+                                        </div>  -->                                     
+                                        <tr>
+                                            <th>NAME</th>
+                                            <th>DATE</th>
+                                            <th>REG</th>
+                                            <th>PROV</th>                                            
+                                            <th>FAM</th>
+                                            <th>PERS</th>
+                                            <th>DEAD</th>
+                                            <th>INJ</th>
+                                            <th>MIS</th>
+                                            <th>TOT</th>
+                                            <th>PART</th>
+                                            <th>AGRI(MM)</th>
+                                            <th>INFRA(MM)</th>
+                                            <th>Total Cost of Damages(MM)</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($yearlyData as $allData)                                                                           

@@ -17,6 +17,18 @@ class ReportModel extends Model
        	return $existingData;
    	}
 
+    public static function getDistinctDate()
+    {
+      $dates = DB::table('GLIDEEVENT')
+                //date('Y', strtotime( $d->STARTDATE))
+                //->select('STARTDATE')
+                //->distinct(DB::raw('YEAR(STARTDATE)'), '=', date('Y'))
+                ->distinct()
+                ->orderBy('STARTDATE')//also order by date
+                ->get(['STARTDATE']);  
+      return $dates;
+    }
+
    	public static function getAllDisaster()
    	{
    		$disasterData = DB::table('REF_GLIDEEVENTTYPE')
