@@ -92,7 +92,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <!-- Form -->
+                                    <!-- Form date('Y', strtotime())-->
                                     <form action="/generateReport" method="post">
                                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                                         <div class="form-group col-lg-6">
@@ -107,15 +107,27 @@
                                         <div class="form-group col-lg-6">
                                             <label>Year</label>
                                             <select class="form-control" name="year">
-                                               @foreach($data as $valueY) 
-                                                <option> {{ $valueY->STARTDATE }}</option> <!-- date('Y', strtotime()) -->
-                                                @endforeach 
+                                                @php ($a = [])
+                                                @for ($i = 0; $i < count($data); $i++)
+                                                @php array_push($a,date('Y', strtotime($data[$i]->STARTDATE)))
+                                                <option> {{ date('Y', strtotime($data[$i]->STARTDATE)) }}</option>
+                                                    @for($j = 0; $j < count($data); $j++)
+                                                    
+                                                        @if(in_array(date('Y', strtotime($data[$i]->STARTDATE)), $a) == false)
+                                                            @php array_push($a,date('Y', strtotime($data[$i]->STARTDATE)))
+                                                            
+                                                        @endif 
+                                                    @endfor
+                                                @endfor                       
+                                                 @for ($x = 0; $x < count($a); $x++)
+                                                    
+                                                 @endfor
 
                                             </select>
                                         </div>
 
                                         <div align="text-center" class="form-group col-lg-3" >
-                                            <input type="submit" name="submit" value="submit">
+                                            <input type="submit" name="submit" value="Submit">
                                         </div>
                                     </form>
                                     <!-- /.form -->

@@ -16,7 +16,7 @@ class reportController extends BaseController
     // get input data and pass to other page
     public function passData(Request $req)
     {
-        $date = ReportModel::getExistingDisaster();
+        $date = ReportModel::getDistinctDate();
         $yearlyData = ReportModel::getReportDataFiltered($req);
         if(count($yearlyData)>0)
         {
@@ -36,7 +36,7 @@ class reportController extends BaseController
 
     public function getData()
     {
-       $data = ReportModel::getExistingDisaster();
+       $data = ReportModel::getDistinctDate();
        $disasterData = ReportModel::getAllDisaster();
 
        if(count($data)>0)
