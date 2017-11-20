@@ -100,7 +100,8 @@ class ReportModel extends Model
                      'PDNADETAILS.AFFECTEDFAM','PDNADETAILS.AFFECTEDPER','PDNADETAILS.DEAD','PDNADETAILS.INJURED','PDNADETAILS.MISSING','RESETTLEMENT.DMGHOUSES','RESETTLEMENT.DESHOUSES','LIVELIHOOD.DAMAGES as LDMG','INFRA.DAMAGES as IDMG', DB::raw('LIVELIHOOD.DAMAGES + INFRA.DAMAGES as totalDMG'))
               ->where([
                           ['REF_GLIDEEVENTTYPE.DESCRIPTION', '=', $disasterType],
-                          ['GLIDEEVENT.STARTDATE', '=', $year] 
+                          ['GLIDEEVENT.STARTDATE', 'LIKE', '%'.$year.'%'] 
+
                       ])
 
               ->get();

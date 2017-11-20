@@ -71,7 +71,6 @@
                             <li><a href="reportsVisual">Visual Reports</a></li>
                           </ul>
                     </div>
-                    <a class="navbar-brand active" href="home">                      <font color="white">Query    </font></a>
             </div>
             <!-- /.navbar-header -->
 
