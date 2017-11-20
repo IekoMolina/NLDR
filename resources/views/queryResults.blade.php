@@ -17,6 +17,12 @@
     <!-- MetisMenu CSS -->
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
+    <!-- DataTables CSS -->
+    <link href="../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet"> 
 
@@ -73,7 +79,7 @@
             <div class="row">
                 <div class="col-lg-12" style="background-color: rgba(100,149,237,0.6);" >               
                  <h2 align="left">                   
-                    <font> Encode Disaster Information </font>
+                    <font> Search Disasters </font>
                  </h2>
                     <!--<font style="font-size: 20px; color: white;">  National Disaster Risk Reduction and Management Council </font>  -->
                     <div class="row">
@@ -123,32 +129,41 @@
                                         <div class="col-lg-12">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
-                                                    Input New Disaster
-
+                                                    Filter Results
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <form role="form" action="/encodingNewDisasterAdditional" method="post">
+                                                        <div class="col-lg-12">
+                                                            <form role="form">
                                                                 <div class="form-group">
-                                                                    <label>Start Date</label>
-                                                                    <input class="form-control" type="date" name="startDate">
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>End Date</label>
-                                                                    <input class="form-control" type="date" name="endDate">
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>Comments</label>
-                                                                    <textarea class="form-control" rows="3" name="comments"> </textarea>
-                                                                    
-                                                                </div>
-
-                                                                <div class="form-group">
-                                                                <a type="submit" name="submit" class="btn btn-default" href='encodingNewDisasterCity'>Next</a>
-                                                                <button type="reset" name="reset" class="btn btn-default">Reset</button>
+                                                                    <label>List of Disasters</label>
                                                                 </div>
                                                             </form>
+
+                                                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>GLIDE Event ID</th>
+                                                                        <th>Start Date</th>
+                                                                        <th>End Date</th>
+                                                                        <th>GLIDE Event Type</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr class='clickable-row' data-href='url://'>
+                                                                        <td>TC-2015-000005-PHL</td>
+                                                                        <td>2015-01-15</td>
+                                                                        <td>2015-01-20</td>
+                                                                        <td class="center">Tropical Cyclone</td>
+                                                                    </tr>
+                                                                    <tr class='clickable-row' data-href='url://'>
+                                                                        <td>TC-2015-000028-PHL</td>
+                                                                        <td>2015-04-01</td>
+                                                                        <td>2015-04-05</td>
+                                                                        <td class="center">Tropical Cyclone</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -182,8 +197,29 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
+    <!-- DataTables JavaScript -->
+    <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
+
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+    </script>
+    <script>
+        jQuery(document).ready(function($) {
+            $(".clickable-row").click(function() {
+                window.location = $(this).data("href");
+            });
+        });
+    </script>
 
 </body>
 </html>

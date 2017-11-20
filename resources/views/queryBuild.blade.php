@@ -73,7 +73,7 @@
             <div class="row">
                 <div class="col-lg-12" style="background-color: rgba(100,149,237,0.6);" >               
                  <h2 align="left">                   
-                    <font> Encode Disaster Information </font>
+                    <font> Search Disasters </font>
                  </h2>
                     <!--<font style="font-size: 20px; color: white;">  National Disaster Risk Reduction and Management Council </font>  -->
                     <div class="row">
@@ -123,97 +123,87 @@
                                         <div class="col-lg-12">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
-                                                    Input New Disaster Details
+                                                    Filter Data
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <form role="form">
-                                                                <div class="form-group" action="/encodingNewDisasterDetails" method="post">
-                                                                    <label>Select Barangay</label>
-                                                                    <select class="form-control" name="barangay">
-                                                                        <option>Mariana</option>
-                                                                        <option>Holy Spirit</option>
-                                                                        <option>Laging Handa</option>
-                                                                        <option>Masantol</option>
-                                                                        <option>Magkaisa</option>
-                                                                    </select>
-                                                                </div>
-
-                                                                <div class="form-group">
-                                                                    <div class="form-group col-lg-12">
-                                                                        <label>Casualties</label>
+                                                        <div class="col-lg-24" align="text-center">
+                                                            <form role="form" action="/filterdata" method="post">
+                                                                <div class="col-lg-4 col-md-offset-2">
+                                                                    <div class="form-group">
+                                                                        <label>Start Date</label>
+                                                                        <input class="form-control" type="date" name="startDate">
                                                                     </div>
-                                                                    <div class="form-group col-lg-4">
-                                                                        <p>Dead<input class="form-control" type="number" name="dead">
+                                                                    <div class="form-group">
+                                                                        <label>End Date</label>
+                                                                        <input class="form-control" type="date" name="endDate">
                                                                     </div>
-                                                                    <div class="form-group col-lg-4">
-                                                                        <p>Injured<input class="form-control" type="number" name="injured">
+                                                                    <div class="form-group">
+                                                                        <label>Disaster Type</label>
+                                                                        <select class="form-control" name="disasterType">
+                                                                           @foreach($disasterData as $value)
+                                                                            <option>{{ $value->DESCRIPTION }}</option>
+                                                                            @endforeach 
+                                                                        </select>
                                                                     </div>
-                                                                    <div class="form-group col-lg-4">
-                                                                        <p>Missing<input class="form-control" type="number" name="missing">
+                                                                    <div class="form-group">
+                                                                        <label>Select Events With</label>
+                                                                            <select multiple class="form-control" name="eventsFilter">
+                                                                                <option>Deaths</option>
+                                                                                <option>Injured Casualties</option>
+                                                                                <option>Missing Casualties</option>
+                                                                                <option>Partially Damaged Houses</option>
+                                                                                <option>Totally Damaged Houses</option>
+                                                                                <option>Affected Families</option>
+                                                                                <option>Affected Persons</option>
+                                                                                <option>Evacuated Families</option>
+                                                                                <option>Evacuated Persons</option>
+                                                                                <option>Occupied Evacuation Centers</option>
+                                                                                <!-- disaster event filter-->
+                                                                            </select>
                                                                     </div>
-                                                                </div>
-
-                                                                <div class="form-group">
-                                                                    <div class="form-group col-lg-12">
-                                                                        <label>Affected</label>
-                                                                    </div>
-                                                                    <div class="form-group col-lg-6">
-                                                                        <p>Families<input class="form-control" type="number" name="affectedFamilies">
-                                                                    </div>
-                                                                    <div class="form-group col-lg-6">
-                                                                        <p>Persons<input class="form-control" type="number" name="affectedPersons">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <div class="form-group col-lg-12">
-                                                                        <label>Evacuated</label>
-                                                                    </div>
-                                                                    <div class="form-group col-lg-6">
-                                                                        <p>Families<input class="form-control" type="number" name="evacuatedFamilies">
-                                                                    </div>
-                                                                    <div class="form-group col-lg-6">
-                                                                        <p>Persons<input class="form-control" type="number" name="evacuatedPersons">
+                                                                    <div class="form-group">
+                                                                        <label>Select Sectors that Events Affected With</label>
+                                                                            <select multiple class="form-control" name="eventsFilter">
+                                                                                <option>Infrastructure</option>
+                                                                                <option>Agriculture</option>
+                                                                                <option>Private / Commercial</option>
+                                                                                <!-- disaster sectors event filter-->
+                                                                            </select>
                                                                     </div>
                                                                 </div>
-                                                                <div class="form-group">
-                                                                    <div class="form-group col-lg-12">
-                                                                        <label>Evacuation Centers</label>
+                                                                <div class="col-lg-4">
+                                                                    <div class="form-group">
+                                                                        <label>Region/s Affected by the Disaster</label>
+                                                                            <select multiple class="form-control" name="regionsAffected">
+                                                                                 @foreach($regions as $valueR)
+                                                                                <option> {{ $valueR->REGIONCODE }}</option> <!-- = date('Y', strtotime($dateData)) -->
+                                                                                @endforeach 
+                                                                            </select>
                                                                     </div>
-                                                                    <div class="form-group col-lg-6">
-                                                                        <p>Occupied<input class="form-control" type="number" name="numEvacCenters">
+                                                                    <div class="form-group">
+                                                                        <label>Provinces Affected by the Disaster</label>
+                                                                            <select multiple class="form-control" name="provincesAffected">
+                                                                                <option>Cavite</option>
+                                                                                <option>Laguna</option>
+                                                                                <option>Batangas</option>
+                                                                                <option>Rizal</option>
+                                                                                <option>Quezon Province</option>
+                                                                                <!-- region 4 provinces-->
+                                                                            </select>
                                                                     </div>
-                                                                <div class="form-group">
-                                                                    <div class="form-group col-lg-12">
-                                                                        <label>Houses</label>
-                                                                    </div>
-                                                                    <div class="form-group col-lg-6">
-                                                                        <p>Partially Damaged<input class="form-control" type="number" name="partialDHouses">
-                                                                    </div>
-                                                                    <div class="form-group col-lg-6">
-                                                                        <p>Totally Damaged<input class="form-control" type="number" name="totallyDHouses">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <div class="form-group col-lg-12">
-                                                                        <label>Damages to Properties</label>
-                                                                    </div>
-                                                                    <div class="form-group col-lg-4">
-                                                                        <p>Total Cost<input class="form-control" type="number" name="costofDamages">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <div class="form-group col-lg-12">
-                                                                        <label>Aid</label>
-                                                                    </div>
-                                                                    <div class="form-group col-lg-4">
-                                                                        <p>Aid Requested<input class="form-control" type="number" name="aidRequest">
+                                                                    <div class="form-group">
+                                                                        <label>Cities/Municipalities Affected by the Disaster</label>
+                                                                            <select multiple class="form-control" name="citiesAffected">
+                                                                                <option>Silang</option>
+                                                                                <option>Kawit</option>
+                                                                                <option>Maragondon</option>
+                                                                                <!-- region 4 cavite municipalities-->
+                                                                            </select>
                                                                     </div>
                                                                 </div>
-
                                                                 <div align="text-center" class="form-group col-lg-12" >
-                                                                    <button type="submit" name="submit" class="btn btn-default">Submit</button>
+                                                                    <button type="submit" name="submit" class="btn btn-default">View Data</button>
                                                                     <button type="reset" name="reset" class="btn btn-default">Reset</button>
                                                                 </div>
                                                             </form>
