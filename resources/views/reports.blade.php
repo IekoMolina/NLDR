@@ -122,9 +122,9 @@
                                                  @for ($x = 0; $x < count($a); $x++)
                                                     
                                                  @endfor
-                                                <option>2011</option>
-                                                <option>2012</option>
-                                                <option>2013</option>
+                                                <option value="2011">2011</option>
+                                                <option value="2012">2012</option>
+                                                <option value="2013">2013</option>
                                             </select>
                                         </div>
 

@@ -112,16 +112,23 @@
                                 <b> OFFICE OF CIVIL DEFENSE </b>                 <br>   
                                     Camp Emilio Aguinaldo, Quezon City           <br>
                                <b>
-                                @foreach ($yearlyData as $data)
-                                    {{ $data->RGDESC }}
-                                @endforeach
+                                 @for ($x = 0; $x < count($yearlyData); $x++)
+                                    @if($x == 0)
+                                        {{ $yearlyData[$x]->RGDESC }}
+                                    @endif
+                                 @endfor
                                  AND THEIR  EFFECTS
                                 </b>                                             <br> 
-                                <select>
+                                 @for ($x = 0; $x < count($yearlyData); $x++)
+                                    @if($x == 0)
+                                        {{ date('Y', strtotime( $yearlyData[$x]->STARTDATE)) }}
+                                    @endif
+                                 @endfor
+                                <!--<select>
                                     <option>2011</option>
                                     <option>2012</option>
                                     <option>2013</option>
-                                </select>                                          
+                                </select>-->                                          
                             </div>
                             <br>
                              <!-- /.Report Header -->
@@ -212,7 +219,7 @@
                              <!-- ./Print Button -->
 
                             <!-- Export Button -->
-                            <button class="btn btn-primary" style="inline-block">
+                            <button id="create_excel" class="btn btn-primary" style="inline-block">
                                     <img src ="http://icons.iconarchive.com/icons/ncrow/mega-pack-1/128/Excel-icon.png" width="10%"; height="10%"> Export to Excel
                             </button>
                             <!-- ./Export Button -->
@@ -269,9 +276,19 @@
         $('#example').DataTable({
             "bFilter": false,
             "paging":   false,
-            "info":     false            
+            "info":     false
         });
 
     } );
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#create_excel').click(funtion(){
+            var excel_data = $('#example').html();
+            var page = "excel.php?data=" + excel_data;
+            window.location=page;
+        });
+
+    } );    
 </script>
 </html>

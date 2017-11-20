@@ -28,14 +28,14 @@
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <![endif] 
+-->
 
     <style type="text/css" media="screen">
-
         body,
         html {
             width: 100%;
-            height: 100%;
+            height: 110%;
             overflow: hidden;
         }
 
@@ -46,7 +46,7 @@
 
         iframe {
             width: 100%;
-            height: 500;
+            height: 100%;
             overflow: hidden;
             border: none;
         }
@@ -97,58 +97,65 @@
 
             <!-- Banner row -->
             <div class="row">
-                <div class="col-lg-12" align="middle" style="background-color: rgba(100,149,237,0.6);" >               
+                <div class="col-lg-12" align="middle" style="background-color: rgba(100,149,237,0.6)" >               
                  <h2>
                      <img src="../img/OCDLogo.png" style="width:100px;height:100px;"> 
                     <font color="white"> National Loss and Damage Registry </font>
                  </h2>
-                    <!--<font style="font-size: 20px; color: white;">  National Disaster Risk Reduction and Management Council </font>  -->                 
-                 
-                </div>
+                    <!--<font style="font-size: 20px; color: white;">  National Disaster Risk Reduction and Management Council </font> -->                 
+                </div>  
                 <!-- /.col-lg-12 -->
-            </div>
-            <!-- row -->
-            <div class="row">
-                
-                 <iframe width="1000" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiMGRlM2U5MWUtYjNmZS00YzQ5LWEyNWYtMDM1NWJlZmQ3ZDAyIiwidCI6ImYzNGEzNWJkLWE2NWQtNDYwNS1iMGZhLWQyNTcxZjgzMWY1ZSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true" style="border:none;" align="center" scrolling="no" allowfullscreen="true"></iframe>
-                 
-                 <!-- Panel1 
-                <div class="col-lg-12">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Damage per Region
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Drill Down
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="/home">Damage per Region</a>
-                                        </li>
-                                        <li><a href="/homeDrillDown">Disaster Event per Region</a>
-                                        </li>
-                                        <li><a href="/homeDrillDown1">Aid Provided per Municipality</a>
-                                        </li>
-                                    </ul>
-                                </div>
+            </div> 
+             <!-- Panel1 
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <i class="fa fa-bar-chart-o fa-fw"></i> Damage per Region
+                        <div class="pull-right">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    Filter
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu pull-right" role="menu">
+                                    <li><a href="/home">Damage per Region</a>
+                                    </li>
+                                    <li><a href="/homeDrillDown">Disaster Event per Region</a>
+                                    </li>
+                                    <li><a href="/homeDrillDown1">Aid Per Province</a>
+                                    </li>
+                                </ul>
                             </div>
-                        </div>-->
-                        <!-- /.panel-heading -
-                        <div class="panel-body">
-                           
-
-                        </div>->
-                        <!-- /.panel-body 
+                        </div>
                     </div>-->
-                    <!-- /.panel 
-                </div>-->
-                <!-- /Panel1 -->
+                    <!-- /.panel-heading -->
+                    <div class="panel-body"> 
+                
 
+<iframe width="933" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiMDkxODU5MWYtNWVkMy00YzMxLWJlYmQtZWE5NzRkNjVlMDIxIiwidCI6ImYzNGEzNWJkLWE2NWQtNDYwNS1iMGZhLWQyNTcxZjgzMWY1ZSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true" scrolling="no"></iframe>
+                                         <div class="pull-right">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    Filter
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu pull-right" role="menu">
+                                    <li><a href="/home">Damage per Region</a>
+                                    </li>
+                                    <li><a href="/homeDrillDown">Disaster Event per Region</a>
+                                    </li>
+                                    <li><a href="/homeDrillDown1">Aid Per Province</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
                 <!-- Panel2 -->
                 <!-- /.Panel2 -->
-            </div>
-            <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
 
