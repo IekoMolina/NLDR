@@ -63,9 +63,9 @@
                      <a class="navbar-brand" href="https://www.gov.ph/">
                         <img src="../img/RNP.png" style="width:30px;height:30px; margin: 0px 0px 0px 0px;"> 
                      </a>        
-                    <a class="navbar-brand active" href="home">        <font color="white">Home    </font></a>
+                    <a class="navbar-brand active" href="home">                     <font color="white">Home    </font></a>
                     <div class="dropdown navbar-brand">
-                        <a class="dropdown-toggle" data-toggle="dropdown">  <font color="white">Reports  </font> </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown">          <font color="white">Reports  </font> </a>
                           <ul class="dropdown-menu">
                             <li><a href="reports">Yearly Reports</a></li>
                             <li><a href="reportsVisual">Visual Reports</a></li>

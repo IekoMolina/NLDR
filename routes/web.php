@@ -27,6 +27,10 @@ Route::get('home', function () {
     return view('home'); //home.blade.php
 });
 
+Route::get('reportsV2', function () {
+    return view('reportsV2'); //home.blade.php
+});
+
 Route::get('homeAdministrator', function () {
     return view('homeAdministrator'); //homeAdministrator.blade.php
 });

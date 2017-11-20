@@ -17,6 +17,18 @@ class ReportModel extends Model
        	return $existingData;
    	}
 
+    public static function getDistinctDate()
+    {
+      $dates = DB::table('GLIDEEVENT')
+                //date('Y', strtotime( $d->STARTDATE))
+                //->select('STARTDATE')
+                //->distinct(DB::raw('YEAR(STARTDATE)'), '=', date('Y'))
+                ->distinct()
+                ->orderBy('STARTDATE')//also order by date
+                ->get(['STARTDATE']);  
+      return $dates;
+    }
+
    	public static function getAllDisaster()
    	{
    		$disasterData = DB::table('REF_GLIDEEVENTTYPE')
@@ -33,7 +45,6 @@ class ReportModel extends Model
    		return $region;
    	}
 
-   	//GETS ALL THE INFORMATION ABOUTA DISASER THAN HAPPENED IN A REGION
    	public static function getReportData()
    	{
    		$yearlyData = DB::table('REF_GLIDEEVENTTYPE')
@@ -58,6 +69,7 @@ class ReportModel extends Model
    		return $yearlyData;
    	}
 
+    //GETS ALL THE INFORMATION ABOUTA DISASER THAN HAPPENED IN A REGION
     public static function getReportDataFiltered($req)
     {
         $disasterType = $req->input('disasterType');
@@ -70,22 +82,30 @@ class ReportModel extends Model
               ->join('REF_INCIDENT','PDNA.INCIDENTTYPECODE','=','REF_INCIDENT.INCIDENTTYPECODE')
               ->join('REF_INCIDENTSOURCE','REF_INCIDENT.INCIDENTSOURCEID','=','REF_INCIDENTSOURCE.INCIDENTSOURCEID') 
               ->join('RESETTLEMENT','PDNADETAILS.RESETTLEMENTID','=','RESETTLEMENT.RESETTLEMENTID')
-              //recovery
-              ->join('INFRA','PDNADETAILS.INFRAID','=','INFRA.INFRAID')//infra
               ->join('LIVELIHOOD','PDNADETAILS.LIVELIHOODID','=','LIVELIHOOD.LIVELIHOODID')//livelihhod
               ->join('REF_LIVELIHOODDMG','LIVELIHOOD.LIVELIHOODDMGID','=','REF_LIVELIHOODDMG.LIVELIHOODDMGID')
+              ->join('INFRA','PDNADETAILS.INFRAID','=','INFRA.INFRAID')//infra
+              /*->join('RECOVERY','PDNADETAILS.PDNAID','=','RECOVERY.PDNAID')//recovery
+              ->join('TASKS','RECOVERY.PROJECTID','=','TASKS.PROJECTID')//TASKS
+              ->join('REF_AGENCY','TASKS.AGENCYID','=','REF_AGENCY.AGENCYID')//Agency  
+              
               ->join('SOCIAL','PDNADETAILS.SOCIALID','=','SOCIAL.SOCIALID')//social
               //subsector Should it be where in?? or join pa din
-              //ref_dmg same here?
+              //->join('')//ref_dmg same here?*/
               ->join('REF_CITY/MUNICIPALITY','PDNADETAILS.CITY/MUNICIPALITYID','=','REF_CITY/MUNICIPALITY.CITY/MUNICIPALITYID')
               ->join('REF_PROVINCE','REF_CITY/MUNICIPALITY.PROVINCEID','=','REF_PROVINCE.PROVINCEID')
               ->join('REF_REGION','REF_PROVINCE.REGIONCODE','=','REF_REGION.REGIONCODE')
-              ->select('GLIDEEVENT.*','REF_GLIDEEVENTTYPE.*','PDNA.*','REF_CITY/MUNICIPALITY.*','REF_PROVINCE.*','REF_REGION.*','PDNADETAILS.*')
+              //->select('GLIDEEVENT.*','REF_GLIDEEVENTTYPE.*','PDNA.*','REF_CITY/MUNICIPALITY.*','REF_PROVINCE.*','REF_REGION.*','PDNADETAILS.*')
+              ->select('REF_GLIDEEVENTTYPE.DESCRIPTION as RGDESC','PDNA.INCIDENTNAME','PDNA.STARTDATE','REF_REGION.REGIONCODE','REF_PROVINCE.DESCRIPTION','REF_CITY/MUNICIPALITY.DESCRIPTION',
+                     'PDNADETAILS.AFFECTEDFAM','PDNADETAILS.AFFECTEDPER','PDNADETAILS.DEAD','PDNADETAILS.INJURED','PDNADETAILS.MISSING','RESETTLEMENT.DMGHOUSES','RESETTLEMENT.DESHOUSES','LIVELIHOOD.DAMAGES as LDMG','INFRA.DAMAGES as IDMG', DB::raw('LIVELIHOOD.DAMAGES + INFRA.DAMAGES as totalDMG'))
               ->where([
                           ['REF_GLIDEEVENTTYPE.DESCRIPTION', '=', $disasterType],
-                          ['GLIDEEVENT.STARTDATE', '=', $year]
+                          ['GLIDEEVENT.STARTDATE', 'LIKE', '%'.$year.'%'] 
+
                       ])
+
               ->get();
+              //Only all infra damages that are DMGLOSSTYPEID (0=na,1=public,2=private)
       return $yearlyData;
     }
     /*

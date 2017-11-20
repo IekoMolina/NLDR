@@ -92,44 +92,31 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <!-- Form date('Y', strtotime())-->
-                                    <form action="/generateReport" method="post">
-                                        <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                        <div class="form-group col-lg-6">
-                                            <label>Disaster Type</label>
-                                            <select class="form-control" name="disasterType">
-                                               @foreach($disasterData as $value)
-                                                <option>{{ $value->DESCRIPTION }}</option>
-                                                @endforeach 
-                                            </select>
+                                    <!-- Form -->
+                                    <form  class="form-horizontal" role="form" method="post">                             
+                                            <div class="form-group col-lg-4">
+                                                <label>Disaster</label>
+                                                    <select multiple class="form-control" name="regionsAffected">
+                                                        <option>I (Ilocos Region)</option>
+                                                    </select>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label>Region</label>
+                                                    <select multiple class="form-control" name="regionsAffected">
+                                                        <option>I (Ilocos Region)</option>
+                                                    </select>
+                                            </div>
+                                            <div class="form-group col-lg-2">
+                                                <label>Time Range</label>
+                                                    <select class="form-control" name="regionsAffected">
+                                                        <option>Yearly</option>
+                                                        <option>Monthly</option>
+                                                        <option>Weekly</option>
+                                                    </select>
+                                            </div>
                                         </div>
-
-                                        <div class="form-group col-lg-6">
-                                            <label>Year</label>
-                                            <select class="form-control" name="year">
-                                                @php ($a = [])
-                                                @for ($i = 0; $i < count($data); $i++)
-                                                @php array_push($a,date('Y', strtotime($data[$i]->STARTDATE)))
-
-                                                    @for($j = 0; $j < count($data); $j++)
-                                                    
-                                                        @if(in_array(date('Y', strtotime($data[$i]->STARTDATE)), $a) == false)
-                                                            @php array_push($a,date('Y', strtotime($data[$i]->STARTDATE)))
-                                                            
-                                                        @endif 
-                                                    @endfor
-                                                @endfor                       
-                                                 @for ($x = 0; $x < count($a); $x++)
-                                                    
-                                                 @endfor
-                                                <option>2011</option>
-                                                <option>2012</option>
-                                                <option>2013</option>
-                                            </select>
-                                        </div>
-
-                                        <div align="text-center" class="form-group col-lg-3" >
-                                            <input type="submit" name="submit" value="Submit">
+                                        <div class="form-group col-lg-2">
+                                        <a type="submit" name="submit" class="btn btn-default" href='/encodingNewDisasterAdditional'>Next</a>
                                         </div>
                                     </form>
                                     <!-- /.form -->
