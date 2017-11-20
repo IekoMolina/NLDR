@@ -110,7 +110,7 @@
                                                 @php ($a = [])
                                                 @for ($i = 0; $i < count($data); $i++)
                                                 @php array_push($a,date('Y', strtotime($data[$i]->STARTDATE)))
-                                                <option> {{ date('Y', strtotime($data[$i]->STARTDATE)) }}</option>
+
                                                     @for($j = 0; $j < count($data); $j++)
                                                     
                                                         @if(in_array(date('Y', strtotime($data[$i]->STARTDATE)), $a) == false)
@@ -122,7 +122,9 @@
                                                  @for ($x = 0; $x < count($a); $x++)
                                                     
                                                  @endfor
-
+                                                <option>2011</option>
+                                                <option>2012</option>
+                                                <option>2013</option>
                                             </select>
                                         </div>
 

@@ -56,7 +56,7 @@
                 </div>
                 <!-- Continue as public quest -->
                 <div class="row" align="right" style="margin: 0px 0px 0px 0px;">
-                    <a href="home">Public Login ---></a>
+                    <a href="home">HOME</a>
                 </div>
                 <!-- /Continue as public quest -->
             </div>

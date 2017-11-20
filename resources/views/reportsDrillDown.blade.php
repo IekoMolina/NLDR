@@ -103,7 +103,9 @@
                     <div class="panel panel-default">
                         <!-- Panel Heading -->
                         <div class="panel-heading">    
-                            <!-- Report Header -->
+                            <!-- Report Header                                     @foreach ($date as $d)
+                                        <option>{{ date('Y', strtotime( $d->STARTDATE))}}</option>
+                                     @endforeach-->
                             <br>
                             <div class="row" align="center">
                                     Department of National Defense               <br>                                       
@@ -116,9 +118,9 @@
                                  AND THEIR  EFFECTS
                                 </b>                                             <br> 
                                 <select>
-                                    @foreach ($date as $d)
-                                        <option>{{ date('Y', strtotime( $d->STARTDATE))}}</option>
-                                     @endforeach
+                                    <option>2011</option>
+                                    <option>2012</option>
+                                    <option>2013</option>
                                 </select>                                          
                             </div>
                             <br>

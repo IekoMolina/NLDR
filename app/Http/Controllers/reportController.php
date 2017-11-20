@@ -18,6 +18,7 @@ class reportController extends BaseController
     {
         $date = ReportModel::getDistinctDate();
         $yearlyData = ReportModel::getReportDataFiltered($req);
+
         if(count($yearlyData)>0)
         {
             return view('reportsDrillDown')->with('yearlyData',$yearlyData)->with('date', $date);
@@ -26,7 +27,7 @@ class reportController extends BaseController
         {      
             $yearlyData = array();
             return view('reportsDrillDown')->with('yearlyData',$yearlyData)->with('date', $date);
-        }         
+        }       
       /* return view('reportsDrillDown')->with([
             'disasterType'=> $disasterType,
             'year'=> $year
@@ -38,8 +39,8 @@ class reportController extends BaseController
     {
        $data = ReportModel::getDistinctDate();
        $disasterData = ReportModel::getAllDisaster();
-
-       if(count($data)>0)
+    
+        if(count($data)>0)
         {
             return view('reports')->with('data', $data) ->with('disasterData', $disasterData); 
         }
