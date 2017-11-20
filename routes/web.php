@@ -57,6 +57,10 @@ Route::get('encodingNewDisasterAdditional',  function () {
     return view('encodingNewDisasterAdditional');//encodingNewDisasterAdditional.blade.php 
 });
 
+Route::get('encodingNewDisasterCity', function () {
+    return view('encodingNewDisasterCity'); //encodingNewDisasterCity.blade.php
+}); 
+
 Route::get('encodingNewDisasterDetails', function () {
     return view('encodingNewDisasterDetails'); //encodingNewDisasterDetails.blade.php
 }); 
@@ -77,6 +81,18 @@ Route::get('updateDisasterInfoDetails', function () {
     return view('encodingUpdateDisasterInfoDetails'); //updateDisasterInfoDetails.blade.php
 }); 
 
+Route::get('queryBuild', function () {
+    return view('queryBuild'); //queryBuild.blade.php
+}); 
+
+Route::get('queryResults', function () {
+    return view('queryResults'); //queryResults.blade.php
+}); 
+
+Route::get('assignRoles', function () {
+    return view('assignRoles'); //assignRoles.blade.php
+}); 
+
 
 // Routes for Report Generation
 Route::get('reports', 'reportController@getData');
@@ -92,3 +108,6 @@ Route::get('adminCreateAccount', function () {
 Route::get('adminRemoveAccount', function () {
     return view('adminRemoveAccount'); //updateDisasterInfoDetails.blade.php
 });   
+
+//Route for Query Building
+Route::get('queryBuild', 'queryController@getData');

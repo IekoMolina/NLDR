@@ -124,28 +124,24 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
                                                     Input New Disaster
-
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row">
                                                         <div class="col-lg-6">
-                                                            <form role="form" action="/encodingNewDisasterAdditional" method="post">
+                                                            <form role="form" method="post"> <!--action="/encodingNewDisaster"-->
                                                                 <div class="form-group">
-                                                                    <label>Start Date</label>
-                                                                    <input class="form-control" type="date" name="startDate">
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>End Date</label>
-                                                                    <input class="form-control" type="date" name="endDate">
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>Comments</label>
-                                                                    <textarea class="form-control" rows="3" name="comments"> </textarea>
-                                                                    
+                                                                    <label>Select Provinces Involved</label>
+                                                                        <select multiple class="form-control" name="provincesAffected">
+                                                                            <option>Cavite</option>
+                                                                            <option>Laguna</option>
+                                                                            <option>Batangas</option>
+                                                                            <option>Rizal</option>
+                                                                            <option>Quezon Province</option>
+                                                                        </select>
                                                                 </div>
 
                                                                 <div class="form-group">
-                                                                <a type="submit" name="submit" class="btn btn-default" href='encodingNewDisasterCity'>Next</a>
+                                                                <a type="submit" name="submit" class="btn btn-default" href='/encodingNewDisasterDetails'>Next</a>
                                                                 <button type="reset" name="reset" class="btn btn-default">Reset</button>
                                                                 </div>
                                                             </form>
