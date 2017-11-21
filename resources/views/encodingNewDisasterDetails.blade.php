@@ -171,8 +171,65 @@
                                                                 </div>
 
                                                                 <div class="form-group">
-                                                                <a type="submit" name="submit" class="btn btn-default" href='/encodingNewDisasterAdditional'>Next</a>
-                                                                <button type="reset" name="reset" class="btn btn-default">Reset</button>
+                                                                    <div class="form-group col-lg-12">
+                                                                        <label>Affected</label>
+                                                                    </div>
+                                                                    <div class="form-group col-lg-6">
+                                                                        <p>Families<input class="form-control" type="number" name="affectedFamilies">
+                                                                    </div>
+                                                                    <div class="form-group col-lg-6">
+                                                                        <p>Persons<input class="form-control" type="number" name="affectedPersons">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="form-group col-lg-12">
+                                                                        <label>Evacuated</label>
+                                                                    </div>
+                                                                    <div class="form-group col-lg-6">
+                                                                        <p>Families<input class="form-control" type="number" name="evacuatedFamilies">
+                                                                    </div>
+                                                                    <div class="form-group col-lg-6">
+                                                                        <p>Persons<input class="form-control" type="number" name="evacuatedPersons">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="form-group col-lg-12">
+                                                                        <label>Evacuation Centers</label>
+                                                                    </div>
+                                                                    <div class="form-group col-lg-6">
+                                                                        <p>Occupied<input class="form-control" type="number" name="numEvacCenters">
+                                                                    </div>
+                                                                <div class="form-group">
+                                                                    <div class="form-group col-lg-12">
+                                                                        <label>Houses</label>
+                                                                    </div>
+                                                                    <div class="form-group col-lg-6">
+                                                                        <p>Partially Damaged<input class="form-control" type="number" name="partialDHouses">
+                                                                    </div>
+                                                                    <div class="form-group col-lg-6">
+                                                                        <p>Totally Damaged<input class="form-control" type="number" name="totallyDHouses">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="form-group col-lg-12">
+                                                                        <label>Damages to Properties</label>
+                                                                    </div>
+                                                                    <div class="form-group col-lg-4">
+                                                                        <p>Total Cost<input class="form-control" type="number" name="costofDamages">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="form-group col-lg-12">
+                                                                        <label>Aid</label>
+                                                                    </div>
+                                                                    <div class="form-group col-lg-4">
+                                                                        <p>Aid Requested<input class="form-control" type="number" name="aidRequest">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div align="text-center" class="form-group col-lg-12" >
+                                                                    <button type="submit" name="submit" class="btn btn-default">Submit</button>
+                                                                    <button type="reset" name="reset" class="btn btn-default">Reset</button>
                                                                 </div>
                                                             </form>
                                                         </div>
