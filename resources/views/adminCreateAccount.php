@@ -43,16 +43,14 @@
                      <a class="navbar-brand" href="https://www.gov.ph/">
                         <img src="../img/RNP.png" style="width:30px;height:30px; margin: 0px 0px 0px 0px;"> 
                      </a>        
-                    <a class="navbar-brand active" href="home">        <font color="white">Home    </font></a>
+                    <a class="navbar-brand active" href="homeAdministrator">        <font color="white">Home    </font></a>
                     <a class="navbar-brand" href="reports">     <font color="white">Report  </font></a>
                     <div class="dropdown navbar-brand">
                         <a class="dropdown-toggle" data-toggle="dropdown">  <font color="white">Accounts </font> </a>
                           <ul class="dropdown-menu">
                             <li><a href="adminCreateAccount">Create Account</a></li>
                             <li><a href="adminRemoveAccount">Delete Account</a></li>
-                            <li><a href="#">Deactivate Account</a></li>
                           </ul>
-
                     </div>
             </div>
             <!-- /.navbar-header -->
