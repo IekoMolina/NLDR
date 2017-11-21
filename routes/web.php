@@ -1,4 +1,4 @@
-	<?php
+    <?php
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +15,7 @@ Route::get('/', 'Controller@getData');
 Route::post('/insert','Controller@insert');
 Route::get('/delete/{id}', ['uses' =>'Controller@delete']);
 Route::get('about', function () {
-	$arrayTest = [];
+    $arrayTest = [];
     return view('about', compact('arrayTest')); //about.blade.php
 });
 

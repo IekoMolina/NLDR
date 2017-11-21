@@ -42,9 +42,17 @@
                      <a class="navbar-brand" href="home">
                         <img src="../img/RNP.png" style="width:30px;height:30px; margin: 0px 0px 0px 0px;"> 
                      </a>        
-                    <a class="navbar-brand" href="home">        <font color="white">Home    </font></a>
+                    <a class="navbar-brand active" href="homeOCD">        <font color="white">Home    </font></a>
                     <a class="navbar-brand" href="reports">     <font color="white">Report  </font></a>
-                    <a class="navbar-brand" href="encoding">  <font color="white">Encode  </font></a>
+                      <a class="navbar-brand" href="queryBuild">     <font color="white">Query  </font></a>
+                    <div class="dropdown navbar-brand">
+                        <a class="dropdown-toggle" data-toggle="dropdown">  <font color="white">Encode  </font> </a>
+                          <ul class="dropdown-menu">
+                            <li><a href="encodingNewDisaster">New Disaster</a></li>
+                            <li><a href="updateDisasterInfo">Update Disaster</a></li>                           
+                          </ul>
+
+                    </div>
             </div>
             <!-- /.navbar-header -->
 
@@ -123,56 +131,98 @@
                                         <div class="col-lg-12">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
-                                                    Input New Disaster
+                                                    Input New Disaster Details
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row">
                                                         <div class="col-lg-6">
-                                                            <form role="form" method="post"> <!--action="/encodingNewDisaster"-->
-                                                                <div class="form-group">
-                                                                    <label>Disaster Type</label>
-                                                                    <select class="form-control" name="disasterType">
-                                                                        <option>Drought</option>
-                                                                        <option>Epidemic</option>
-                                                                        <option>Earthquake</option>
-                                                                        <option>Fire</option>
-                                                                        <option>Flash Flood</option>
-                                                                        <option>Flood</option>
-                                                                        <option>Land Slide</option>
-                                                                        <option>Mud Slide</option>
-                                                                        <option>Tornado</option>
-                                                                        <option>Tropical Cyclone</option>
-                                                                        <option>Tsunami</option>
-                                                                        <option>Volcano</option>
+                                                            <form role="form">
+                                                                <div class="form-group" action="/encodingNewDisasterDetails" method="post">
+                                                                    <label>Select Barangay</label>
+                                                                    <select class="form-control" name="barangay">
+                                                                        <option>Mariana</option>
+                                                                        <option>Holy Spirit</option>
+                                                                        <option>Laging Handa</option>
+                                                                        <option>Masantol</option>
+                                                                        <option>Magkaisa</option>
                                                                     </select>
                                                                 </div>
 
                                                                 <div class="form-group">
-                                                                    <label>Region/s Affected by the Disaster</label>
-                                                                        <select multiple class="form-control" name="regionsAffected">
-                                                                            <option>I (Ilocos Region)</option>
-                                                                            <option>II (Cagayan Valley)</option>
-                                                                            <option>III (Central Luzon)</option>
-                                                                            <option>IV-A (CALABARZON)</option>
-                                                                            <option>IV-B (MIMAROPA)</option>
-                                                                            <option>V (Bicol Region)</option>
-                                                                            <option>VI (Western Visayas)</option>
-                                                                            <option>VII (Central Visayas)</option>
-                                                                            <option>VIII (Eastern Visayas)</option>
-                                                                            <option>IX (Zamboanga Peninsula)</option>
-                                                                            <option>X (Northern Mindanao)</option>
-                                                                            <option>XI (Davao Region)</option>
-                                                                            <option>XII (SOCCSKSARGEN)</option>
-                                                                            <option>XIII (Caraga Region)</option>
-                                                                            <option>CAR (Cordillera Administrative Region)</option>
-                                                                            <option>ARMM (Autonomous Region in Muslim Mindanao)</option>
-                                                                            <option>NCR (National Capital Region)</option>
-                                                                        </select>
+                                                                    <div class="form-group col-lg-12">
+                                                                        <label>Casualties</label>
+                                                                    </div>
+                                                                    <div class="form-group col-lg-4">
+                                                                        <p>Dead<input class="form-control" type="number" name="dead">
+                                                                    </div>
+                                                                    <div class="form-group col-lg-4">
+                                                                        <p>Injured<input class="form-control" type="number" name="injured">
+                                                                    </div>
+                                                                    <div class="form-group col-lg-4">
+                                                                        <p>Missing<input class="form-control" type="number" name="missing">
+                                                                    </div>
                                                                 </div>
 
                                                                 <div class="form-group">
-                                                                <a type="submit" name="submit" class="btn btn-default" href='/encodingNewDisasterAdditional'>Next</a>
-                                                                <button type="reset" name="reset" class="btn btn-default">Reset</button>
+                                                                    <div class="form-group col-lg-12">
+                                                                        <label>Affected</label>
+                                                                    </div>
+                                                                    <div class="form-group col-lg-6">
+                                                                        <p>Families<input class="form-control" type="number" name="affectedFamilies">
+                                                                    </div>
+                                                                    <div class="form-group col-lg-6">
+                                                                        <p>Persons<input class="form-control" type="number" name="affectedPersons">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="form-group col-lg-12">
+                                                                        <label>Evacuated</label>
+                                                                    </div>
+                                                                    <div class="form-group col-lg-6">
+                                                                        <p>Families<input class="form-control" type="number" name="evacuatedFamilies">
+                                                                    </div>
+                                                                    <div class="form-group col-lg-6">
+                                                                        <p>Persons<input class="form-control" type="number" name="evacuatedPersons">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="form-group col-lg-12">
+                                                                        <label>Evacuation Centers</label>
+                                                                    </div>
+                                                                    <div class="form-group col-lg-6">
+                                                                        <p>Occupied<input class="form-control" type="number" name="numEvacCenters">
+                                                                    </div>
+                                                                <div class="form-group">
+                                                                    <div class="form-group col-lg-12">
+                                                                        <label>Houses</label>
+                                                                    </div>
+                                                                    <div class="form-group col-lg-6">
+                                                                        <p>Partially Damaged<input class="form-control" type="number" name="partialDHouses">
+                                                                    </div>
+                                                                    <div class="form-group col-lg-6">
+                                                                        <p>Totally Damaged<input class="form-control" type="number" name="totallyDHouses">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="form-group col-lg-12">
+                                                                        <label>Damages to Properties</label>
+                                                                    </div>
+                                                                    <div class="form-group col-lg-4">
+                                                                        <p>Total Cost<input class="form-control" type="number" name="costofDamages">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="form-group col-lg-12">
+                                                                        <label>Aid</label>
+                                                                    </div>
+                                                                    <div class="form-group col-lg-4">
+                                                                        <p>Aid Requested<input class="form-control" type="number" name="aidRequest">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div align="text-center" class="form-group col-lg-12" >
+                                                                    <button type="submit" name="submit" class="btn btn-default">Submit</button>
+                                                                    <button type="reset" name="reset" class="btn btn-default">Reset</button>
                                                                 </div>
                                                             </form>
                                                         </div>

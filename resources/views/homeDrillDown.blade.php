@@ -99,7 +99,7 @@
             <div class="row">
                 <div class="col-lg-12" align="middle" style="background-color: rgba(100,149,237,0.6);" >               
                  <h2>
-                    <img src="../img/RNP.png" style="width:30px;height:40px;"> 
+                    <img src="../img/OCDLogo.png" style="width:100px;height:100px;">
                     <font color="white"> National Loss and Damage Registry </font>
                  </h2>
                     <!--<font style="font-size: 20px; color: white;">  National Disaster Risk Reduction and Management Council </font> -->                 
@@ -146,9 +146,6 @@
                                 </ul>
                             </div>
                         </div>
-
-
-                    </div>
                     <!-- /.panel-body 
                 </div>-->
                 <!-- /.panel -->

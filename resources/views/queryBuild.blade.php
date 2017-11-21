@@ -39,12 +39,20 @@
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin: 0px 0px 0px 0px;">
             <div class="navbar-header">
-                     <a class="navbar-brand" href="home">
+                     <a class="navbar-brand" href="https://www.gov.ph/">
                         <img src="../img/RNP.png" style="width:30px;height:30px; margin: 0px 0px 0px 0px;"> 
                      </a>        
-                    <a class="navbar-brand" href="home">        <font color="white">Home    </font></a>
+                    <a class="navbar-brand active" href="homeOCD">        <font color="white">Home    </font></a>
                     <a class="navbar-brand" href="reports">     <font color="white">Report  </font></a>
-                    <a class="navbar-brand" href="encoding">  <font color="white">Encode  </font></a>
+                      <a class="navbar-brand" href="queryBuild">     <font color="white">Query  </font></a>
+                    <div class="dropdown navbar-brand">
+                        <a class="dropdown-toggle" data-toggle="dropdown">  <font color="white">Encode  </font> </a>
+                          <ul class="dropdown-menu">
+                            <li><a href="encodingNewDisaster">New Disaster</a></li>
+                            <li><a href="updateDisasterInfo">Update Disaster</a></li>                           
+                          </ul>
+
+                    </div>
             </div>
             <!-- /.navbar-header -->
 

@@ -36,9 +36,8 @@
       width: 60px;
       height: 34px;
     }
-
     .switch input {display:none;}
-
+    
     .slider {
       position: absolute;
       cursor: pointer;
@@ -51,17 +50,6 @@
       transition: .4s;
     }
 
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 26px;
-      width: 26px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
 
     input:checked + .slider {
       background-color: #2196F3;
@@ -76,7 +64,7 @@
       -ms-transform: translateX(26px);
       transform: translateX(26px);
     }
-
+    
     /* Rounded sliders */
     .slider.round {
       border-radius: 34px;
@@ -96,12 +84,18 @@
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin: 0px 0px 0px 0px;">
             <div class="navbar-header">
-                     <a class="navbar-brand" href="home">
+                     <a class="navbar-brand" href="https://www.gov.ph/">
                         <img src="../img/RNP.png" style="width:30px;height:30px; margin: 0px 0px 0px 0px;"> 
                      </a>        
-                    <a class="navbar-brand" href="home">        <font color="white">Home    </font></a>
+                    <a class="navbar-brand active" href="homeAdministrator">        <font color="white">Home    </font></a>
                     <a class="navbar-brand" href="reports">     <font color="white">Report  </font></a>
-                    <a class="navbar-brand" href="encoding">  <font color="white">Encode  </font></a>
+                    <div class="dropdown navbar-brand">
+                        <a class="dropdown-toggle" data-toggle="dropdown">  <font color="white">Accounts </font> </a>
+                          <ul class="dropdown-menu">
+                            <li><a href="adminCreateAccount">Create Account</a></li>
+                            <li><a href="adminRemoveAccount">Delete Account</a></li>
+                          </ul>
+                    </div>
             </div>
             <!-- /.navbar-header -->
 
@@ -113,10 +107,12 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> Administrator</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Roles</a>
+
+                        <li><a href="assignRoles"><i class="fa fa-gear fa-fw"></i> Assign Roles </a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login"><i class="fa fa-sign-out fa-fw"></i> Login</a>
+                        <li><a href="login"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -410,3 +406,4 @@
 
 </body>
 </html>
+
