@@ -28,10 +28,10 @@
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif] 
--->
+    <![endif]-->
 
     <style type="text/css" media="screen">
+
         body,
         html {
             width: 100%;
@@ -97,9 +97,9 @@
 
             <!-- Banner row -->
             <div class="row">
-                <div class="col-lg-12" align="middle" style="background-color: rgba(100,149,237,0.6)" >               
+                <div class="col-lg-12" align="middle" style="background-color: rgba(100,149,237,0.6);" >               
                  <h2>
-                     <img src="../img/OCDLogo.png" style="width:100px;height:100px;"> 
+                    <img src="../img/OCDLogo.png" style="width:100px;height:100px;">
                     <font color="white"> National Loss and Damage Registry </font>
                  </h2>
                     <!--<font style="font-size: 20px; color: white;">  National Disaster Risk Reduction and Management Council </font> -->                 
@@ -127,15 +127,13 @@
                             </div>
                         </div>
                     </div>-->
-                    <!-- /.panel-heading -->
-                    <div class="panel-body"> 
-                
-
-<iframe width="933" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiMDkxODU5MWYtNWVkMy00YzMxLWJlYmQtZWE5NzRkNjVlMDIxIiwidCI6ImYzNGEzNWJkLWE2NWQtNDYwNS1iMGZhLWQyNTcxZjgzMWY1ZSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true" scrolling="no"></iframe>
-                                         <div class="pull-right">
+                    <!-- /.panel-heading 
+                    <div class="panel-body"> -->   
+             <iframe src="https://app.powerbi.com/view?r=eyJrIjoiMDkxODU5MWYtNWVkMy00YzMxLWJlYmQtZWE5NzRkNjVlMDIxIiwidCI6ImYzNGEzNWJkLWE2NWQtNDYwNS1iMGZhLWQyNTcxZjgzMWY1ZSIsImMiOjEwfQ%3D%3D" allowFullScreen="true" style="position:absolute; height:100%; width:100%; border: none" align="center" scrolling="no"></iframe>
+                        <div class="pull-right">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    Filter
+                                    Drill
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu pull-right" role="menu">
@@ -148,11 +146,8 @@
                                 </ul>
                             </div>
                         </div>
-
-
-                    </div>
-                    <!-- /.panel-body -->
-                </div>
+                    <!-- /.panel-body 
+                </div>-->
                 <!-- /.panel -->
                 <!-- Panel2 -->
                 <!-- /.Panel2 -->

@@ -128,9 +128,8 @@
                         </div>
                     </div>-->
                     <!-- /.panel-heading 
-                    <div class="panel-body"> -->
-                       
-             <iframe src="https://app.powerbi.com/view?r=eyJrIjoiMGRlM2U5MWUtYjNmZS00YzQ5LWEyNWYtMDM1NWJlZmQ3ZDAyIiwidCI6ImYzNGEzNWJkLWE2NWQtNDYwNS1iMGZhLWQyNTcxZjgzMWY1ZSIsImMiOjEwfQ%3D%3D" allowFullScreen="true" style="position:absolute; height:100%; width:100%; border: none" align="center" scrolling="no"> </iframe>
+                    <div class="panel-body"> -->       
+             <iframe src="https://app.powerbi.com/view?r=eyJrIjoiN2RkNTRlNGYtNWFjNS00NWUxLTliMjItZGVhY2RkYTExNGQ5IiwidCI6ImYzNGEzNWJkLWE2NWQtNDYwNS1iMGZhLWQyNTcxZjgzMWY1ZSIsImMiOjEwfQ%3D%3D" allowFullScreen="true" style="position:absolute; height:100%; width:100%; border: none" align="center" scrolling="no"> </iframe>
                                          <div class="pull-right">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
