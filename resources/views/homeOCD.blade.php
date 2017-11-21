@@ -44,6 +44,7 @@
                      </a>        
                     <a class="navbar-brand active" href="home">        <font color="white">Home    </font></a>
                     <a class="navbar-brand" href="reports">     <font color="white">Report  </font></a>
+                      <a class="navbar-brand" href="queryBuild">     <font color="white">Query  </font></a>
                     <div class="dropdown navbar-brand">
                         <a class="dropdown-toggle" data-toggle="dropdown">  <font color="white">Encode  </font> </a>
                           <ul class="dropdown-menu">

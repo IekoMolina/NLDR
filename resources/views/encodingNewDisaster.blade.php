@@ -45,10 +45,11 @@
                     <a class="navbar-brand active" href="home">        <font color="white">Home    </font></a>
                     <a class="navbar-brand" href="reports">     <font color="white">Report  </font></a>
                     <div class="dropdown navbar-brand">
-                        <a class="dropdown-toggle" data-toggle="dropdown">  <font color="white">Encode  </font> </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown">  <font color="white">Accounts </font> </a>
                           <ul class="dropdown-menu">
-                            <li><a href="encodingNewDisaster">New Disaster</a></li>
-                            <li><a href="updateDisasterInfo">Update Disaster</a></li>                           
+                            <li><a href="adminCreateAccount">Create Account</a></li>
+                            <li><a href="adminRemoveAccount">Delete Account</a></li>
+                            <li><a href="#">Deactivate Account</a></li>
                           </ul>
 
                     </div>
@@ -61,7 +62,9 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li ><a href="#"><i class="fa fa-user fa-fw"></i> OCD Personnel</a>
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Administrator</a>
+                        </li>
+                        <li><a href="assignRoles"><i class="fa fa-gear fa-fw"></i> Assign Roles </a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="login"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -76,15 +79,14 @@
 
             <!-- Banner row -->
             <div class="row">
-                <div class="col-lg-12" style="background-color: rgba(100,149,237,0.6);" >               
-                 <h2 align="left">                   
-                    <font> Encode Disaster Information </font>
+                <div class="col-lg-12" align="middle" style="background-color: rgba(100,149,237,0.6);" >               
+                 <h2>
+                     <img src="../img/OCDLogo.png" style="width:100px;height:100px;"> 
+                    <font color="white"> National Loss and Damage Registry </font>
+                    <br> Administrator Module
                  </h2>
-                    <!--<font style="font-size: 20px; color: white;">  National Disaster Risk Reduction and Management Council </font>  -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                        </div>
-                    </div>                 
+                    <!--<font style="font-size: 20px; color: white;">  National Disaster Risk Reduction and Management Council </font>  -->                 
+                 
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -92,104 +94,29 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-primary">
-                        <!-- Panel Body -->
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <!--
-                                    <form action="/generateReport" method="post">
-                                        <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                        <div class="form-group col-lg-6">
-                                            <label>Disaster Type</label>
-                                            <select class="form-control" name="disasterType">
-                                                <option>TYPHOON</option>
-                                                <option>EARTHQUAKE</option>
-                                                <option>FLASH FLOOD</option>
-                                                <option>FIRE</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group col-lg-6">
-                                            <label>Year</label>
-                                            <select class="form-control" name="year">
-                                                <option>2013</option>
-                                                <option>2014</option>
-                                                <option>2015</option>
-                                                <option>2016</option>
-                                            </select>
-                                        </div>
-
-                                        <div align="text-center" class="form-group col-lg-3" >
-                                            <input type="submit" name="submit" value="submit">
-                                        </div>
-                                    </form>
-                                    -->
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading">
-                                                    Input New Disaster
-                                                </div>
-                                                <div class="panel-body">
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <form role="form" method="post"> <!--action="/encodingNewDisaster"-->
-                                                                <div class="form-group">
-                                                                    <label>Disaster Type</label>
-                                                                    <select class="form-control" name="disasterType">
-                                                                        <option>Drought</option>
-                                                                        <option>Epidemic</option>
-                                                                        <option>Earthquake</option>
-                                                                        <option>Fire</option>
-                                                                        <option>Flash Flood</option>
-                                                                        <option>Flood</option>
-                                                                        <option>Land Slide</option>
-                                                                        <option>Mud Slide</option>
-                                                                        <option>Tornado</option>
-                                                                        <option>Tropical Cyclone</option>
-                                                                        <option>Tsunami</option>
-                                                                        <option>Volcano</option>
-                                                                    </select>
-                                                                </div>
-
-                                                                <div class="form-group">
-                                                                    <label>Region/s Affected by the Disaster</label>
-                                                                        <select multiple class="form-control" name="regionsAffected">
-                                                                            <option>I (Ilocos Region)</option>
-                                                                            <option>II (Cagayan Valley)</option>
-                                                                            <option>III (Central Luzon)</option>
-                                                                            <option>IV-A (CALABARZON)</option>
-                                                                            <option>IV-B (MIMAROPA)</option>
-                                                                            <option>V (Bicol Region)</option>
-                                                                            <option>VI (Western Visayas)</option>
-                                                                            <option>VII (Central Visayas)</option>
-                                                                            <option>VIII (Eastern Visayas)</option>
-                                                                            <option>IX (Zamboanga Peninsula)</option>
-                                                                            <option>X (Northern Mindanao)</option>
-                                                                            <option>XI (Davao Region)</option>
-                                                                            <option>XII (SOCCSKSARGEN)</option>
-                                                                            <option>XIII (Caraga Region)</option>
-                                                                            <option>CAR (Cordillera Administrative Region)</option>
-                                                                            <option>ARMM (Autonomous Region in Muslim Mindanao)</option>
-                                                                            <option>NCR (National Capital Region)</option>
-                                                                        </select>
-                                                                </div>
-
-                                                                <div class="form-group">
-                                                                <a type="submit" name="submit" class="btn btn-default" href='/encodingNewDisasterAdditional'>Next</a>
-                                                                <button type="reset" name="reset" class="btn btn-default">Reset</button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Damage per Region
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        Drill Down
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a href="/home">Damage per Region</a>
+                                        </li>
+                                        <li><a href="/homeDrillDown">Disaster Event per Region</a>
+                                        </li>
+                                        <li><a href="/homeDrillDown1">Aid Provided per Municipality</a>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <!-- /.col-lg-8 (nested) -->
                             </div>
-                            <!-- /.row -->
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <iframe width="1400" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiMGRlM2U5MWUtYjNmZS00YzQ5LWEyNWYtMDM1NWJlZmQ3ZDAyIiwidCI6ImYzNGEzNWJkLWE2NWQtNDYwNS1iMGZhLWQyNTcxZjgzMWY1ZSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe>
+
                         </div>
                         <!-- /.panel-body -->
                     </div>

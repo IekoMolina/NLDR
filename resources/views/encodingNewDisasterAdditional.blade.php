@@ -39,19 +39,12 @@
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin: 0px 0px 0px 0px;">
             <div class="navbar-header">
-                     <a class="navbar-brand" href="https://www.gov.ph/">
+                     <a class="navbar-brand" href="home">
                         <img src="../img/RNP.png" style="width:30px;height:30px; margin: 0px 0px 0px 0px;"> 
                      </a>        
-                    <a class="navbar-brand active" href="home">        <font color="white">Home    </font></a>
+                    <a class="navbar-brand" href="home">        <font color="white">Home    </font></a>
                     <a class="navbar-brand" href="reports">     <font color="white">Report  </font></a>
-                    <div class="dropdown navbar-brand">
-                        <a class="dropdown-toggle" data-toggle="dropdown">  <font color="white">Encode  </font> </a>
-                          <ul class="dropdown-menu">
-                            <li><a href="encodingNewDisaster">New Disaster</a></li>
-                            <li><a href="updateDisasterInfo">Update Disaster</a></li>                           
-                          </ul>
-
-                    </div>
+                    <a class="navbar-brand" href="encoding">  <font color="white">Encode  </font></a>
             </div>
             <!-- /.navbar-header -->
 
@@ -61,10 +54,12 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li ><a href="#"><i class="fa fa-user fa-fw"></i> OCD Personnel</a>
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Administrator</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Roles</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="login"><i class="fa fa-sign-out fa-fw"></i> Login</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -150,7 +145,7 @@
                                                                 </div>
 
                                                                 <div class="form-group">
-                                                                <a type="submit" name="submit" class="btn btn-default" href='encodingNewDisasterDetails'>Next</a>
+                                                                <a type="submit" name="submit" class="btn btn-default" href='encodingNewDisasterCity'>Next</a>
                                                                 <button type="reset" name="reset" class="btn btn-default">Reset</button>
                                                                 </div>
                                                             </form>
