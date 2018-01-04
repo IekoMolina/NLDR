@@ -117,7 +117,7 @@
                                         {{ $yearlyData[$x]->RGDESC }}
                                     @endif
                                  @endfor
-                                 AND THEIR  EFFECTS
+                                 and Their  Effects
                                 </b>                                             <br> 
                                  @for ($x = 0; $x < count($yearlyData); $x++)
                                     @if($x == 0)
@@ -169,11 +169,12 @@
                                         </div>  -->                                     
                                         <tr>
                                             <th>NAME</th>
-                                            <th>DATE</th>
+                                            <th>START</th>
+                                            <th>END</th>
                                             <th>REG</th>
                                             <th>PROV</th>                                            
-                                            <th>FAM</th>
-                                            <th>PERS</th>
+                                            <th>AFFECTED</th>
+                                            <th>EVACUATED</th>
                                             <th>DEAD</th>
                                             <th>INJ</th>
                                             <th>MIS</th>
@@ -181,7 +182,7 @@
                                             <th>PART</th>
                                             <th>AGRI(MM)</th>
                                             <th>INFRA(MM)</th>
-                                            <th>Total Cost of Damages(MM)</th>
+                                            <th>Total Damages(MM)</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -189,8 +190,11 @@
                                         <tr>
                                             <td>{{ $allData->INCIDENTNAME}}</td>
                                             <td>{{ $allData->STARTDATE}}</td>
-                                            <td>{{ $allData->REGIONCODE}}</td>
-                                            <td>{{ $allData->DESCRIPTION}}</td>
+                                            <td>{{ $allData->ENDDATE}}</td>
+                                           <!-- <td>{{ $allData->REGIONCODE}}</td> -->
+                                           <!-- <td>{{ $allData->DESCRIPTION}}</td> -->
+                                           <td><a>9999</a></td>
+                                           <td><a>8888</a></td>
                                             <td>{{ $allData->AFFECTEDFAM}}</td>
                                             <td>{{ $allData->AFFECTEDPER}}</td>
                                             <td>{{ $allData->DEAD}}</td>
@@ -212,10 +216,10 @@
                     </div>
                     <!-- /.panel-->
                         <div class="row" align="center">
-                            <!-- Print Button 
+                            <!-- Print Button -->
                              <button class="btn btn-primary" onclick="myFunction()" style="inline-block">
                                 <span class="glyphicon glyphicon-print"></span> Print
-                             </button> -->
+                             </button> 
                              <!-- ./Print Button -->
 
                             <!-- Export Button -->
@@ -223,6 +227,11 @@
                                     <img src ="http://icons.iconarchive.com/icons/ncrow/mega-pack-1/128/Excel-icon.png" width="10%"; height="10%"> Export to Excel
                             </button>
                             <!-- ./Export Button -->
+                             <!-- Print Button -->
+                             <button class="btn btn-primary" onclick="myFunction()" style="inline-block">
+                                 Export to CSV
+                             </button> 
+                             <!-- ./Print Button -->
                         </div>
                 </div>
                 <!-- /.col-lg-12-->

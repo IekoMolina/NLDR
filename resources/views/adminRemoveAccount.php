@@ -93,7 +93,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Glide Information
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Account Information
                             <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -116,7 +116,7 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <center> <h3> Edit Account </hr> </center>
+                            <center> <h3> Edit Account </h3> </center>
                             <div class="row">
                                 <div class="col-lg-12">
                                 <!-- Table -->
@@ -139,63 +139,27 @@
                                            <td>coronelsean</td>
                                            <td> Sean </td> 
                                            <td> Coronel </td>
-                                            <td>Web Designer</td>
-                                           
-                                        </tr>
-                                        < <tr>
-                                           <td><input type="radio" name="optradio"></td>
-                                           <td>coronelsean@gmail.com</td>
-                                           <td>coronelsean</td>
-                                              <td> Sean </td> 
-                                           <td> Coronel </td>
-                                            <td>Web Designer</td>
-                                           
-                                        </tr>
-                                        <tr>
-                                           <td><input type="radio" name="optradio"></td>
-                                           <td>coronelsean@gmail.com</td>
-                                           <td>coronelsean</td>
-                                              <td> Sean </td> 
-                                           <td> Coronel </td>
-                                            <td>Web Designer</td>
+                                            <td>Manager</td>
                                            
                                         </tr>
                                          <tr>
                                            <td><input type="radio" name="optradio"></td>
-                                           <td>coronelsean@gmail.com</td>
-                                           <td>coronelsean</td>
-                                              <td> Sean </td> 
-                                           <td> Coronel </td>
-                                            <td>Web Designer</td>
+                                           <td>timothyisleta@gmail.com</td>
+                                           <td>isletatimothy</td>
+                                              <td> Timothy </td> 
+                                           <td> Isleta </td>
+                                            <td>Project Manager</td>
                                            
                                         </tr>
                                         <tr>
                                            <td><input type="radio" name="optradio"></td>
-                                           <td>coronelsean@gmail.com</td>
-                                           <td>coronelsean</td>
-                                              <td> Sean </td> 
-                                           <td> Coronel </td>
+                                           <td>iekomolina@gmail.com</td>
+                                           <td>iekomolina</td>
+                                              <td> Ieko </td> 
+                                           <td> Molina </td>
                                             <td>Web Designer</td>
                                            
-                                        </tr>  
-                                         <tr>
-                                           <td><input type="radio" name="optradio"></td>
-                                           <td>coronelsean@gmail.com</td>
-                                           <td>coronelsean</td>
-                                              <td> Sean </td> 
-                                           <td> Coronel </td>
-                                            <td>Web Designer</td>
-                                           
-                                        </tr>
-                                        <tr>
-                                           <td><input type="radio" name="optradio"></td>
-                                           <td>coronelsean@gmail.com</td>
-                                           <td>coronelsean</td>
-                                              <td> Sean </td> 
-                                           <td> Coronel </td>
-                                            <td>Web Designer</td>
-                                           
-                                        </tr>                                                                                  
+                                        </tr>                                                                                 
                                         </tbody>
                                     </table>
                                        <center> <button type="button" class="btn btn-danger btn-sm" >Delete</button>
