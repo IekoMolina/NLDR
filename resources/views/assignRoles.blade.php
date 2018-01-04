@@ -37,6 +37,7 @@
       height: 34px;
     }
     .switch input {display:none;}
+    
     .slider {
       position: absolute;
       cursor: pointer;
@@ -48,32 +49,27 @@
       -webkit-transition: .4s;
       transition: .4s;
     }
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 26px;
-      width: 26px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
+
+
     input:checked + .slider {
       background-color: #2196F3;
     }
+
     input:focus + .slider {
       box-shadow: 0 0 1px #2196F3;
     }
+
     input:checked + .slider:before {
       -webkit-transform: translateX(26px);
       -ms-transform: translateX(26px);
       transform: translateX(26px);
     }
+    
     /* Rounded sliders */
     .slider.round {
       border-radius: 34px;
     }
+
     .slider.round:before {
       border-radius: 50%;
     }
@@ -111,10 +107,12 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> Administrator</a>
                         </li>
+
                         <li><a href="assignRoles"><i class="fa fa-gear fa-fw"></i> Assign Roles </a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="login"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -158,6 +156,7 @@
                                                 <option>FIRE</option>
                                             </select>
                                         </div>
+
                                         <div class="form-group col-lg-6">
                                             <label>Year</label>
                                             <select class="form-control" name="year">
@@ -167,6 +166,7 @@
                                                 <option>2016</option>
                                             </select>
                                         </div>
+
                                         <div align="text-center" class="form-group col-lg-3" >
                                             <input type="submit" name="submit" value="submit">
                                         </div>
@@ -406,3 +406,4 @@
 
 </body>
 </html>
+

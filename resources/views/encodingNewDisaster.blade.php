@@ -39,7 +39,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin: 0px 0px 0px 0px;">
             <div class="navbar-header">
-                     <a class="navbar-brand" href="https://www.gov.ph/">
+                     <a class="navbar-brand" href="home">
                         <img src="../img/RNP.png" style="width:30px;height:30px; margin: 0px 0px 0px 0px;"> 
                      </a>        
                     <a class="navbar-brand active" href="homeOCD">        <font color="white">Home    </font></a>
