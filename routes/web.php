@@ -115,3 +115,7 @@ Route::get('adminRemoveAccount', function () {
 
 //Route for Query Building
 Route::get('queryBuild', 'queryController@getData');
+
+//Route for File Upload
+Route::get('/uploadfile','UploadFileController@index');
+Route::post('/uploadfile','UploadFileController@showUploadFile');  
