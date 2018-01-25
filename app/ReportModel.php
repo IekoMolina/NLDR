@@ -15,7 +15,15 @@ class ReportModel extends Model
        					->select('GLIDEEVENT.*')
        					->get();
        	return $existingData;
-   	}
+    }
+	   public static function GetUserData() 
+	   {
+			   $existingData = DB::table('users')
+			   ->select('users.username', 'users.password')
+			   ->get();
+		   return $existingData;
+	   }
+	  
 
    	public static function getAllDisaster()
    	{

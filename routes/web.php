@@ -26,6 +26,12 @@ Route::resource('practice', 'PracticeController');
 Route::get('home', function () {
     return view('home'); //home.blade.php
 });
+Route::get('dashboard', function () {
+    return view('dash'); //dash.blade.php
+});
+Route::get('Admindashboard', function () {
+    return view('admin'); //admin.blade.php
+});
 
 Route::get('homeAdministrator', function () {
     return view('homeAdministrator'); //homeAdministrator.blade.php
@@ -44,10 +50,12 @@ Route::get('homeDrillDown1', function () {
 });  
 
 // Login Routes
-Route::get('login', function () {
-    return view('login'); //login.blade.php
-});  
-
+//Route::post('generateReport', 'reportController@passData');
+Route::post('loginchecker', 'LoginController@PassUserDetails');
+Route::get('login', 'LoginController@UserTrial');    
+/*
+Route::get('reports', 'reportController@getData');
+*/
 // Encoding Routes
 Route::get('encodingNewDisaster',  function () {
     return view('encodingNewDisaster');//encodingNewDisaster.blade.php 
