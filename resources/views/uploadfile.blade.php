@@ -107,12 +107,12 @@
                 <!-- /.col-lg-12 -->
             </div>
             <div class="row col-lg-12" align="center">
-	            <form action="upload.php" method="post" enctype="multipart/form-data">
-				    Select file to upload: <br>
-				    <input type="file" name="fileToUpload" id="fileToUpload"> <br>
-				    <input type="submit" value="Upload" name="submit" style="inline-block">
-				</form>
-			</div>  
+                <form action="upload.php" method="post" enctype="multipart/form-data">
+                    Select file to upload: <br>
+                    <input type="file" name="fileToUpload" id="fileToUpload"> <br>
+                    <input type="submit" value="Upload" name="submit" style="inline-block">
+                </form>
+            </div>  
         </div>
         <!-- /#page-wrapper -->
 

@@ -7,17 +7,14 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\DB;
-class Users extends Model
+
+class UsersModel extends Model
 {
 
     public static function selectUsers()
     {
 	   	$users = DB::table('users')->get(); 
-	   	return $users;
-	            /*->join('contacts', 'users.id', '=', 'contacts.user_id')
-	            ->join('orders', 'users.id', '=', 'orders.user_id')
-	            ->select('users.*', 'contacts.phone', 'orders.price')*/
-	                       
+	   	return $users;              
 	}
 
     public function insertData(Request $req)

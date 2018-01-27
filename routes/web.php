@@ -10,10 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// CRUD Practice Routes
-Route::get('/', 'Controller@getData');
-Route::post('/insert','Controller@insert');
-Route::get('/delete/{id}', ['uses' =>'Controller@delete']);
+// Create and Delete User Routes
+Route::get('users', 'UsersController@getData');
+Route::post('/insert','UsersController@insert');
+Route::get('/delete/{id}', ['uses' =>'UsersController@delete']);
+
 Route::get('about', function () {
     $arrayTest = [];
     return view('about', compact('arrayTest')); //about.blade.php
@@ -117,5 +118,8 @@ Route::get('adminRemoveAccount', function () {
 Route::get('queryBuild', 'queryController@getData');
 
 //Route for File Upload
-Route::get('/uploadfile','UploadFileController@index');
-Route::post('/uploadfile','UploadFileController@showUploadFile');  
+Route::get('/uploadfile','UploadFileController@careerpage');
+Route::post('/uploadfile','UploadFileController@store');  
+
+Route::get('apply', 'AvoCareersController@careerpage');
+Route::post('apply', 'AvoCareersController@store');
