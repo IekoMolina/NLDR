@@ -25,6 +25,27 @@
 				<td><input type="text" name="lastName"></td>
 			</tr>
 			<tr>
+				<td> UserName: </td>
+				<td><input type="text" name="userName"></td>
+			</tr>
+			<tr>
+				<td> Password: </td>
+				<td><input type="Password" name="password"></td>
+			</tr>
+			<tr>
+				<td> Email: </td>
+				<td><input type="text" name="email"></td>
+			</tr>
+			<tr>
+				<td> Position: </td>
+				<td>
+                    <select class="form-control" name="position">
+                        <option value="1">Administrator</option>
+                        <option value="2">Employee</option>
+                    </select>
+				</td>
+			</tr>
+			<tr>
 				<td><input type="submit" name="submit" value="Add">	</td>
 			</tr>
 		</table>
@@ -36,36 +57,41 @@
 		<tr>
 			<td>FirstName</td>
 			<td>LastName</td>
+			<td>UserName</td>
+			<td>Password</td>
+			<td>Email</td>
+			<td>Job Position</td>
 			<td>Action</td>
 		</tr>
 		@foreach($data as $value)
 		<tr>
-			<td>{{ $value->firstname }}</td>
-			<td>{{ $value->lastname }}</td>
-			<td><a href=""><button>Edit</button></a>&nbsp;<a href="/delete/{{ $value->id }}"><button>Delete</button></a></td>
+			<td>{{ $value->FIRSTNAME }}</td>
+			<td>	
+				@if ($value->USERSTATUSID == 1)
+				    Active
+				@elseif ($value->USERSTATUSID == 2)
+				    Inactive
+				@else
+				    Suspended
+				@endif
+			</td>	
+			<td>{{ $value->LASTNAME }}</td>
+			<td>{{ $value->USERNAME}}</td>
+			<td>{{ $value->EMAIL }}</td>
+			<td>
+			<td>	
+				@if ($value->USERTITLESID == 1)
+				    Admin
+				@else
+				    Employee
+				@endif
+			</td>
+			<td><a href="/delete/{{ $value->USERID }}"><button>Delete</button></a></td>
 		</tr>	
 		@endforeach
 	</table>
 </center>
 <!-- ./CRUD PRACTICE FORM -->
-<!-- AJAX PRACTICE -->
-<center>
-	<div class="container box">
-		<form name="add_tweet" method="post">
-			<h3 align="center"> Tweet Page </h3>
-			<div class="form-group">
-					<textarea name="tweet" id="tweet"></textarea>
-			</div>
-			<div class="form-group">
-				<input type="button" name="btn_tweet" id="btn_tweet">
-			</div>
-		</form>
-
-	<div id="load_tweets">
-	</div>
-
-</center>
-<!-- ./AJAX PRACTICE -->
 <!-- MODEL PRACTICE this uses model -->
 <center>
 	<div class="container box">

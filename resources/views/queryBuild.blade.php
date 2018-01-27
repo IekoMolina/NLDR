@@ -39,20 +39,12 @@
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin: 0px 0px 0px 0px;">
             <div class="navbar-header">
-                     <a class="navbar-brand" href="https://www.gov.ph/">
+                     <a class="navbar-brand" href="home">
                         <img src="../img/RNP.png" style="width:30px;height:30px; margin: 0px 0px 0px 0px;"> 
                      </a>        
-                    <a class="navbar-brand active" href="homeOCD">        <font color="white">Home    </font></a>
+                    <a class="navbar-brand" href="home">        <font color="white">Home    </font></a>
                     <a class="navbar-brand" href="reports">     <font color="white">Report  </font></a>
-                      <a class="navbar-brand" href="queryBuild">     <font color="white">Query  </font></a>
-                    <div class="dropdown navbar-brand">
-                        <a class="dropdown-toggle" data-toggle="dropdown">  <font color="white">Encode  </font> </a>
-                          <ul class="dropdown-menu">
-                            <li><a href="encodingNewDisaster">New Disaster</a></li>
-                            <li><a href="updateDisasterInfo">Update Disaster</a></li>                           
-                          </ul>
-
-                    </div>
+                    <a class="navbar-brand" href="encoding">  <font color="white">Encode  </font></a>
             </div>
             <!-- /.navbar-header -->
 
@@ -99,34 +91,6 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <!--
-                                    <form action="/generateReport" method="post">
-                                        <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                        <div class="form-group col-lg-6">
-                                            <label>Disaster Type</label>
-                                            <select class="form-control" name="disasterType">
-                                                <option>TYPHOON</option>
-                                                <option>EARTHQUAKE</option>
-                                                <option>FLASH FLOOD</option>
-                                                <option>FIRE</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group col-lg-6">
-                                            <label>Year</label>
-                                            <select class="form-control" name="year">
-                                                <option>2013</option>
-                                                <option>2014</option>
-                                                <option>2015</option>
-                                                <option>2016</option>
-                                            </select>
-                                        </div>
-
-                                        <div align="text-center" class="form-group col-lg-3" >
-                                            <input type="submit" name="submit" value="submit">
-                                        </div>
-                                    </form>
-                                    -->
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="panel panel-default">
@@ -149,9 +113,7 @@
                                                                     <div class="form-group">
                                                                         <label>Disaster Type</label>
                                                                         <select class="form-control" name="disasterType">
-                                                                           @foreach($disasterData as $value)
-                                                                            <option>{{ $value->DESCRIPTION }}</option>
-                                                                            @endforeach 
+                                                                             <option>Deaths</option>
                                                                         </select>
                                                                     </div>
                                                                     <div class="form-group">
@@ -167,7 +129,7 @@
                                                                                 <option>Evacuated Families</option>
                                                                                 <option>Evacuated Persons</option>
                                                                                 <option>Occupied Evacuation Centers</option>
-                                                                                <!-- disaster event filter-->
+                                                                                
                                                                             </select>
                                                                     </div>
                                                                     <div class="form-group">
@@ -184,10 +146,8 @@
                                                                     <div class="form-group">
                                                                         <label>Region/s Affected by the Disaster</label>
                                                                             <select multiple class="form-control" name="regionsAffected">
-                                                                                 @foreach($regions as $valueR)
-                                                                                <option> {{ $valueR->REGIONCODE }}</option> <!-- = date('Y', strtotime($dateData)) -->
-                                                                                @endforeach 
-                                                                            </select>
+                                                                                <option> </option> 
+                                                                                </select>
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label>Provinces Affected by the Disaster</label>
@@ -212,7 +172,7 @@
                                                                 </div>
                                                                 <div align="text-center" class="form-group col-lg-12" >
                                                                     <button type="submit" name="submit" class="btn btn-default">View Data</button>
-                                                                    <button type="reset" name="reset" class="btn btn-default">Reset</button>
+                                                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Customize</button>
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -233,6 +193,37 @@
                 <!-- /.col-lg-8 -->
             </div>
             <!-- /.row -->
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Select Filters</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                          <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                          </div> 
+                          <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                          </div>     
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <!-- /Modal -->
         </div>
         <!-- /#page-wrapper -->
 
