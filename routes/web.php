@@ -86,13 +86,6 @@ Route::get('updateDisasterInfoDetails', function () {
     return view('encodingUpdateDisasterInfoDetails'); //updateDisasterInfoDetails.blade.php
 }); 
 
-Route::get('queryBuild', function () {
-    return view('queryBuild'); //queryBuild.blade.php
-}); 
-
-Route::get('queryResults', function () {
-    return view('queryResults'); //queryResults.blade.php
-}); 
 
 Route::get('assignRoles', function () {
     return view('assignRoles'); //assignRoles.blade.php
@@ -115,7 +108,7 @@ Route::get('adminRemoveAccount', function () {
 });   
 
 //Route for Query Building
-Route::get('queryBuild', 'queryController@getData');
+//Route::get('queryBuild', 'queryController@getData');
 
 //Route for File Upload
 Route::get('/uploadfile','UploadFileController@careerpage');
@@ -123,3 +116,10 @@ Route::post('/uploadfile','UploadFileController@store');
 
 Route::get('apply', 'AvoCareersController@careerpage');
 Route::post('apply', 'AvoCareersController@store');
+
+//Test Routes
+Route::get('queryBuild',array('as'=>'queryBuild','uses'=>'queryController@getData'));
+Route::get('queryBuild/ajax/{id}',array('as'=>'queryBuild.ajax','uses'=>'queryController@getSubsectorAjax'));
+Route::get('queryBuildR/ajax/{id}',array('as'=>'queryBuildR.ajax','uses'=>'queryController@getProvinceAjax'));
+Route::get('queryBuildC/ajax/{id}',array('as'=>'queryBuildC.ajax','uses'=>'queryController@getCityAjax'));
+Route::post('/queryResult', 'queryController@passData');

@@ -138,35 +138,7 @@
                          <div class="panel-body">
                              <div class="row col-lg-12">
                                 <table id="example" class="table table-bordered table-striped">
-                                    <thead bgcolor="#00FF00">                                    
-                                        <!--<div class="col-lg-12">
-                                            <p class="col-lg-1"></p>
-                                            <p class="col-lg-1"></p>
-                                            <p class="col-lg-1"></p>
-                                            <p class="col-lg-1"></p>
-                                            <p class="col-lg-1"></p>
-                                            <p class="col-lg-1"></p>
-                                            <p class="col-lg-1"></p>
-                                            <p class="col-lg-1"></p>
-                                            <p class="col-lg-1"><b>DAMAGES</b></p>
-                                            <p class="col-lg-1"></p>
-                                            <p class="col-lg-1"></p>
-                                            <p class="col-lg-1"></p>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <p class="col-lg-1"></p>
-                                            <p class="col-lg-1"></p>
-                                            <p class="col-lg-1"></p>
-                                            <p class="col-lg-1"><b>AFFECTED</b></p>
-                                            <p class="col-lg-1"><b></b></p>
-                                            <p class="col-lg-1"><b>CASUALTIES</b>   </p>
-                                            <p class="col-lg-1"></p>
-                                            <p class="col-lg-1"><b>HOUSES</b></p>
-                                            <p class="col-lg-1"><b>PROPERTIES(M)</b></p>
-                                            <p class="col-lg-1"></p>
-                                            <p class="col-lg-1"><b></b></p>
-                                            <p class="col-lg-1"><b></b></p>
-                                        </div>  -->                                     
+                                    <thead bgcolor="#00FF00">                                                                       
                                         <tr>
                                             <th>NAME</th>
                                             <th>START</th>

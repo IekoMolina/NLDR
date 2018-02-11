@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>National Loss and Damage Registry</title>
 
     <!-- Bootstrap Core CSS -->
@@ -100,7 +100,7 @@
                                                 <div class="panel-body">
                                                     <div class="row">
                                                         <div class="col-lg-24" align="text-center">
-                                                            <form role="form" action="/filterdata" method="post">
+                                                            <form role="form" action="/queryResult" method="post">
                                                                 <div class="col-lg-4 col-md-offset-2">
                                                                     <div class="form-group">
                                                                         <label>Start Date</label>
@@ -111,14 +111,8 @@
                                                                         <input class="form-control" type="date" name="endDate">
                                                                     </div>
                                                                     <div class="form-group">
-                                                                        <label>Disaster Type</label>
-                                                                        <select class="form-control" name="disasterType">
-                                                                             <option>Deaths</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="form-group">
                                                                         <label>Select Events With</label>
-                                                                            <select multiple class="form-control" name="eventsFilter">
+                                                                            <select multiple class="form-control" name="events">
                                                                                 <option>Deaths</option>
                                                                                 <option>Injured Casualties</option>
                                                                                 <option>Missing Casualties</option>
@@ -133,40 +127,45 @@
                                                                             </select>
                                                                     </div>
                                                                     <div class="form-group">
-                                                                        <label>Select Sectors that Events Affected With</label>
-                                                                            <select multiple class="form-control" name="eventsFilter">
-                                                                                <option>Infrastructure</option>
-                                                                                <option>Agriculture</option>
-                                                                                <option>Private / Commercial</option>
-                                                                                <!-- disaster sectors event filter-->
+                                                                        <label>Sector</label>
+                                                                            <select multiple name="sector" class="form-control">
+                                                                               @foreach($sectors as $key => $value)
+                                                                                <option value="{{ $key }}">{{ $value }}</option>
+                                                                                @endforeach 
+                                                                            </select>
+                                                                    </div>
+                                                                     <div class="form-group">
+                                                                        <label>Subsector</label>
+                                                                            <select multiple name="subsector" class="form-control">
+                                                                            </select>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Disaster Type</label>
+                                                                            <select multiple class="form-control" name="disasterType">
+                                                                                @foreach($disasterType as $valueD)
+                                                                                <option value="{{ $valueD->DISTYPEID }}">{{ $valueD->DISASTERTYPE }}</option>
+                                                                                @endforeach
                                                                             </select>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-4">
                                                                     <div class="form-group">
                                                                         <label>Region/s Affected by the Disaster</label>
-                                                                            <select multiple class="form-control" name="regionsAffected">
-                                                                                <option> </option> 
-                                                                                </select>
+                                                                            <select multiple class="form-control" name="region">
+                                                                               @foreach($region as $key => $valueR)
+                                                                                <option value="{{ $key }}">{{ $valueR }}</option>
+                                                                                @endforeach 
+                                                                            </select>
+
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label>Provinces Affected by the Disaster</label>
-                                                                            <select multiple class="form-control" name="provincesAffected">
-                                                                                <option>Cavite</option>
-                                                                                <option>Laguna</option>
-                                                                                <option>Batangas</option>
-                                                                                <option>Rizal</option>
-                                                                                <option>Quezon Province</option>
-                                                                                <!-- region 4 provinces-->
+                                                                            <select multiple class="form-control" name="province">
                                                                             </select>
                                                                     </div>
                                                                     <div class="form-group">
-                                                                        <label>Cities/Municipalities Affected by the Disaster</label>
-                                                                            <select multiple class="form-control" name="citiesAffected">
-                                                                                <option>Silang</option>
-                                                                                <option>Kawit</option>
-                                                                                <option>Maragondon</option>
-                                                                                <!-- region 4 cavite municipalities-->
+                                                                        <label>Citites/Municipalities Affected by the Disaster</label>
+                                                                            <select multiple class="form-control" name="city">
                                                                             </select>
                                                                     </div>
                                                                 </div>
@@ -242,5 +241,76 @@
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
 
+    <!-- Ajax for Sector/Subsector -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('select[name="sector"]').on('change', function() {
+            var sectorID = $(this).val();
+            if(sectorID) {
+                $.ajax({
+                    url: '/queryBuild/ajax/'+sectorID,
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {                        
+                        $('select[name="subsector"]').empty();
+                        $.each(data, function(key, value) {
+                            $('select[name="subsector"]').append('<option value="'+ key +'">'+ value +'</option>');
+                        });
+                    }
+                });
+            }else{
+                $('select[name="subsector"]').empty();
+            }
+        });
+    });
+    </script>
+
+    <!-- Ajax for Region/Provinces -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('select[name="region"]').on('change', function() {
+            var regionID = $(this).val();
+            if(regionID) {
+                $.ajax({
+                    url: '/queryBuildR/ajax/'+regionID,
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {                        
+                        $('select[name="province"]').empty();
+                        $.each(data, function(key, value) {
+                            $('select[name="province"]').append('<option value="'+ key +'">'+ value +'</option>');
+                        });
+                    }
+                });
+            }else{
+                $('select[name="province"]').empty();
+            }
+        });
+    });
+    </script>
+
+    <!-- Ajax for Provinces/Municipalities -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('select[name="province"]').on('change', function() {
+            var provID = $(this).val();
+            if(provID) {
+                $.ajax({
+                    url: '/queryBuildC/ajax/'+provID,
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {                        
+                        $('select[name="city"]').empty();
+                        $.each(data, function(key, value) {
+                            $('select[name="city"]').append('<option value="'+ key +'">'+ value +'</option>');
+                        });
+                    }
+                });
+            }else{
+                $('select[name="city"]').empty();
+            }
+        });
+    });
+    </script>
 </body>
 </html>
