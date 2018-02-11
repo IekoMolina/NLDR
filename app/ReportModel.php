@@ -108,20 +108,4 @@ class ReportModel extends Model
               //Only all infra damages that are DMGLOSSTYPEID (0=na,1=public,2=private)
       return $yearlyData;
     }
-    /*
-    public static function getPDNA()
-    {
-      $pdnaData = DB::table('')
-    }
-
-    public static function getSector()
-    {
-      $sectorData = DB::table('')
-    }
-
-    public static function getLocation()
-    {
-      $pdnaData = DB::table('')
-    }
-    */
 }

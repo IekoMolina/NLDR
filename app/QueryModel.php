@@ -17,19 +17,47 @@ class QueryModel extends Model
        	return $existingData;
    	}
 
-   	public static function getAllDisaster()
+    // Gets all disaster type from the database
+   	public static function getAllDisasterType()
    	{
    		$disasterData = DB::table('DISASTERTYPE')
-   						  ->select('DISASTERTYPE.DISASTERTYPE')
+   						  ->select('DISASTERTYPE.*')
    						  ->get();
    		return $disasterData; 
    	}
 
+    // Gets all region from the database
    	public static function getAllRegion()
    	{
    		$region = DB::table('REGION')
-   					->select('REGION.REGIONCODE')
+   					->select('REGION.*')
    					->get();
    		return $region;
    	}
+
+  // Gets all sector from the database
+    public static function getAllSector()
+    {
+      $sector = DB::table('SECTOR')
+      ->select('SECTOR.*')
+      ->get();
+      return $sector;
+    }
+
+    //Get all subsector from database with id
+    public static function getAllSubsector($id)
+    {
+      $subsectors = DB::table("SUBSECTOR")
+            ->where("SECTORID",$id)
+            ->lists("SUBSECTOR","SUBSECTORID");
+      return $subsectors;
+    }
+
+    //Get all data that are result of the query
+    public static function getQueryDataFiltered($req)
+    {
+
+
+      return $startDate;
+    }
 }
