@@ -20,18 +20,15 @@ class queryController extends BaseController
     {
         $queryData = QueryModel::getQueryDataFiltered($req);
 
-              $startDate = $req->input('startDate');
-      $endDate = $req->input('endDate');
-      $event = $req->input('events');
-      $sector = $req->input('sector');
-      $subsector = $req->input('subsector');
-      $disasterType = $req->input('disasterType');
-      $region = $req->input('region');
-      $province = $req->input('province');
-      $city = $req->input('city');
-
-        //return view('test')->with('startDate',$startDate);
-        echo $startDate;        
+       if(count($queryData) > 0)
+       {
+        echo $queryData;
+       }
+       else
+       {
+        echo "Nope wala kasing laman";
+       }
+        
     }
 
     public function getData()
@@ -128,6 +125,19 @@ class queryController extends BaseController
         else
         {
             return view('reportsVisual');
+        }
+    }
+
+    public function getDataFilter(Request $req)
+    {
+
+    }
+
+    public function passDataFilter(Request $req)
+    {
+        $selected = $req->input('filter');
+        foreach ($selected as $f){ 
+            echo $f."<br />";
         }
     }
 }
