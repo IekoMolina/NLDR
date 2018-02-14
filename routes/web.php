@@ -117,9 +117,12 @@ Route::post('/uploadfile','UploadFileController@store');
 Route::get('apply', 'AvoCareersController@careerpage');
 Route::post('apply', 'AvoCareersController@store');
 
-//Test Routes
+// Query Builder Routes
 Route::get('queryBuild',array('as'=>'queryBuild','uses'=>'queryController@getData'));
 Route::get('queryBuild/ajax/{id}',array('as'=>'queryBuild.ajax','uses'=>'queryController@getSubsectorAjax'));
 Route::get('queryBuildR/ajax/{id}',array('as'=>'queryBuildR.ajax','uses'=>'queryController@getProvinceAjax'));
 Route::get('queryBuildC/ajax/{id}',array('as'=>'queryBuildC.ajax','uses'=>'queryController@getCityAjax'));
-Route::post('/queryResult', 'queryController@passData');
+Route::post('queryResult', 'queryController@passData');
+
+Route::get('queryBuildFilter', 'queryController@getDataFilter');
+Route::post('queryBuildFilter', 'queryController@passDataFilter');
