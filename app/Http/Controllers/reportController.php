@@ -21,12 +21,12 @@ class reportController extends BaseController
 
         if(count($yearlyData)>0)
         {
-            return view('reportsDrillDown')->with('yearlyData',$yearlyData)->with('date', $date);
+            return view('reportsResults')->with('yearlyData',$yearlyData)->with('date', $date);
         }
         else
         {      
             $yearlyData = array();
-            return view('reportsDrillDown')->with('yearlyData',$yearlyData)->with('date', $date);
+            return view('reportsResults')->with('yearlyData',$yearlyData)->with('date', $date);
         }       
       /* return view('reportsDrillDown')->with([
             'disasterType'=> $disasterType,
@@ -69,19 +69,10 @@ class reportController extends BaseController
 
     public function getDataVisual()
     {
-       $data = ReportModel::getExistingDisaster();
-       $disasterData = ReportModel::getAllDisaster();
-       $regions = ReportModel::getAllRegion();
-       
-        if(count($data)>0)
-        {
-            return view('reportsVisual')->with('data', $data)->with('disasterData', $disasterData)->with('regions', $regions); 
-        }
-
-        else
-        {
-            return view('reportsVisual');
-        }
+        $disasterData = ReportModel::getAllDisaster();
+        $regions = ReportModel::getAllRegion();
+        $date = ReportModel::getDistinctDate();
+        return view('reportsVisual')->with('disasterData',$disasterData)->with('regions', $regions);
     }
 }
 
