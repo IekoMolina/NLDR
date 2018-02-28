@@ -103,8 +103,8 @@
                                                 Department of National Defense <br>                                       
                                                 <b> OFFICE OF CIVIL DEFENSE </b>       <br>   
                                                 Camp Emilio Aguinaldo, Quezon City     <br>
-                                                <b> {{ $disasterType }}  AND THEIR  EFFECTS </b>  <br>  
-                                               <b>  {{ $damages }} Damages per Million in {{ $regions}}</b>  <br>                       
+                                                <b>  AND THEIR  EFFECTS </b>  <br>  
+                                               <b>  Damages per Million in </b>  <br>                       
                                                      
                                             </div>
                                             <br>
@@ -113,15 +113,16 @@
                                          <!-- /.Panel Heading -->
                                          <!-- Panel Body -->
                                          <div class="panel-body">
+                                            //INSERT IF STATEMENT HERE
                                              <div class="row col-lg-12">
-                                                <div id="tenure" ></div>
+                                                <div id="area" ></div>
                                              </div>
                                             <!-- ./Panel Body -->
                                             <div class="row" align="center">
-                                                <!-- Print Button
+                                                <!-- Print Button-->
                                                  <button class="btn btn-primary" onclick="myFunction()" style="inline-block">
                                                     <span class="glyphicon glyphicon-print"></span> Print
-                                                 </button> -->
+                                                 </button> 
                                                  <!-- ./Print Button -->
                                             </div>
                                             <!-- /.table-->
@@ -167,7 +168,7 @@
     <!-- Morris/Graphs -->
     <script>
         Morris.Bar({
-          element: 'tenure',
+          element: 'bar',
           data: [
             { y: 'Ilocos Norte', a: 100,},
             { y: 'Ilocos Sur', a: 75, },
@@ -177,6 +178,29 @@
           xkey: 'y',
           ykeys: ['a'],
           labels: ['Damages(M)']
+        });
+    </script>
+
+    <script>
+        new Morris.Line({
+          // ID of the element in which to draw the chart.
+          element: 'line',
+          // Chart data records -- each entry in this array corresponds to a point on
+          // the chart.
+          data: [
+            { year: '2008', value: 20 },
+            { year: '2009', value: 10 },
+            { year: '2010', value: 5 },
+            { year: '2011', value: 5 },
+            { year: '2012', value: 20 }
+          ],
+          // The name of the data record attribute that contains x-values.
+          xkey: 'year',
+          // A list of names of data record attributes that contain y-values.
+          ykeys: ['value'],
+          // Labels for the ykeys -- will be displayed when you hover over the
+          // chart.
+          labels: ['Value']
         });
     </script>
 

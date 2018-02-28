@@ -37,7 +37,7 @@
         body,
         html {
             width: 100%;
-            overflow: hidden;
+            overflow: scroll;
         }
 
         * {
@@ -103,32 +103,16 @@
                     <div class="panel panel-default">
                         <!-- Panel Heading -->
                         <div class="panel-heading">    
-                            <!-- Report Header                                     @foreach ($date as $d)
-                                        <option>{{ date('Y', strtotime( $d->STARTDATE))}}</option>
-                                     @endforeach-->
+                            <!-- Report Header -->
                             <br>
                             <div class="row" align="center">
                                     Department of National Defense               <br>                                       
                                 <b> OFFICE OF CIVIL DEFENSE </b>                 <br>   
                                     Camp Emilio Aguinaldo, Quezon City           <br>
-                               <b>
-                                 @for ($x = 0; $x < count($yearlyData); $x++)
-                                    @if($x == 0)
-                                        {{ $yearlyData[$x]->RGDESC }}
-                                    @endif
-                                 @endfor
-                                 and Their  Effects
-                                </b>                                             <br> 
-                                 @for ($x = 0; $x < count($yearlyData); $x++)
-                                    @if($x == 0)
-                                        {{ date('Y', strtotime( $yearlyData[$x]->STARTDATE)) }}
-                                    @endif
-                                 @endfor
-                                <!--<select>
-                                    <option>2011</option>
-                                    <option>2012</option>
-                                    <option>2013</option>
-                                </select>-->                                          
+                                    @foreach ($date as $d)
+                                        <option>{{ date('Y', strtotime( $d->STARTDATE))}}</option>
+                                     @endforeach
+                               <b>                                         
                             </div>
                             <br>
                              <!-- /.Report Header -->
@@ -143,18 +127,17 @@
                                             <th>NAME</th>
                                             <th>START</th>
                                             <th>END</th>
-                                            <th>REG</th>
-                                            <th>PROV</th>                                            
-                                            <th>AFFECTED</th>
-                                            <th>EVACUATED</th>
+                                            <th>REG</th>                                  
+                                            <th>Affected</th>
+                                            <th>Evacuated</th>
                                             <th>DEAD</th>
                                             <th>INJ</th>
                                             <th>MIS</th>
-                                            <th>TOT</th>
-                                            <th>PART</th>
-                                            <th>AGRI(MM)</th>
-                                            <th>INFRA(MM)</th>
-                                            <th>Total Damages(MM)</th>
+                                            <th>Asset DMG</th>
+                                            <th>Asset Loss</th>
+                                            <th>Agri Loss</th>
+                                            <th>Prod Loss</th>
+                                            <th>Total Loss</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -163,20 +146,17 @@
                                             <td>{{ $allData->DISASTERNAME}}</td>
                                             <td>{{ $allData->STARTDATE}}</td>
                                             <td>{{ $allData->ENDDATE}}</td>
-                                           <!-- <td>{{ $allData->REGIONCODE}}</td> -->
-                                           <!-- <td>{{ $allData->DESCRIPTION}}</td> -->
-                                           <td><a>9999</a></td>
-                                           <td><a>8888</a></td>
-                                            <td>{{ $allData->AFFECTEDFAM}}</td>
+                                            <td><a>{{ $allData->REGIONCODE}}</a></td>                       
                                             <td>{{ $allData->AFFECTEDPERS}}</td>
+                                            <td>{{ $allData->EVACPERS}}</td>
                                             <td>{{ $allData->DEAD}}</td>
                                             <td>{{ $allData->INJURED}}</td>
                                             <td>{{ $allData->MISSING}}</td>
-                                            <td>{{ $allData->DMGQTY}}</td>
-                                            <td>{{ $allData->DESQTY}}</td>
-                                            <td>{{ $allData->LDMG}}</td>
-                                            <td>{{ $allData->IDMG}}</td>
-                                            <td>{{ $allData->totalDMG}}</td>
+                                            <td>{{ $allData->TOTALDMGS}}</td>
+                                            <td>{{ $allData->ASLOSS}}</td>
+                                            <td>{{ $allData->AGLOSS}}</td>
+                                            <td>{{ $allData->PLOSS}}</td>
+                                            <td>{{ $allData->totalLOSS}}</td>
                                         </tr> 
                                     @endforeach        
                                     </tbody>
@@ -256,7 +236,7 @@
     $(document).ready(function() {
         $('#example').DataTable({
             "bFilter": false,
-            "paging":   false,
+            //  "paging":   false,
             "info":     false
         });
 

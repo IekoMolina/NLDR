@@ -126,3 +126,8 @@ Route::post('queryResult', 'queryController@passData');
 
 Route::get('queryBuildFilter', 'queryController@getDataFilter');
 Route::post('queryBuildFilter', 'queryController@passDataFilter');
+
+//Download as excel and csv
+Route::get('importExport', 'MaatwebsiteDemoController@importExport');
+Route::get('downloadExcel/{type}', 'MaatwebsiteDemoController@downloadExcel');
+Route::post('importExcel', 'MaatwebsiteDemoController@importExcel');

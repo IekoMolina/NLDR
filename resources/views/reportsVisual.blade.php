@@ -118,9 +118,6 @@
                                         <div class="form-group col-lg-6">
                                             <label>Year</label>
                                             <select class="form-control" name="year">
-                                                <!-- @foreach($data as $valueY)
-                                                <option> {{ date('Y', strtotime($valueY->STARTDATE)) }}</option>
-                                                @endforeach -->
                                                 <option>2017</option>
                                             </select>
                                         </div>
@@ -140,6 +137,15 @@
                                                  @foreach($regions as $valueR)
                                                 <option> {{ $valueR->REGIONCODE }}</option> <!-- = date('Y', strtotime($dateData)) -->
                                                 @endforeach 
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-lg-6">
+                                            <label>Type of Visual </label>
+                                            <select class="form-control" name="regions">
+                                                <option> Line </option>
+                                                <option> Bar</option> 
+                                                <option> Doughnut </option>  
                                             </select>
                                         </div>
                                         <div align="text-center" class="form-group col-lg-3" >
