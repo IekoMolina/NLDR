@@ -82,7 +82,7 @@ class QueryModel extends Model
         ->join('AGENCY','AGENCY.AGENCYID','=','NEEDS.AGENCYID')
         ->join('TASK','TASK.TASKID','=','NEEDS.TASKID')
         ->select('REGION.*')
-        ->get();
+        ->get();  
 
         return $queryDataFiltered;
     }

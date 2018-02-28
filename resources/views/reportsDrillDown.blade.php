@@ -160,7 +160,7 @@
                                     <tbody>
                                     @foreach($yearlyData as $allData)                                                                           
                                         <tr>
-                                            <td>{{ $allData->INCIDENTNAME}}</td>
+                                            <td>{{ $allData->DISASTERNAME}}</td>
                                             <td>{{ $allData->STARTDATE}}</td>
                                             <td>{{ $allData->ENDDATE}}</td>
                                            <!-- <td>{{ $allData->REGIONCODE}}</td> -->
@@ -168,12 +168,12 @@
                                            <td><a>9999</a></td>
                                            <td><a>8888</a></td>
                                             <td>{{ $allData->AFFECTEDFAM}}</td>
-                                            <td>{{ $allData->AFFECTEDPER}}</td>
+                                            <td>{{ $allData->AFFECTEDPERS}}</td>
                                             <td>{{ $allData->DEAD}}</td>
                                             <td>{{ $allData->INJURED}}</td>
                                             <td>{{ $allData->MISSING}}</td>
-                                            <td>{{ $allData->DMGHOUSES}}</td>
-                                            <td>{{ $allData->DESHOUSES}}</td>
+                                            <td>{{ $allData->DMGQTY}}</td>
+                                            <td>{{ $allData->DESQTY}}</td>
                                             <td>{{ $allData->LDMG}}</td>
                                             <td>{{ $allData->IDMG}}</td>
                                             <td>{{ $allData->totalDMG}}</td>
@@ -194,9 +194,9 @@
                              </button> 
                              <!-- ./Print Button -->
 
-                            <!-- Export Button -->
+                            <!-- Export Button   <img src ="http://icons.iconarchive.com/icons/ncrow/mega-pack-1/128/Excel-icon.png" width="10%"; height="10%">-->
                             <button id="create_excel" class="btn btn-primary" style="inline-block">
-                                    <img src ="http://icons.iconarchive.com/icons/ncrow/mega-pack-1/128/Excel-icon.png" width="10%"; height="10%"> Export to Excel
+                                   Export to Excel
                             </button>
                             <!-- ./Export Button -->
                              <!-- Print Button -->

@@ -98,18 +98,49 @@
                                                     Filter Data
                                                 </div>
                                                 <div class="panel-body">
-                                                    <div class="row">
+                                                   <div class="row">
                                                         <div class="col-lg-24" align="text-center">
                                                             <form role="form" action="/queryResult" method="post">
                                                                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                                                                 <div class="col-lg-4 col-md-offset-2">
-                                                                    <div class="form-group">
+                                                                @foreach ($default as $def)
+                                                                    @if($def == 'STARTDATE')                                                        
+                                                                     <div class="form-group">
                                                                         <label>Start Date</label>
                                                                         <input class="form-control" type="date" name="startDate">
                                                                     </div>
+
+                                                                    @elseif($def == 'ENDDATE') 
                                                                     <div class="form-group">
                                                                         <label>End Date</label>
                                                                         <input class="form-control" type="date" name="endDate">
+                                                                    </div>
+
+                                                                    @elseif($def == 'SECTOR') 
+                                                                    <div class="form-group">
+                                                                        <label>Sector</label>
+                                                                            <select multiple name="sector" class="form-control">
+                                                                               @foreach($sectors as $key => $value)
+                                                                                <option value="{{ $key }}">{{ $value }}</option>
+                                                                                @endforeach 
+                                                                            </select>
+                                                                    </div>
+
+                                                                    @elseif($def == 'SUBSECTOR') 
+                                                                     <div class="form-group">
+                                                                        <label>Subsector</label>
+                                                                            <select multiple name="subsector" class="form-control">
+                                                                            </select>
+                                                                    </div>
+
+                                                                    @elseif($def == 'DISASTERTYPE') 
+                                                                    <div class="form-group">
+                                                                        <label>Disaster Type</label>
+                                                                            <select multiple class="form-control" name="disasterType">
+                                                                                @foreach($disasterType as $valueD)
+                                                                                <option value="{{ $valueD->DISTYPEID }}">{{ $valueD->DISASTERTYPE }}</option>
+                                                                                @endforeach
+                                                                            </select>
                                                                     </div>
                                                                     <!--<div class="form-group">
                                                                         <label>Select Events With</label>
@@ -126,30 +157,10 @@
                                                                                 <option>Occupied Evacuation Centers</option>
                                                                                 
                                                                             </select>
-                                                                    </div> -->
-                                                                    <div class="form-group">
-                                                                        <label>Sector</label>
-                                                                            <select multiple name="sector" class="form-control">
-                                                                               @foreach($sectors as $key => $value)
-                                                                                <option value="{{ $key }}">{{ $value }}</option>
-                                                                                @endforeach 
-                                                                            </select>
-                                                                    </div>
-                                                                     <div class="form-group">
-                                                                        <label>Subsector</label>
-                                                                            <select multiple name="subsector" class="form-control">
-                                                                            </select>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label>Disaster Type</label>
-                                                                            <select multiple class="form-control" name="disasterType">
-                                                                                @foreach($disasterType as $valueD)
-                                                                                <option value="{{ $valueD->DISTYPEID }}">{{ $valueD->DISASTERTYPE }}</option>
-                                                                                @endforeach
-                                                                            </select>
-                                                                    </div>
+                                                                    </div>-->
                                                                 </div>
                                                                 <div class="col-lg-4">
+                                                                    @elseif($def == 'REGION') 
                                                                     <div class="form-group">
                                                                         <label>Region/s Affected by the Disaster</label>
                                                                             <select multiple class="form-control" name="region">
@@ -157,18 +168,46 @@
                                                                                 <option value="{{ $key }}">{{ $valueR }}</option>
                                                                                 @endforeach 
                                                                             </select>
-
                                                                     </div>
+
+                                                                    @elseif($def == 'PROVINCE')
                                                                     <div class="form-group">
                                                                         <label>Provinces Affected by the Disaster</label>
                                                                             <select multiple class="form-control" name="province">
+                                                                               @foreach($province as $key => $valueP)
+                                                                                <option value="{{ $key }}">{{ $valueP }}</option>
+                                                                                @endforeach                                                            
                                                                             </select>
                                                                     </div>
+
+                                                                    @elseif($def == 'LOCALITY')
                                                                     <div class="form-group">
-                                                                        <label>Citites/Municipalities Affected by the Disaster</label>
+                                                                        <label>Locality Affected by the Disaster</label>
                                                                             <select multiple class="form-control" name="city">
+                                                                               @foreach($locality as $key => $valueL)
+                                                                                <option value="{{ $key }}">{{ $valueL }}</option>
+                                                                                @endforeach                                                                                                    
                                                                             </select>
                                                                     </div>
+
+                                                                    @elseif($def == 'NEEDS')
+                                                                    <div class="form-group">
+                                                                        <label>NEEDS</label>
+                                                                        <input type="checkbox" name="needs" value="TRUE">
+                                                                    </div>
+                                                                    
+                                                                    @elseif($def == 'LOSS')
+                                                                    <div class="form-group">
+                                                                        <label>LOSSES</label>
+                                                                            <select multiple class="form-control" name="loss">
+                                                                                <option value="1">Asset Loss</option>
+                                                                                <option value="2">Agriculture Loss</option>
+                                                                                <option value="3">Product Loss</option>
+                                                                                <option value="4">Macroecon Loss</option>                                                 
+                                                                            </select>
+                                                                    </div>
+                                                                    @endif
+                                                                @endforeach
                                                                 </div>
                                                                 <div align="text-center" class="form-group col-lg-12" >
                                                                     <button type="submit" name="submit" class="btn btn-default">View Data</button>
@@ -206,15 +245,14 @@
                   <form action="/queryBuildFilter" method="post">
                   <input type="hidden" name="_token" value="{{csrf_token()}}">
                   <div class="modal-body">
-                      <input type="checkbox" name="filter[]" value="startDate" checked> Start Date<br>
-                      <input type="checkbox" name="filter[]" value="endDate"  checked> End Date<br>
+                      <input type="checkbox" name="filter[]" value="STARTDATE" checked> Start Date<br>
+                      <input type="checkbox" name="filter[]" value="ENDDATE"  checked> End Date<br>
                       <input type="checkbox" name="filter[]" value="SECTOR"  checked> Sector<br>
-                      <input type="checkbox" name="filter[]" value="SUBSECTOR" checked> Subsector<br>
+                      <input type="checkbox" name="filter[]" value="SUBSECTOR"> Subsector<br>
                       <input type="checkbox" name="filter[]" value="DISASTERTYPE"  checked> Disaster Type<br>
                       <input type="checkbox" name="filter[]" value="REGION" checked> Region<br>
-                      <input type="checkbox" name="filter[]" value="PROVINCE"  checked>Province<br>
-                      <input type="checkbox" name="filter[]" value="LOCALITY" checked> City/Municipality<br>
-                      <input type="checkbox" name="filter[]" value="CATEGORY"> Category<br>
+                      <input type="checkbox" name="filter[]" value="PROVINCE">Province<br>
+                      <input type="checkbox" name="filter[]" value="LOCALITY"> Locality<br>
                       <input type="checkbox" name="filter[]" value="LOSS"> Loss<br>
                       <input type="checkbox" name="filter[]" value="NEEDS"> Needs<br>
                   </div>

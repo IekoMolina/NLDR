@@ -15,6 +15,8 @@ use DB;
 
 class queryController extends BaseController
 {
+    private $def  = ['STARTDATE','ENDDATE','SECTOR','SUBSECTORID','DISASTERTYPE','REGION'];
+
     // get input data and pass to other page
     public function passData(Request $req)
     {
@@ -33,11 +35,24 @@ class queryController extends BaseController
 
     public function getData()
     {
+       // static $count = 0;
+        //$count++;
+       // echo "this function has been called ". $count. " times";
+     // Create Default Fields WHAT IF YUNG DEFAULT VARUABLES YUNG NASA LABAS
+        $default = $this->def;
+        print_r($default);
+        foreach ($default as $defs)
+        {
+          echo $defs;
+        }
+       
        $disasterType = QueryModel::getAllDisasterType();
        $region = DB::table("region")->pluck("REGIONCODE","REGIONID");
-
+       $province = DB::table("province")->pluck("PROVINCE","PROVID");
+       $locality = DB::table("locality")->pluck("LOCALITYNAME","LOCALITYID");
        $sectors = DB::table("sector")->pluck("SECTOR","SECTORID");
-        return  view('queryBuild', compact('sectors','region'))->with('disasterType',$disasterType);
+
+        return  view('queryBuild', compact('sectors','region','province','locality'))->with('disasterType',$disasterType)->with('default',$default);
 
        // Put code that gets all tables here and pass to modal
        /*$tables = DB::select('SHOW TABLES');
@@ -57,7 +72,10 @@ class queryController extends BaseController
         }*/
     }
 
+    public function setFields()
+    {
 
+    }
     //Get sector
     /*public function getSector()
     {
@@ -95,50 +113,20 @@ class queryController extends BaseController
         return json_encode($city);
     }       
 
-    //Report with Visuals
-    public function passDataVisual(Request $req)
+    public function getDataFilter()
     {
-        $disasterType = $req->input('disasterType');
-        $year = $req->input('year');
-        $damages = $req->input('damages');
-        $regions = $req->input('regions');
 
-        return view('reportsVisualDetails')->with([
-            'disasterType'=> $disasterType,
-            'year'=> $year,
-            'damages'=> $damages,
-            'regions'=> $regions
-            ]);
-    }
-
-    public function getDataVisual()
-    {
-       $data = ReportModel::getExistingDisaster();
-       $disasterData = ReportModel::getAllDisaster();
-       $regions = ReportModel::getAllRegion();
         
-        if(count($data)>0)
-        {
-            return view('reportsVisual')->with('data', $data)->with('disasterData', $disasterData)->with('regions', $regions); 
-        }
-
-        else
-        {
-            return view('reportsVisual');
-        }
-    }
-
-    public function getDataFilter(Request $req)
-    {
-
     }
 
     public function passDataFilter(Request $req)
     {
-        $selected = $req->input('filter');
-        foreach ($selected as $f){ 
-            echo $f."<br />";
-        }
+
+     $selected = $req->input('filter');
+     $this->def = $selected;
+     print_r($this->def);
+
+    //return redirect('queryBuild');
     }
 }
 
