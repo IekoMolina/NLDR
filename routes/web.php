@@ -114,8 +114,8 @@ Route::get('adminRemoveAccount', function () {
 Route::get('/uploadfile','UploadFileController@careerpage');
 Route::post('/uploadfile','UploadFileController@store');  
 
-Route::get('apply', 'AvoCareersController@careerpage');
-Route::post('apply', 'AvoCareersController@store');
+Route::get('apply', 'fileController@careerpage');
+Route::post('apply', 'fileController@store');
 
 // Query Builder Routes
 Route::get('queryBuild',array('as'=>'queryBuild','uses'=>'queryController@getData'));

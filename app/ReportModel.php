@@ -11,15 +11,15 @@ class ReportModel extends Model
 {
    	public static function getExistingDisaster()
    	{
-       	$existingData = DB::table('GLIDEEVENT')
-       					->select('GLIDEEVENT.*')
+       	$existingData = DB::table('DISASTER')
+       					->select('DISASTER.*')
        					->get();
        	return $existingData;
    	}
 
     public static function getDistinctDate()
     {
-      $dates = DB::table('GLIDEEVENT')
+      $dates = DB::table('DISASTER')
                 //date('Y', strtotime( $d->STARTDATE))
                 //->select('STARTDATE')
                 //->distinct(DB::raw('YEAR(STARTDATE)'), '=', date('Y'))
@@ -31,16 +31,16 @@ class ReportModel extends Model
 
    	public static function getAllDisaster()
    	{
-   		$disasterData = DB::table('REF_GLIDEEVENTTYPE')
-   						  ->select('REF_GLIDEEVENTTYPE.DESCRIPTION')
+   		$disasterData = DB::table('DISASTERTYPE')
+   						  ->select('DISASTERTYPE.DISASTERTYPE')
    						  ->get();
    		return $disasterData; 
    	}
 
    	public static function getAllRegion()
    	{
-   		$region = DB::table('REF_REGION')
-   					->select('REF_REGION.REGIONCODE')
+   		$region = DB::table('REGION')
+   					->select('REGION.REGIONCODE')
    					->get();
    		return $region;
    	}
@@ -74,33 +74,70 @@ class ReportModel extends Model
     {
         $disasterType = $req->input('disasterType');
         $year = $req->input('year');
-
-            $yearlyData = DB::table('REF_GLIDEEVENTTYPE')
-              ->join('GLIDEEVENT', 'REF_GLIDEEVENTTYPE.GLIDEEVENTTYPECODE','=','GLIDEEVENT.GLIDEEVENTTYPECODE')
-              ->join('PDNA','GLIDEEVENT.GLIDEEVENTID','=','PDNA.GLIDEEVENTID')
-              ->join('PDNADETAILS','PDNA.PDNAID','=','PDNADETAILS.PDNAID')
-              ->join('REF_INCIDENT','PDNA.INCIDENTTYPECODE','=','REF_INCIDENT.INCIDENTTYPECODE')
-              ->join('REF_INCIDENTSOURCE','REF_INCIDENT.INCIDENTSOURCEID','=','REF_INCIDENTSOURCE.INCIDENTSOURCEID') 
-              ->join('RESETTLEMENT','PDNADETAILS.RESETTLEMENTID','=','RESETTLEMENT.RESETTLEMENTID')
-              ->join('LIVELIHOOD','PDNADETAILS.LIVELIHOODID','=','LIVELIHOOD.LIVELIHOODID')//livelihhod
-              ->join('REF_LIVELIHOODDMG','LIVELIHOOD.LIVELIHOODDMGID','=','REF_LIVELIHOODDMG.LIVELIHOODDMGID')
-              ->join('INFRA','PDNADETAILS.INFRAID','=','INFRA.INFRAID')//infra
-              /*->join('RECOVERY','PDNADETAILS.PDNAID','=','RECOVERY.PDNAID')//recovery
-              ->join('TASKS','RECOVERY.PROJECTID','=','TASKS.PROJECTID')//TASKS
-              ->join('REF_AGENCY','TASKS.AGENCYID','=','REF_AGENCY.AGENCYID')//Agency  
-              
-              ->join('SOCIAL','PDNADETAILS.SOCIALID','=','SOCIAL.SOCIALID')//social
-              //subsector Should it be where in?? or join pa din
-              //->join('')//ref_dmg same here?*/
-              ->join('REF_CITY/MUNICIPALITY','PDNADETAILS.CITY/MUNICIPALITYID','=','REF_CITY/MUNICIPALITY.CITY/MUNICIPALITYID')
-              ->join('REF_PROVINCE','REF_CITY/MUNICIPALITY.PROVINCEID','=','REF_PROVINCE.PROVINCEID')
-              ->join('REF_REGION','REF_PROVINCE.REGIONCODE','=','REF_REGION.REGIONCODE')
-              //->select('GLIDEEVENT.*','REF_GLIDEEVENTTYPE.*','PDNA.*','REF_CITY/MUNICIPALITY.*','REF_PROVINCE.*','REF_REGION.*','PDNADETAILS.*')
-              ->select('REF_GLIDEEVENTTYPE.DESCRIPTION as RGDESC','PDNA.INCIDENTNAME','PDNA.STARTDATE','PDNA.ENDDATE','REF_REGION.REGIONCODE','REF_PROVINCE.DESCRIPTION','REF_CITY/MUNICIPALITY.DESCRIPTION',
-                     'PDNADETAILS.AFFECTEDFAM','PDNADETAILS.AFFECTEDPER','PDNADETAILS.DEAD','PDNADETAILS.INJURED','PDNADETAILS.MISSING','RESETTLEMENT.DMGHOUSES','RESETTLEMENT.DESHOUSES','LIVELIHOOD.DAMAGES as LDMG','INFRA.DAMAGES as IDMG', DB::raw('LIVELIHOOD.DAMAGES + INFRA.DAMAGES as totalDMG'))
+        printf($disasterType);
+        printf($year);
+            $yearlyData = DB::table('DISASTER')
+              ->join('DISASTERTYPE', 'DISASTER.DISTYPEID','=','DISASTERTYPE.DISTYPEID')
+              ->join('LOCALITY','DISASTER.LOCALITYID','=','LOCALITY.LOCALITYID') 
+              ->join('PROVINCE','LOCALITY.PROVID','=','PROVINCE.PROVID')
+              ->join('REGION','PROVINCE.REGIONID','=','REGION.REGIONID') 
+              ->join('ASSETS_LOSS','DISASTER.DISASTERID','=','ASSETS_LOSS.DISASTERID')
+              ->join('AGRI_LOSS','DISASTER.DISASTERID','=','AGRI_LOSS.DISASTERID')
+              ->join('PROD_LOSS','DISASTER.DISASTERID','=','PROD_LOSS.DISASTERID')
+              ->join('MACROECON_LOSS','DISASTER.DISASTERID','=','MACROECON_LOSS.DISASTERID')
+              ->join('ASSETS_DMG','DISASTER.DISASTERID','=','ASSETS_DMG.DISASTERID')  
+              //STOEPD HERE MUNA HANAPIN YUNG DAMAED HOUSE ANF SHIT
+              /* ->select('DISASTERTYPE.DISASTERTYPE as RGDESC','DISASTER.DISASTERNAME','DISASTER.STARTDATE','DISASTER.ENDDATE','REGION.REGIONCODE','PROVINCE.PROVINCE','LOCALITY.LOCALITYNAME',
+                     'DISASTER.AFFECTEDFAM','DISASTER.AFFECTEDPERS','DISASTER.DEAD','DISASTER.INJURED','DISASTER.MISSING','RESETTLEMENT.DMGHOUSES','RESETTLEMENT.DESHOUSES','LIVELIHOOD.DAMAGES as LDMG','INFRA.DAMAGES as IDMG', DB::raw('LIVELIHOOD.DAMAGES + INFRA.DAMAGES as totalDMG')) //REST:EMENT AND DAMGE HOUSES FIND IT
+                     //,'ASSETS_DMG.DMGQTY','ASSETS_DMG.DESQTY','ASSETS_DMG.TOTALDMGS as LDMG','AGRI_LOSS.TOTAL as IDMG', DB::raw('ASSETS_DMG.TOTALDMGS + AGRI_LOSS.TOTAL as totalDMG') 
+              */
+              ->select('DISASTERTYPE.DISASTERTYPE as RGDESC','DISASTER.DISASTERNAME','DISASTER.STARTDATE','DISASTER.ENDDATE','REGION.REGIONCODE','PROVINCE.PROVINCE','LOCALITY.LOCALITYNAME',
+                     'DISASTER.AFFECTEDFAM','DISASTER.AFFECTEDPERS','DISASTER.DEAD','DISASTER.INJURED','DISASTER.MISSING')
               ->where([
-                          ['REF_GLIDEEVENTTYPE.DESCRIPTION', '=', $disasterType],
-                          ['GLIDEEVENT.STARTDATE', 'LIKE', '%'.$year.'%'] 
+                          ['DISASTERTYPE.DISASTERTYPE', '=', 'Tropical Cyclone'],
+                          ['DISASTER.STARTDATE', 'LIKE', '%'.'2017'.'%']
+                      ])
+              ->get();
+              //Only all infra damages that are DMGLOSSTYPEID (0=na,1=public,2=private)
+              print_r($yearlyData);
+      return $yearlyData;
+    }
+
+        //GETS ALL THE INFORMATION ABOUTA DISASER THAN HAPPENED IN A REGION
+    public static function getReportDataFilteredVisual  ($req)
+    {
+        $disasterType = $req->input('disasterType');
+        $year = $req->input('year');
+
+            $yearlyData = DB::table('DISASTER')
+              ->join('DISASTERTYPE', 'DISASTERTYPE.DISTYPEID','=','DISASTER.DISTYPEID')
+              ->join('DISASTERSOURCE','DISASTERSOURCE.DISSOURCEID','=','DISASTERTYPE.DISSOURCEID')
+              ->join('LOCALITY','LOCALITY.LOCALITYID','=','DISASTER.LOCALITYID')
+              ->join('LOCALITYTYPE','LOCALITYTYPE.LOCTYPEID','=','LOCALITY.LOCTYPEID')
+              ->join('PROVINCE','PROVINCE.PROVID','=','LOCALITY.PROVID')
+              ->join('REGION','REGION.REGIONID','=','PROVINCE.REGIONID') 
+              ->join('ISLANDGRP','ISLANDGRP.ISLANDGRPID','=','REGION.ISLANDGRPID')
+              ->join('NEEDS','NEEDS.DISASTERID','=','DISASTER.DISASTERID')
+              ->join('TASK','TASK.TASKID','=','NEEDS.TASKID')
+              ->join('TASKTYPE','TASKTYPE.TASKTYPEID','=','TASK.TASKTYPEID')
+              ->join('AGENCY','AGENCY.AGENCYID','=','TASK.AGENCYID')
+              ->join('ASSETS_LOSS','ASSETS_LOSS.DISASTERID','=','DISASTER.DISASTERID')
+              ->join('AGRI_LOSS','AGRI_LOSS.DISASTERID','=','DISASTER.DISASTERID')
+              ->join('PROD_LOSS','PROD_LOSS.DISASTERID','=','DISASTER.DISASTERID')
+              ->join('MACROECON_LOSS','MACROECON_LOSS.DISASTERID','=','DISASTER.DISASTERID')
+              ->join('ASSETS_DMG','ASSETS_DMG.DISASTERID','=','DISASTER.DISASTERID')
+              ->join('ASSETS','ASSETS.ASSETSID','=','ASSETS_DMG.ASSETSID')
+              ->join('ASSET_CATEGORY','ASSET_CATEGORY.ASSETCATEGORYID','=','ASSETS.ASSETCATEGORYID')
+              ->join('CATEGORY','CATEGORY.CATEGORYID','=','ASSET_CATEGORY.CATEGORYID')
+              //STOEPD HERE MUNA HANAPIN YUNG DAMAED HOUSE ANF SHIT
+              /* ->select('DISASTERTYPE.DISASTERTYPE as RGDESC','DISASTER.DISASTERNAME','DISASTER.STARTDATE','DISASTER.ENDDATE','REGION.REGIONCODE','PROVINCE.PROVINCE','LOCALITY.LOCALITYNAME',
+                     'DISASTER.AFFECTEDFAM','DISASTER.AFFECTEDPERS','DISASTER.DEAD','DISASTER.INJURED','DISASTER.MISSING','RESETTLEMENT.DMGHOUSES','RESETTLEMENT.DESHOUSES','LIVELIHOOD.DAMAGES as LDMG','INFRA.DAMAGES as IDMG', DB::raw('LIVELIHOOD.DAMAGES + INFRA.DAMAGES as totalDMG')) //REST:EMENT AND DAMGE HOUSES FIND IT
+              */
+              ->select('DISASTERTYPE.DISASTERTYPE as RGDESC','DISASTER.DISASTERNAME','DISASTER.STARTDATE','DISASTER.ENDDATE','REGION.REGIONCODE','PROVINCE.PROVINCE','LOCALITY.LOCALITYNAME',
+                     'DISASTER.AFFECTEDFAM','DISASTER.AFFECTEDPERS','DISASTER.DEAD','DISASTER.INJURED','DISASTER.MISSING','RESETTLEMENT.DMGHOUSES','RESETTLEMENT.DESHOUSES','LIVELIHOOD.DAMAGES as LDMG','INFRA.DAMAGES as IDMG', DB::raw('LIVELIHOOD.DAMAGES + INFRA.DAMAGES as totalDMG')) //REST:EMENT AND DAMGE HOUSES FIND IT
+              ->where([
+                          ['DISASTERTYPE.DISASTERTYPE', '=', $disasterType],
+                          ['DISASTER.STARTDATE', 'LIKE', '%'.$year.'%'] 
 
                       ])
 

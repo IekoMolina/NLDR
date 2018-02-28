@@ -72,7 +72,7 @@ class reportController extends BaseController
        $data = ReportModel::getExistingDisaster();
        $disasterData = ReportModel::getAllDisaster();
        $regions = ReportModel::getAllRegion();
-        
+       
         if(count($data)>0)
         {
             return view('reportsVisual')->with('data', $data)->with('disasterData', $disasterData)->with('regions', $regions); 

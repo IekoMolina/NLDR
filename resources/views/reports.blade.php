@@ -99,7 +99,7 @@
                                             <label>Disaster Type</label>
                                             <select class="form-control" name="disasterType">
                                                @foreach($disasterData as $value)
-                                                <option>{{ $value->DESCRIPTION }}</option>
+                                                <option value="{{ $value->DISASTERTYPE }}">{{ $value->DISASTERTYPE }}</option>
                                                 @endforeach 
                                             </select>
                                         </div>
@@ -122,9 +122,7 @@
                                                  @for ($x = 0; $x < count($a); $x++)
                                                     
                                                  @endfor
-                                                <option value="2011">2011</option>
-                                                <option value="2012">2012</option>
-                                                <option value="2013">2013</option>
+                                                <option value="2017">2017</option>
                                             </select>
                                         </div>
 
