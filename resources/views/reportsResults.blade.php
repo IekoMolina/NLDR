@@ -127,12 +127,12 @@
                                             <th>NAME</th>
                                             <th>START</th>
                                             <th>END</th>
-                                            <th>REG</th>                                  
-                                            <th>Affected</th>
-                                            <th>Evacuated</th>
-                                            <th>DEAD</th>
-                                            <th>INJ</th>
-                                            <th>MIS</th>
+                                            <th>#Locality</th>                                  
+                                            <th>#Affected</th>
+                                            <th>#Evacuated</th>
+                                            <th>#DEAD</th>
+                                            <th>#INJ</th>
+                                            <th>#MIS</th>
                                             <th>Asset DMG</th>
                                             <th>Asset Loss</th>
                                             <th>Agri Loss</th>
@@ -141,24 +141,36 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($yearlyData as $allData)                                                                           
+                                @foreach($yearlyData as $allData)                                                                           
                                         <tr>
                                             <td>{{ $allData->DISASTERNAME}}</td>
                                             <td>{{ $allData->STARTDATE}}</td>
                                             <td>{{ $allData->ENDDATE}}</td>
-                                            <td><a>{{ $allData->REGIONCODE}}</a></td>                       
-                                            <td>{{ $allData->AFFECTEDPERS}}</td>
-                                            <td>{{ $allData->EVACPERS}}</td>
-                                            <td>{{ $allData->DEAD}}</td>
-                                            <td>{{ $allData->INJURED}}</td>
-                                            <td>{{ $allData->MISSING}}</td>
-                                            <td>{{ $allData->TOTALDMGS}}</td>
-                                            <td>{{ $allData->ASLOSS}}</td>
-                                            <td>{{ $allData->AGLOSS}}</td>
-                                            <td>{{ $allData->PLOSS}}</td>
-                                            <td>{{ $allData->totalLOSS}}</td>
-                                        </tr> 
-                                    @endforeach        
+                                            <form action="/reportsResultDrill" method="post">
+                                            <td><a type="submit" name="locality" value="PEPE">{{ $allData->CLOC}}</a></td>
+                                            </form>
+                                            <td>{{ $allData->SDAP}}</td>
+                                            <td>{{ $allData->SEP}}</td>
+                                            <td>{{ $allData->SDEAD}}</td>
+                                            <td>{{ $allData->SINJ}}</td>
+                                            <td>{{ $allData->SMISS}}</td>
+                                    @endforeach  
+                                    @foreach($assetDMG as $dmg)      
+                                            <td>{{ $dmg->ADMG }}</td>
+                                    @endforeach
+                                    @foreach($assetLOSS as $aloss)      
+                                            <td>{{ $aloss->ASLOSS }}</td>
+                                    @endforeach
+                                    @foreach($agriLOSS as $agloss)      
+                                            <td>{{ $agloss->AGLOSS }}</td>
+                                    @endforeach 
+                                    @foreach($prodLOSS as $ploss)      
+                                            <td>{{ $ploss->PLOSS }}</td>
+                                    @endforeach
+                                    @foreach($totalLOSS as $tloss)      
+                                            <td>{{ $tloss->PLOSS }}</td>
+                                            </tr> 
+                                    @endforeach      
                                     </tbody>
                                 </table>
                             </div>

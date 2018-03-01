@@ -97,7 +97,7 @@ Route::get('reports', 'reportController@getData');
 Route::post('generateReport', 'reportController@passData');
 Route::get('reportsVisual', 'reportController@getDataVisual'); 
 Route::post('generateReportVisuals', 'reportController@passDataVisual');   
-
+Route::post('reportsResultDrill', 'reportController@getRegionDetails');
 // Account Creattion routes
 Route::get('adminCreateAccount', function () {
     return view('adminCreateAccount'); 
