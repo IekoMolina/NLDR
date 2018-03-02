@@ -177,7 +177,7 @@
           ],
           xkey: 'y',
           ykeys: ['a'],
-          labels: ['Damages(M)']
+          labels: ['Losses(M)']
         });
     </script>
 

@@ -21,16 +21,14 @@ class queryController extends BaseController
     public function passData(Request $req)
     {
         $queryData = QueryModel::getQueryDataFiltered($req);
-        print_r($queryData);
-       //if(count($queryData) > 0)
-       //{
-        //echo $queryData;
-       //}
-       //else
-       //{
-        //echo "Nope wala kasing laman";
-       //}
-        
+       if(count($queryData) > 0)
+       {
+        return view('queryResults')->with('queryData',$queryData);
+       }
+       else
+       {
+        return view('queryResults');
+       }        
     }
 
     public function getData()

@@ -124,7 +124,7 @@ class ReportModel extends Model
       return $dmg;
     }
         //GETS ALL THE INFORMATION ABOUTA DISASER THAN HAPPENED IN A REGION
-    public static function getReportDataFilteredVisual  ($req)
+    public static function getReportDataFilteredVisualSAMPLE  ($req)
     {
         $disasterType = $req->input('disasterType');
         $year = $req->input('year');
@@ -191,5 +191,25 @@ class ReportModel extends Model
               ])
               ->get();            
         return $disasterData;
+    }
+
+    public static function getReportDataFilteredVisual(Request $req)
+    {
+      $disasterType = $req->input('disasterType');
+      $year = $req->input('year');
+      $losses = $req->input('losses');
+      $regions = $req->input('regions');
+      $typeGraph = $req->input('graphs');
+
+      $filteredData = DB::table('DISASTER')
+              ->join('DISASTERTYPE', 'DISASTER.DISTYPEID','=','DISASTERTYPE.DISTYPEID') 
+              ->select('')
+                    ->where([
+                          ['DISASTERTYPE.DISASTERTYPE', '=', $disasterType],
+                          ['DISASTER.STARTDATE', 'LIKE', '%'.$year.'%'] 
+
+                      ])
+
+        return $disasterType;
     }
 }

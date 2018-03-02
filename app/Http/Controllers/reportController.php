@@ -68,17 +68,10 @@ class reportController extends BaseController
     //Report with Visuals
     public function passDataVisual(Request $req)
     {
-        $disasterType = $req->input('disasterType');
-        $year = $req->input('year');
-        $damages = $req->input('damages');
-        $regions = $req->input('regions');
+       // $filteredData = ReportModel::getReportDataFilteredVisual($req);
+        //print_r($filteredData);
 
-        return view('reportsVisualDetails')->with([
-            'disasterType'=> $disasterType,
-            'year'=> $year,
-            'damages'=> $damages,
-            'regions'=> $regions
-            ]);
+        return view('reportsVisualDetails');
     }
 
     public function getDataVisual()

@@ -66,31 +66,25 @@ class QueryModel extends Model
       $region = $req->input('region');
       $province = $req->input('province');
       $city = $req->input('city');
-      print_r($startDate);
-      print_r($sector);
-      print_r($endDate);
-      print_r($region);
-      print_r($disasterType);
 
       $queryDataFiltered = DB::table('DISASTER')
       ->join('DISASTERTYPE', 'DISASTER.DISTYPEID','=','DISASTERTYPE.DISTYPEID')
       //->join('AGRI_LOSS', 'DISASTER.DISASTERID','=','AGRI_LOSS.DISASTERID')
       //->join('CATEGORY', 'AGRI_LOSS.CATEGORYID','=','CATEGORY.CATEGORYID')
-      //->join('SUBSECTOR', 'CATEGORY.SUBSECTORID','=','SUBSECTOR.SUBSECTORID'), 'SECTOR.*','SUBSECTOR.*'
+      //->join('SUBSECTOR', 'CATEGORY.SUBSECTORID','=','SUBSECTOR.SUBSECTORID'), 'SECTOR.*','SUBSECTOR.*','REGION.REGIONCODE'
       //->join('SECTOR', 'SUBSECTOR.SECTORID','=','SECTOR.SECTORID')
       ->join('LOCALITY', 'LOCALITY.LOCALITYID','=','DISASTER.LOCALITYID')
       ->join('PROVINCE','PROVINCE.PROVID','=','LOCALITY.PROVID')
       ->join('REGION','REGION.REGIONID','=','PROVINCE.REGIONID')
-      ->select('DISASTER.*', 'DISASTERTYPE.DISASTERTYPE','REGION.REGIONCODE')
+      ->select('DISASTER.*', 'DISASTERTYPE.DISASTERTYPE','LOCALITY.LOCALITYNAME')
       ->where([
             ['DISASTERTYPE.DISASTERTYPE', '=', $disasterType],
             ['DISASTER.STARTDATE', '>=', $startDate],
             ['DISASTER.ENDDATE', '<=', $endDate],
             //['SECTOR.SECTORID', '=', $sector],
-            ['REGION.REGIONCODE', '=', $region]
+            //['REGION.REGIONCODE', '=', $region]
         ])
         ->get();  
-
         return $queryDataFiltered;
     }
 }
