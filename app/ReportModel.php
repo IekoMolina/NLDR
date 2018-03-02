@@ -45,31 +45,6 @@ class ReportModel extends Model
    		return $region;
    	}
 
-   	public static function getReportData()
-   	{
-   		$yearlyData = DB::table('REF_GLIDEEVENTTYPE')
-   						->join('GLIDEEVENT', 'REF_GLIDEEVENTTYPE.GLIDEEVENTTYPECODE','=','GLIDEEVENT.GLIDEEVENTTYPECODE')
-   						->join('PDNA','GLIDEEVENT.GLIDEEVENTID','=','PDNA.GLIDEEVENTID')
-              ->join('PDNADETAILS','PDNA.PDNAID','=','PDNADETAILS.PDNAID')
-              ->join('REF_INCIDENT','PDNA.INCIDENTTYPECODE','=','REF_INCIDENT.INCIDENTTYPECODE')
-              ->join('REF_INCIDENTSOURCE','REF_INCIDENT.INCIDENTSOURCEID','=','REF_INCIDENTSOURCE.INCIDENTSOURCEID') 
-              ->join('RESETTLEMENT','PDNADETAILS.RESETTLEMENTID','=','RESETTLEMENT.RESETTLEMENTID')
-              //recovery
-              ->join('INFRA','PDNADETAILS.INFRAID','=','INFRA.INFRAID')//infra
-              ->join('LIVELIHOOD','PDNADETAILS.LIVELIHOODID','=','LIVELIHOOD.LIVELIHOODID')//livelihhod
-              ->join('REF_LIVELIHOODDMG','LIVELIHOOD.LIVELIHOODDMGID','=','REF_LIVELIHOODDMG.LIVELIHOODDMGID')
-              ->join('SOCIAL','PDNADETAILS.SOCIALID','=','SOCIAL.SOCIALID')//social
-              //subsector Should it be where in?? or join pa din
-              //ref_dmg same here?
-   						->join('REF_CITY/MUNICIPALITY','PDNADETAILS.CITY/MUNICIPALITYID','=','REF_CITY/MUNICIPALITY.CITY/MUNICIPALITYID')
-   						->join('REF_PROVINCE','REF_CITY/MUNICIPALITY.PROVINCEID','=','REF_PROVINCE.PROVINCEID')
-   						->join('REF_REGION','REF_PROVINCE.REGIONCODE','=','REF_REGION.REGIONCODE')
-   						->select('GLIDEEVENT.*','REF_GLIDEEVENTTYPE.*','PDNA.*','REF_CITY/MUNICIPALITY.*','REF_PROVINCE.*','REF_REGION.*','PDNADETAILS.*')
-   						->get();
-   		return $yearlyData;
-   	}
-
-
     //GETS ALL THE INFORMATION ABOUTA DISASER THAN HAPPENED IN A REGION
     public static function getReportDataFiltered($req)
     {
@@ -80,11 +55,6 @@ class ReportModel extends Model
               ->join('LOCALITY','DISASTER.LOCALITYID','=','LOCALITY.LOCALITYID') 
               ->join('PROVINCE','LOCALITY.PROVID','=','PROVINCE.PROVID')
               ->join('REGION','PROVINCE.REGIONID','=','REGION.REGIONID') 
-              //->innerJoin('ASSETS_DMG','ASSETS_DMG.DISASTERID','=','DISASTER.DISASTERID')
-              //->join('ASSETS_LOSS','ASSETS_LOSS.DISASTERID','=','DISASTER.DISASTERID') 
-              //->join('AGRI_LOSS','AGRI_LOSS.DISASTERID','=','DISASTER.DISASTERID')
-              //->join('PROD_LOSS','PROD_LOSS.DISASTERID','=','DISASTER.DISASTERID')
-              //->join('MACROECON_LOSS','MACROECON_LOSS.DISASTERID','=','DISASTER.DISASTERID')
               ->select('DISASTER.DISASTERNAME','DISASTER.STARTDATE','DISASTER.ENDDATE', 'DISASTERTYPE.DISASTERTYPE',
                                               DB::raw('COUNT(DISASTER.LOCALITYID) as CLOC'),
                                               DB::raw('SUM(DISASTER.AFFECTEDPERS) as SDAP'),
@@ -92,11 +62,6 @@ class ReportModel extends Model
                                               DB::raw('SUM(DISASTER.DEAD) as SDEAD'),
                                               DB::raw('SUM(DISASTER.INJURED) as SINJ'),
                                               DB::raw('SUM(DISASTER.MISSING) as SMISS')
-                                              //DB::raw('SUM(ASSETS_DMG.TOTALDMGS) as ADT')
-                                             // DB::raw('SUM(ASSETS_LOSS.TOTAL) as ALT'),
-                                             // DB::raw('SUM(AGRI_LOSS.TOTAL) as AGLT'),
-                                              //DB::raw('SUM(PROD_LOSS.ESTLOSSCOST) as PLT'),
-                                             // DB::raw('SUM(PROD_LOSS.ESTLOSSCOST) + SUM(AGRI_LOSS.TOTAL) + SUM(ASSETS_LOSS.TOTAL) as totalLoss') 
                         )
               ->where([
                           ['DISASTERTYPE.DISASTERTYPE', '=', $disasterType],
@@ -208,5 +173,23 @@ class ReportModel extends Model
 
               */
       return $yearlyData;
+    }
+
+    public static function getDisasterLocality(Request $req)
+    {
+      $temp = $req->input('DISASTERNAME');
+      //var_dump($temp);
+        $disasterData = DB::table('DISASTER')
+              ->join('LOCALITY', 'DISASTER.LOCALITYID','=','LOCALITY.LOCALITYID')
+              ->join('DISASTERTYPE', 'DISASTER.DISTYPEID','=','DISASTERTYPE.DISTYPEID')
+              ->join('PROVINCE','LOCALITY.PROVID','=','PROVINCE.PROVID')
+              ->join('REGION','PROVINCE.REGIONID','=','REGION.REGIONID')
+              ->select('LOCALITY.LOCALITYNAME','PROVINCE.PROVINCE','REGION.REGIONCODE','DISASTER.DEAD','DISASTER.MISSING','DISASTER.INJURED','DISASTER.AFFECTEDFAM','DISASTER.AFFECTEDPERS','DISASTER.EVACFAM','DISASTER.EVACPERS','DISASTER.EVCS')
+
+              ->where([
+                ['DISASTER.DISASTERNAME','=',$temp]
+              ])
+              ->get();            
+        return $disasterData;
     }
 }

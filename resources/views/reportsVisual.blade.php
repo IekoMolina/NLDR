@@ -123,11 +123,12 @@
                                         </div>
 
                                          <div class="form-group col-lg-6">
-                                            <label>Damages (in Millions) </label>
+                                            <label>Losses </label>
                                             <select class="form-control" name="damages">
-                                                <option>Infrastructure</option>
+                                                <option>Assets</option>
                                                 <option>Agriculture</option>
-                                                <option>Private Property</option>
+                                                <option>Product</option>
+                                                <option>Macroecon</option>
                                             </select>
                                         </div>
 
@@ -144,8 +145,7 @@
                                             <label>Type of Visual </label>
                                             <select class="form-control" name="regions">
                                                 <option> Line </option>
-                                                <option> Bar</option> 
-                                                <option> Doughnut </option>  
+                                                <option> Bar</option>  
                                             </select>
                                         </div>
                                         <div align="text-center" class="form-group col-lg-3" >

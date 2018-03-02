@@ -141,14 +141,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                <input type="hidden" id="textfield2" name="textfield2" />
                                 @foreach($yearlyData as $allData)                                                                           
                                         <tr>
                                             <td>{{ $allData->DISASTERNAME}}</td>
                                             <td>{{ $allData->STARTDATE}}</td>
                                             <td>{{ $allData->ENDDATE}}</td>
-                                            <form action="/reportsResultDrill" method="post">
-                                            <td><a type="submit" name="locality" value="PEPE">{{ $allData->CLOC}}</a></td>
-                                            </form>
+                                            <td onClick='newMethod("{{$allData->DISASTERNAME}}")'><li><a href="{!! route('disasterKey',['DISASTERNAME'=>$allData->DISASTERNAME]) !!}" value="{{$allData->DISASTERNAME}}">{{ $allData->CLOC}}</a></td>
                                             <td>{{ $allData->SDAP}}</td>
                                             <td>{{ $allData->SEP}}</td>
                                             <td>{{ $allData->SDEAD}}</td>
@@ -166,11 +165,9 @@
                                     @endforeach 
                                     @foreach($prodLOSS as $ploss)      
                                             <td>{{ $ploss->PLOSS }}</td>
-                                    @endforeach
-                                    @foreach($totalLOSS as $tloss)      
-                                            <td>{{ $tloss->PLOSS }}</td>
-                                            </tr> 
-                                    @endforeach      
+                                            <td>2345100</td>
+                                            </tr>  
+                                    @endforeach        
                                     </tbody>
                                 </table>
                             </div>
@@ -224,6 +221,12 @@
     <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
 
 </body>
+<script type="text/javascript">
+    function newMethod($value)
+    {
+        textfield2.allData = $value;
+    }
+</script>
 <script>
     Morris.Bar({
       element: 'employee-tardiness',

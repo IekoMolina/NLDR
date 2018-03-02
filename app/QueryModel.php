@@ -66,22 +66,29 @@ class QueryModel extends Model
       $region = $req->input('region');
       $province = $req->input('province');
       $city = $req->input('city');
+      print_r($startDate);
+      print_r($sector);
+      print_r($endDate);
+      print_r($region);
+      print_r($disasterType);
 
       $queryDataFiltered = DB::table('DISASTER')
-        ->join('LOCALITY', 'LOCALITY.LOCALITYID','=','DISASTER.LOCALITYID')
-        ->join('PROVINCE','PROVINCE.PROVID','=','LOCALITY.PROVID')
-        ->join('REGION','REGION.REGIONID','=','PROVINCE.REGIONID')
-        ->join('ASSETS_LOSS','ASSETS_LOSS.LOSSID','=','DISASTER.LOSSID')
-        ->join('PROD_LOSS','PROD_LOSS.PRODLOSSID','=','DISASTER.PRODLOSSID') 
-        ->join('AGRI_LOSS','AGRI_LOSS.AGRILOSSID','=','DISASTER.AGRILOSSID')
-        ->join('MACROECON_LOSS','MACROECON_LOSS.MACROECONLOSSID','=','DISASTER.MACROECONLOSSID')
-        ->join('CATEGORY','CATEGORY.CATEGORYID','=','MACROECON_LOSS.ASSETCATEGORYID')
-        ->join('SUBSECTOR','SUBSECTOR.SUBSECTORID','=','CATEGORY.SUBSECTORID')
-        ->join('SECTOR','SECTOR.SECTORID','=','SUBSECTOR.SECTORID')
-        ->join('NEEDS','NEEDS.SUBSECTORID','=','SUBSECTOR.SUBSECTORID')
-        ->join('AGENCY','AGENCY.AGENCYID','=','NEEDS.AGENCYID')
-        ->join('TASK','TASK.TASKID','=','NEEDS.TASKID')
-        ->select('REGION.*')
+      ->join('DISASTERTYPE', 'DISASTER.DISTYPEID','=','DISASTERTYPE.DISTYPEID')
+      //->join('AGRI_LOSS', 'DISASTER.DISASTERID','=','AGRI_LOSS.DISASTERID')
+      //->join('CATEGORY', 'AGRI_LOSS.CATEGORYID','=','CATEGORY.CATEGORYID')
+      //->join('SUBSECTOR', 'CATEGORY.SUBSECTORID','=','SUBSECTOR.SUBSECTORID'), 'SECTOR.*','SUBSECTOR.*'
+      //->join('SECTOR', 'SUBSECTOR.SECTORID','=','SECTOR.SECTORID')
+      ->join('LOCALITY', 'LOCALITY.LOCALITYID','=','DISASTER.LOCALITYID')
+      ->join('PROVINCE','PROVINCE.PROVID','=','LOCALITY.PROVID')
+      ->join('REGION','REGION.REGIONID','=','PROVINCE.REGIONID')
+      ->select('DISASTER.*', 'DISASTERTYPE.DISASTERTYPE','REGION.REGIONCODE')
+      ->where([
+            ['DISASTERTYPE.DISASTERTYPE', '=', $disasterType],
+            ['DISASTER.STARTDATE', '>=', $startDate],
+            ['DISASTER.ENDDATE', '<=', $endDate],
+            //['SECTOR.SECTORID', '=', $sector],
+            ['REGION.REGIONCODE', '=', $region]
+        ])
         ->get();  
 
         return $queryDataFiltered;

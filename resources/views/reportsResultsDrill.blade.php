@@ -127,22 +127,24 @@
                                             <th>Locality</th>
                                             <th>Region</th>
                                             <th>Province</th>
-                                            <th>Asset Dmg</th>
-                                            <th>Asset Loss</th>                                  
-                                            <th>Agri Loss</th>
-                                            <th>Prod Loss</th>
+                                            <th>Dead</th>
+                                            <th>Missing</th>                                  
+                                            <th>Injured</th>
+                                            <th>Affected Person</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                                                                           
+                                     @foreach($disasterLocality as $dmg)                                                      
                                         <tr>
-                                            <td>Region 1</td>
-                                            <td>12345</td>
-                                            <td>12345</td>
-                                            <td>1234</td>                       
-                                            <td>12345</td>
-                                            <td>1234124</td>
+                                            <td>{{ $dmg->LOCALITYNAME }}</td>
+                                            <td>{{ $dmg->REGIONCODE }}</td>
+                                            <td>{{ $dmg->PROVINCE }}</td>
+                                            <td>{{ $dmg->DEAD }}</td>
+                                            <td>{{ $dmg->MISSING }}</td>                       
+                                            <td>{{ $dmg->INJURED }}</td>
+                                            <td>{{ $dmg->AFFECTEDPERS }}</td>
                                         </tr>
+                                     @endforeach
                                     </tbody>
                                 </table>
                             </div>

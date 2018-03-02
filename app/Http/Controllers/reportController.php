@@ -26,13 +26,15 @@ class reportController extends BaseController
         $assetLOSS = ReportModel::getAssetLOSS($disasterName);
         $agriLOSS = ReportModel::getAgriLOSS($disasterName);
         $prodLOSS = ReportModel::getProdLOSS($disasterName);
-        $totalLOSS = $assetLOSS + $agriLOSS + $prodLOSS;
+
+       /* for($i = 0; $i < count($assetLOSS); $i++)
+        {
+            $totalLOSS = $assetLOSS[$i] + $agriLOSS[$i] + $prodLOSS[$i];
+        }*/
+        //$totalLOSS = $assetLOSS + $agriLOSS + $prodLOSS;
         if(count($yearlyData)>0)
         {
-            return view('reportsResults')->with('yearlyData',$yearlyData)->with('date', $date)->with('assetDMG',$assetDMG)->with('assetLOSS',$assetLOSS)->with('agriLOSS',$agriLOSS)->with('prodLOSS',$prodLOSS)->with('totalLOSS',$totalLOSS);
-           //print_r($yearlyData);
-           // print_r($disasterName);
-           //print_r($assetDMG);
+            return view('reportsResults')->with('yearlyData',$yearlyData)->with('date', $date)->with('assetDMG',$assetDMG)->with('assetLOSS',$assetLOSS)->with('agriLOSS',$agriLOSS)->with('prodLOSS',$prodLOSS);
         }
         else
         {      
@@ -41,10 +43,10 @@ class reportController extends BaseController
         }       
     }
     
-    public function getRegionDetails($req)
+    public function getRegionDetails()
     {
-        $temp = $req->input('locality');
-        printf($temp);
+        //$temp = $req->input('locality');
+        //printf($temp);
       return view('reportsResultsDrill');
     }
 
@@ -85,6 +87,14 @@ class reportController extends BaseController
         $regions = ReportModel::getAllRegion();
         $date = ReportModel::getDistinctDate();
         return view('reportsVisual')->with('disasterData',$disasterData)->with('regions', $regions);
+    }
+
+    public function passDataDrill(Request $req)
+    {
+        //$temp = $req->input('DISASTERNAME');
+        $disasterLocality = ReportModel::getDisasterLocality($req);
+        //print_r($disasterLocality);
+        return view('reportsResultsDrill')->with('disasterLocality',$disasterLocality);
     }
 }
 
