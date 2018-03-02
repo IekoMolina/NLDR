@@ -109,9 +109,9 @@
                                     Department of National Defense               <br>                                       
                                 <b> OFFICE OF CIVIL DEFENSE </b>                 <br>   
                                     Camp Emilio Aguinaldo, Quezon City           <br>
-                                    @foreach ($date as $d)
-                                        <option>{{ date('Y', strtotime( $d->STARTDATE))}}</option>
-                                     @endforeach
+                                  
+                                        <option></option>
+                                  
                                <b>                                         
                             </div>
                             <br>
@@ -124,41 +124,27 @@
                                 <table id="example" class="table table-bordered table-striped">
                                     <thead bgcolor="#00FF00">                                                                       
                                         <tr>
-                                            <th>NAME</th>
-                                            <th>START</th>
-                                            <th>END</th>
-                                            <th>REG</th>                                  
-                                            <th>Affected</th>
-                                            <th>Evacuated</th>
-                                            <th>DEAD</th>
-                                            <th>INJ</th>
-                                            <th>MIS</th>
-                                            <th>Asset DMG</th>
-                                            <th>Asset Loss</th>
-                                            <th>Agri Loss</th>
-                                            <th>Prod Loss</th>
-                                            <th>Total Loss</th>
+                                            <th>Locality</th>
+                                            <th>Region</th>
+                                            <th>Province</th>
+                                            <th>Dead</th>
+                                            <th>Missing</th>                                  
+                                            <th>Injured</th>
+                                            <th>Affected Person</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($yearlyData as $allData)                                                                           
+                                     @foreach($disasterLocality as $dmg)                                                      
                                         <tr>
-                                            <td>{{ $allData->DISASTERNAME}}</td>
-                                            <td>{{ $allData->STARTDATE}}</td>
-                                            <td>{{ $allData->ENDDATE}}</td>
-                                            <td><a>{{ $allData->REGIONCODE}}</a></td>                       
-                                            <td>{{ $allData->AFFECTEDPERS}}</td>
-                                            <td>{{ $allData->EVACPERS}}</td>
-                                            <td>{{ $allData->DEAD}}</td>
-                                            <td>{{ $allData->INJURED}}</td>
-                                            <td>{{ $allData->MISSING}}</td>
-                                            <td>{{ $allData->TOTALDMGS}}</td>
-                                            <td>{{ $allData->ASLOSS}}</td>
-                                            <td>{{ $allData->AGLOSS}}</td>
-                                            <td>{{ $allData->PLOSS}}</td>
-                                            <td>{{ $allData->totalLOSS}}</td>
-                                        </tr> 
-                                    @endforeach        
+                                            <td>{{ $dmg->LOCALITYNAME }}</td>
+                                            <td>{{ $dmg->REGIONCODE }}</td>
+                                            <td>{{ $dmg->PROVINCE }}</td>
+                                            <td>{{ $dmg->DEAD }}</td>
+                                            <td>{{ $dmg->MISSING }}</td>                       
+                                            <td>{{ $dmg->INJURED }}</td>
+                                            <td>{{ $dmg->AFFECTEDPERS }}</td>
+                                        </tr>
+                                     @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -168,21 +154,9 @@
                     </div>
                     <!-- /.panel-->
                         <div class="row" align="center">
-                            <!-- Print Button -->
-                             <button class="btn btn-primary" onclick="myFunction()" style="inline-block">
-                                <span class="glyphicon glyphicon-print"></span> Print
-                             </button> 
-                             <!-- ./Print Button -->
-
-                            <!-- Export Button   <img src ="http://icons.iconarchive.com/icons/ncrow/mega-pack-1/128/Excel-icon.png" width="10%"; height="10%">-->
-                            <button id="create_excel" class="btn btn-primary" style="inline-block">
-                                   Export to Excel
-                            </button>
-                            <!-- ./Export Button -->
-                             <!-- Print Button -->
-                             <button class="btn btn-primary" onclick="myFunction()" style="inline-block">
-                                 Export to CSV
-                             </button> 
+                            <a type="submit" class="btn btn-default" style="inline-block" href="/reports">
+                                 Back
+                             </a> 
                              <!-- ./Print Button -->
                         </div>
                 </div>
@@ -212,20 +186,7 @@
     <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
 
 </body>
-<script>
-    Morris.Bar({
-      element: 'employee-tardiness',
-      data: [
-        { y: 'Jose Rizal', a: 1 },
-        { y: 'Saturnina Hidalgo', a: 7},
-        { y: 'Paciano Mercado', a: 5 },
-        { y: 'Olympia Hidalgo', a: 6 }
-      ],
-      xkey: 'y',
-      ykeys: ['a'],
-      labels: ['Employees']
-    });
-</script>
+
 <script type="text/javascript">
     function myFunction() {
     window.print();

@@ -110,7 +110,7 @@
                                             <label>Disaster Type</label>
                                             <select class="form-control" name="disasterType">
                                                 @foreach($disasterData as $value)
-                                                <option>{{ $value->DISASTERTYPE }}</option>
+                                                <option value="{{ $value->DISASTERTYPE }}">{{ $value->DISASTERTYPE }}</option>
                                                 @endforeach 
                                             </select>
                                         </div>
@@ -123,11 +123,12 @@
                                         </div>
 
                                          <div class="form-group col-lg-6">
-                                            <label>Damages (in Millions) </label>
-                                            <select class="form-control" name="damages">
-                                                <option>Infrastructure</option>
-                                                <option>Agriculture</option>
-                                                <option>Private Property</option>
+                                            <label>Losses </label>
+                                            <select class="form-control" name="losses">
+                                                <option value="0">Assets</option>
+                                                <option value="1">Agriculture</option>
+                                                <option value="2">Product</option>
+                                                <option value="3">Macroecon</option>
                                             </select>
                                         </div>
 
@@ -135,17 +136,16 @@
                                             <label>Region </label>
                                             <select class="form-control" name="regions">
                                                  @foreach($regions as $valueR)
-                                                <option> {{ $valueR->REGIONCODE }}</option> <!-- = date('Y', strtotime($dateData)) -->
+                                                <option value="{{$valueR->REGIONCODE}}"> {{ $valueR->REGIONCODE }}</option> <!-- = date('Y', strtotime($dateData)) -->
                                                 @endforeach 
                                             </select>
                                         </div>
 
                                         <div class="form-group col-lg-6">
                                             <label>Type of Visual </label>
-                                            <select class="form-control" name="regions">
-                                                <option> Line </option>
-                                                <option> Bar</option> 
-                                                <option> Doughnut </option>  
+                                            <select class="form-control" name="graphs">
+                                                <option value="0"> Line </option>
+                                                <option value="1"> Bar</option>  
                                             </select>
                                         </div>
                                         <div align="text-center" class="form-group col-lg-3" >

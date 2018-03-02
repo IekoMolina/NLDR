@@ -113,9 +113,9 @@
                                          <!-- /.Panel Heading -->
                                          <!-- Panel Body -->
                                          <div class="panel-body">
-                                            //INSERT IF STATEMENT HERE
+                                            
                                              <div class="row col-lg-12">
-                                                <div id="area" ></div>
+                                                <div id="bar" ></div>
                                              </div>
                                             <!-- ./Panel Body -->
                                             <div class="row" align="center">
@@ -177,7 +177,7 @@
           ],
           xkey: 'y',
           ykeys: ['a'],
-          labels: ['Damages(M)']
+          labels: ['Losses(M)']
         });
     </script>
 

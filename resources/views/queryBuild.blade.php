@@ -138,7 +138,7 @@
                                                                         <label>Disaster Type</label>
                                                                             <select multiple class="form-control" name="disasterType">
                                                                                 @foreach($disasterType as $valueD)
-                                                                                <option value="{{ $valueD->DISTYPEID }}">{{ $valueD->DISASTERTYPE }}</option>
+                                                                                <option value="{{ $valueD->DISASTERTYPE }}">{{ $valueD->DISASTERTYPE }}</option>
                                                                                 @endforeach
                                                                             </select>
                                                                     </div>
@@ -163,9 +163,9 @@
                                                                     @elseif($def == 'REGION') 
                                                                     <div class="form-group">
                                                                         <label>Region/s Affected by the Disaster</label>
-                                                                            <select multiple class="form-control" name="region">
+                                                                            <select multiple class="form-control" name="region">f
                                                                                @foreach($region as $key => $valueR)
-                                                                                <option value="{{ $key }}">{{ $valueR }}</option>
+                                                                                <option value="{{ $valueR }}">{{ $valueR }}</option>
                                                                                 @endforeach 
                                                                             </select>
                                                                     </div>

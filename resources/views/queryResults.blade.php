@@ -97,34 +97,6 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <!--
-                                    <form action="/generateReport" method="post">
-                                        <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                        <div class="form-group col-lg-6">
-                                            <label>Disaster Type</label>
-                                            <select class="form-control" name="disasterType">
-                                                <option>TYPHOON</option>
-                                                <option>EARTHQUAKE</option>
-                                                <option>FLASH FLOOD</option>
-                                                <option>FIRE</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group col-lg-6">
-                                            <label>Year</label>
-                                            <select class="form-control" name="year">
-                                                <option>2013</option>
-                                                <option>2014</option>
-                                                <option>2015</option>
-                                                <option>2016</option>
-                                            </select>
-                                        </div>
-
-                                        <div align="text-center" class="form-group col-lg-3" >
-                                            <input type="submit" name="submit" value="submit">
-                                        </div>
-                                    </form>
-                                    -->
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="panel panel-default">
@@ -136,32 +108,38 @@
                                                         <div class="col-lg-12">
                                                             <form role="form">
                                                                 <div class="form-group">
-                                                                    <label>List of Disasters</label>
+                                                                    <label></label>
                                                                 </div>
                                                             </form>
 
                                                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th>GLIDE Event ID</th>
+                                                                        <th>Disaster Name</th>
+                                                                        <th>Locality</th>
                                                                         <th>Start Date</th>
                                                                         <th>End Date</th>
-                                                                        <th>GLIDE Event Type</th>
+                                                                        <th>Dead</th>
+                                                                        <th>Missing</th>
+                                                                        <th>Injured</th>
+                                                                        <th>Affected</th>
+                                                                        <th>Evacuated</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    <tr class='clickable-row' data-href='url://'>
-                                                                        <td>TC-2015-000005-PHL</td>
-                                                                        <td>2015-01-15</td>
-                                                                        <td>2015-01-20</td>
-                                                                        <td class="center">Tropical Cyclone</td>
+                                                                 @foreach($queryData as $data) 
+                                                                    <tr>
+                                                                        <td>{{$data->DISASTERNAME}}</td>
+                                                                        <td>{{$data->LOCALITYNAME}}
+                                                                        <td>{{$data->STARTDATE}}</td>
+                                                                        <td>{{$data->ENDDATE}}</td>
+                                                                        <td>{{$data->DEAD}}</td>
+                                                                        <td>{{$data->MISSING}}</td>
+                                                                        <td>{{$data->INJURED}}</td>
+                                                                        <td>{{$data->AFFECTEDPERS}}</td>
+                                                                        <td>{{$data->EVACPERS}}</td>
                                                                     </tr>
-                                                                    <tr class='clickable-row' data-href='url://'>
-                                                                        <td>TC-2015-000028-PHL</td>
-                                                                        <td>2015-04-01</td>
-                                                                        <td>2015-04-05</td>
-                                                                        <td class="center">Tropical Cyclone</td>
-                                                                    </tr>
+                                                                @endforeach
                                                                 </tbody>
                                                             </table>
                                                         </div>
@@ -209,7 +187,10 @@
     <script>
     $(document).ready(function() {
         $('#dataTables-example').DataTable({
-            responsive: true
+            responsive: true,
+            "bFilter": false,
+            //"paging":   false,
+            "info":     false
         });
     });
     </script>
