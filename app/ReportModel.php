@@ -44,7 +44,6 @@ class ReportModel extends Model
    					->get();
    		return $region;
    	}
-
     //GETS ALL THE INFORMATION ABOUTA DISASER THAN HAPPENED IN A REGION
     public static function getReportDataFiltered($req)
     {
@@ -69,6 +68,13 @@ class ReportModel extends Model
                       ])
               ->groupBy('DISASTER.DISASTERNAME','DISASTER.STARTDATE','DISASTER.ENDDATE','DISASTERTYPE.DISASTERTYPE')
               ->get();
+
+              //Only all infra damages that are DMGLOSSTYPEID (0=na,1=public,2=private)
+      return $yearlyData;
+    }
+
+        //GETS ALL THE INFORMATION ABOUTA DISASER THAN HAPPENED IN A REGION
+    public static function getReportDataFilteredVisual  ($req)
       return $yearlyData;
     }
 
@@ -174,6 +180,7 @@ class ReportModel extends Model
               */
       return $yearlyData;
     }
+
 
     public static function getDisasterLocality(Request $req)
     {

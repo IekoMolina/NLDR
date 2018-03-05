@@ -138,7 +138,7 @@
                                                                         <label>Disaster Type</label>
                                                                             <select multiple class="form-control" name="disasterType">
                                                                                 @foreach($disasterType as $valueD)
-                                                                                <option value="{{ $valueD->DISASTERTYPE }}">{{ $valueD->DISASTERTYPE }}</option>
+                                                                                <option value="{{ $valueD->DISTYPEID }}">{{ $valueD->DISASTERTYPE }}</option>
                                                                                 @endforeach
                                                                             </select>
                                                                     </div>
@@ -163,9 +163,9 @@
                                                                     @elseif($def == 'REGION') 
                                                                     <div class="form-group">
                                                                         <label>Region/s Affected by the Disaster</label>
-                                                                            <select multiple class="form-control" name="region">f
+                                                                            <select multiple class="form-control" name="region">
                                                                                @foreach($region as $key => $valueR)
-                                                                                <option value="{{ $valueR }}">{{ $valueR }}</option>
+                                                                                <option value="{{ $key }}">{{ $valueR }}</option>
                                                                                 @endforeach 
                                                                             </select>
                                                                     </div>
@@ -355,5 +355,25 @@
         });
     });
     </script>
+</body>
+   <!--   Core JS Files   -->
+    <!--   Core JS Files   -->
+    <script src="../vendor/bootstrap/js/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+	<script src="../vendor/bootstrap/js/js/bootstrap.min.js" type="text/javascript"></script>
+
+	<!--  Charts Plugin -->
+	<script src="../vendor/bootstrap/js/js/chartist.min.js"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="../vendor/bootstrap/js/js/bootstrap-notify.js"></script>
+
+    <!--  Google Maps Plugin    -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+	<script src="../vendor/bootstrap/js/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+
+	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+	<script src="../vendor/bootstrap/js/js/demo.js"></script>
 </body>
 </html>

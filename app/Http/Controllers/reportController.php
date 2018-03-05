@@ -41,15 +41,13 @@ class reportController extends BaseController
             $yearlyData = array();
             return view('reportsResults')->with('yearlyData',$yearlyData)->with('date', $date);
         }       
+    
+    public function getRegionDetails($req)
+    {
+        $temp = $req->input('locality');
+        printf($temp);
     }
     
-    public function getRegionDetails()
-    {
-        //$temp = $req->input('locality');
-        //printf($temp);
-      return view('reportsResultsDrill');
-    }
-
     public function getData()
     {
        $data = ReportModel::getDistinctDate();

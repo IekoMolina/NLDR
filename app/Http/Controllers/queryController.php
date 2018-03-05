@@ -16,11 +16,11 @@ use DB;
 class queryController extends BaseController
 {
     public $def  = ['STARTDATE','ENDDATE','SECTOR','SUBSECTORID','DISASTERTYPE','REGION'];
-    
     // get input data and pass to other page
     public function passData(Request $req)
     {
         $queryData = QueryModel::getQueryDataFiltered($req);
+      
        if(count($queryData) > 0)
        {
         return view('queryResults')->with('queryData',$queryData);

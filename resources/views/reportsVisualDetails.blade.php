@@ -1,91 +1,142 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>National Loss and Damage Registry</title>
-    <!-- Morris Charts CSS -->
-    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">    
-   
+	<title>National Loss and DIsaster Registry</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
 
-    <!-- MetisMenu CSS -->
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->  
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">  
 
-    <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet"> 
+    <!-- Animation library for notifications   -->
+    <link href="../vendor/bootstrap/css/animate.min.css" rel="stylesheet"/>
 
-    <!-- Custom Fonts -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="../vendor/bootstrap/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="assets/css/demo.css" rel="stylesheet" />
+
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="../vendor/bootstrap/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
 </head>
-
 <body>
 
-    <div id="wrapper">
+<div class="wrapper">
+    <!-- The start of the Side bar code -->
+    <div class="sidebar" data-color="darkblue" data-image="../img/storm.jpg">
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin: 0px 0px 0px 0px;">
-            <div class="navbar-header">
-                     <a class="navbar-brand" href="https://www.gov.ph/">
-                        <img src="../img/RNP.png" style="width:30px;height:30px; margin: 0px 0px 0px 0px;"> 
-                     </a>        
-                    <a class="navbar-brand active" href="home">        <font color="white">Home    </font></a>
-                    <div class="dropdown navbar-brand">
-                        <a class="dropdown-toggle" data-toggle="dropdown">  <font color="white">Reports  </font> </a>
-                          <ul class="dropdown-menu">
-                            <li><a href="reports">Yearly Reports</a></li>
-                            <li><a href="reportsVisual">Visual Reports</a></li>
-                          </ul>
-                    </div>
+    <!--
+
+        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        Tip 2: you can also add an image using data-image tag
+
+    -->
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="http://www.creative-tim.com" class="simple-text">
+                    <img src="../img/OCDLogo.png" style="width:150px;height:150px; margin: 0px 0px 0px 0px;"> <b>NDRRMC  </b>  
+                </a>
             </div>
-            <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: white;">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+            <ul class="nav">
+                <li >
+                    <a href="home">
+                        <i class="fa fa-home"></i>
+                        <p>Home</p>
                     </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Public User </a>
-                        </li>
-                        <li class="disabled"><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="login"><i class="fa fa-sign-out fa-fw"></i> Login </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
                 </li>
-                <!-- /.dropdown -->
+                <li>
+                    <a href="queryBuild">
+                        <i class="fa fa-search"></i>
+                        <p>Query Builder</p>
+                    </a>
+                </li>
+                <li >
+                    <a href="reports">
+                        <i class="fa fa-table   "></i>
+                        <p>Yearly Reports</p>
+                    </a>
+                </li>
+                <li class = "active">
+                    <a href="reportsVisual">
+                        <i class="fa fa-bar-chart"></i>
+                        <p>Visual Reports</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fa fa-folder"></i>
+                        <p>Downloadable Reports</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fa fa-map-marker"></i>
+                        <p>Maps</p>
+                    </a>
+                </li>
+			
             </ul>
-            <!-- /.navbar-top-links -->
-        </nav>
+    	</div>
+    </div>
+    <!-- The end of the Side bar code -->
 
-            <!-- Banner row -->
-            <div class="row">
-                <div class="col-lg-12" style="background-color: rgba(100,149,237,0.6);" >               
-                 <h2 align="left">                   
-                    <font> Visual Report </font>
-                 </h2>
-                    <!--<font style="font-size: 20px; color: white;">  National Disaster Risk Reduction and Management Council </font>  -->                 
+    <div class="main-panel">
+          <!-- start of header code -->
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+              
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">   </a>
                 </div>
-                <!-- /.col-lg-12 -->
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                            <li><h4><B>National Loss and Damage Registry</B>  </h4></li>             
+                    </ul>
+                    <ul class = "nav navbar-nav navbar-center"> 
+
+                                 
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        
+                      
+                      
+                        <li>
+                            <a href="#">
+                                <p>Log out</p>
+                            </a>
+                        </li>
+						<li class="separator hidden-lg"></li>
+                    </ul>
+                </div>
             </div>
+        </nav>
+  <!-- end of header code -->
+
+       
             <!-- row -->
             <div class="row">
                 <div class="col-lg-12">
@@ -117,7 +168,7 @@
                                              <div class="row col-lg-12">
                                                 <div id="bar" ></div>
                                              </div>
-                                            <!-- ./Panel Body -->
+                                            <!-- ./Panel Body -->   
                                             <div class="row" align="center">
                                                 <!-- Print Button-->
                                                  <button class="btn btn-primary" onclick="myFunction()" style="inline-block">
@@ -202,6 +253,29 @@
           // chart.
           labels: ['Value']
         });
+    </script>   
+
+    <script>
+        new Morris.Line({
+          // ID of the element in which to draw the chart.
+          element: 'line',
+          // Chart data records -- each entry in this array corresponds to a point on
+          // the chart.
+          data: [
+            { year: '2008', value: 20 },
+            { year: '2009', value: 10 },
+            { year: '2010', value: 5 },
+            { year: '2011', value: 5 },
+            { year: '2012', value: 20 }
+          ],
+          // The name of the data record attribute that contains x-values.
+          xkey: 'year',
+          // A list of names of data record attributes that contain y-values.
+          ykeys: ['value'],
+          // Labels for the ykeys -- will be displayed when you hover over the
+          // chart.
+          labels: ['Value']
+        });
     </script>
 
     <script type="text/javascript">
@@ -209,5 +283,24 @@
     window.print();
     }
     </script>
+    <script src="../vendor/bootstrap/js/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+	<script src="../vendor/bootstrap/js/js/bootstrap.min.js" type="text/javascript"></script>
+
+	<!--  Charts Plugin -->
+	<script src="../vendor/bootstrap/js/js/chartist.min.js"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="../vendor/bootstrap/js/js/bootstrap-notify.js"></script>
+
+    <!--  Google Maps Plugin    -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+	<script src="../vendor/bootstrap/js/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+
+	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+	<script src="../vendor/bootstrap/js/js/demo.js"></script>
+
+
 </body>
 </html>

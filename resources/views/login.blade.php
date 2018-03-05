@@ -39,19 +39,23 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-primary">
                     <div class="panel-body">
-                        <form role="form">
+                        <!-- FORM --> 
+                        <form  action="/loginchecker" method="post">
                             <fieldset align="center">
                                 <img src="../img/OCDLogo.png" style="width:200px;height:200px; margin: 0px 0px 10px 0px;">
-                                <div class="form-group">                               
-                                    <input class="form-control" placeholder="Username" name="username" type="text" autofocus>
+                                <div class="form-group">      
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">                         
+                                    <input class="form-control" placeholder="Username" name="username" type="text">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" >
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="home" class="btn btn-lg btn-primary">Login</a>
+                                <!-- <input type="submit" name="submit" value="submit"> -->
+                                <input type ="submit" name = "submit" value = "Login">
                             </fieldset>
                         </form>
+                        <!-- FORM --> 
                     </div>
                 </div>
                 <!-- Continue as public quest -->

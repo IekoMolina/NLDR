@@ -1,4 +1,5 @@
-    <?php
+
+ <?php
 
 /*
 |--------------------------------------------------------------------------
@@ -134,4 +135,3 @@ Route::post('importExcel', 'MaatwebsiteDemoController@importExcel');
 
 // TO BE CLENED AND EVALUATED
 Route::get('/passDataDrill',['uses' => 'reportController@passDataDrill', 'as' => 'disasterKey']);
-        
