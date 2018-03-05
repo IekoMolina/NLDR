@@ -355,7 +355,6 @@
         });
     });
     </script>
-    
 </body>
    <!--   Core JS Files   -->
     <!--   Core JS Files   -->
@@ -376,8 +375,5 @@
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="../vendor/bootstrap/js/js/demo.js"></script>
-
-
-
-
+</body>
 </html>

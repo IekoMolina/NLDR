@@ -13,7 +13,7 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
-
+    
     <!-- MetisMenu CSS -->  
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">  
 
@@ -32,7 +32,6 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="../vendor/bootstrap/css/pe-icon-7-stroke.css" rel="stylesheet" />
-
 </head>
 <body>
 
@@ -116,7 +115,6 @@
                             <li><h4><B>National Loss and Damage Registry</B>  </h4></li>             
                     </ul>
                     <ul class = "nav navbar-nav navbar-center"> 
-
                                  
                     </ul>
 

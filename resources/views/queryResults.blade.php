@@ -17,6 +17,12 @@
     <!-- MetisMenu CSS -->
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
+    <!-- DataTables CSS -->
+    <link href="../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet"> 
 
@@ -73,7 +79,7 @@
             <div class="row">
                 <div class="col-lg-12" style="background-color: rgba(100,149,237,0.6);" >               
                  <h2 align="left">                   
-                    <font> Encode Disaster Information </font>
+                    <font> Search Disasters </font>
                  </h2>
                     <!--<font style="font-size: 20px; color: white;">  National Disaster Risk Reduction and Management Council </font>  -->
                     <div class="row">
@@ -91,64 +97,51 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <!--
-                                    <form action="/generateReport" method="post">
-                                        <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                        <div class="form-group col-lg-6">
-                                            <label>Disaster Type</label>
-                                            <select class="form-control" name="disasterType">
-                                                <option>TYPHOON</option>
-                                                <option>EARTHQUAKE</option>
-                                                <option>FLASH FLOOD</option>
-                                                <option>FIRE</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group col-lg-6">
-                                            <label>Year</label>
-                                            <select class="form-control" name="year">
-                                                <option>2013</option>
-                                                <option>2014</option>
-                                                <option>2015</option>
-                                                <option>2016</option>
-                                            </select>
-                                        </div>
-
-                                        <div align="text-center" class="form-group col-lg-3" >
-                                            <input type="submit" name="submit" value="submit">
-                                        </div>
-                                    </form>
-                                    -->
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
-                                                    Input New Disaster
-
+                                                    Filter Results
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <form role="form" action="/encodingNewDisasterAdditional" method="post">
+                                                        <div class="col-lg-12">
+                                                            <form role="form">
                                                                 <div class="form-group">
-                                                                    <label>Start Date</label>
-                                                                    <input class="form-control" type="date" name="startDate">
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>End Date</label>
-                                                                    <input class="form-control" type="date" name="endDate">
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>Comments</label>
-                                                                    <textarea class="form-control" rows="3" name="comments"> </textarea>
-                                                                    
-                                                                </div>
-
-                                                                <div class="form-group">
-                                                                <a type="submit" name="submit" class="btn btn-default" href='encodingNewDisasterCity'>Next</a>
-                                                                <button type="reset" name="reset" class="btn btn-default">Reset</button>
+                                                                    <label></label>
                                                                 </div>
                                                             </form>
+
+                                                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Disaster Name</th>
+                                                                        <th>Locality</th>
+                                                                        <th>Start Date</th>
+                                                                        <th>End Date</th>
+                                                                        <th>Dead</th>
+                                                                        <th>Missing</th>
+                                                                        <th>Injured</th>
+                                                                        <th>Affected</th>
+                                                                        <th>Evacuated</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                 @foreach($queryData as $data) 
+                                                                    <tr>
+                                                                        <td>{{$data->DISASTERNAME}}</td>
+                                                                        <td>{{$data->LOCALITYNAME}}
+                                                                        <td>{{$data->STARTDATE}}</td>
+                                                                        <td>{{$data->ENDDATE}}</td>
+                                                                        <td>{{$data->DEAD}}</td>
+                                                                        <td>{{$data->MISSING}}</td>
+                                                                        <td>{{$data->INJURED}}</td>
+                                                                        <td>{{$data->AFFECTEDPERS}}</td>
+                                                                        <td>{{$data->EVACPERS}}</td>
+                                                                    </tr>
+                                                                @endforeach
+                                                                </tbody>
+                                                            </table>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -182,8 +175,32 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
+    <!-- DataTables JavaScript -->
+    <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
+
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true,
+            "bFilter": false,
+            //"paging":   false,
+            "info":     false
+        });
+    });
+    </script>
+    <script>
+        jQuery(document).ready(function($) {
+            $(".clickable-row").click(function() {
+                window.location = $(this).data("href");
+            });
+        });
+    </script>
 
 </body>
 </html>

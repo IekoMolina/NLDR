@@ -39,19 +39,12 @@
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin: 0px 0px 0px 0px;">
             <div class="navbar-header">
-                     <a class="navbar-brand" href="https://www.gov.ph/">
+                     <a class="navbar-brand" href="home">
                         <img src="../img/RNP.png" style="width:30px;height:30px; margin: 0px 0px 0px 0px;"> 
                      </a>        
-                    <a class="navbar-brand active" href="home">        <font color="white">Home    </font></a>
+                    <a class="navbar-brand" href="home">        <font color="white">Home    </font></a>
                     <a class="navbar-brand" href="reports">     <font color="white">Report  </font></a>
-                    <div class="dropdown navbar-brand">
-                        <a class="dropdown-toggle" data-toggle="dropdown">  <font color="white">Encode  </font> </a>
-                          <ul class="dropdown-menu">
-                            <li><a href="encodingNewDisaster">New Disaster</a></li>
-                            <li><a href="updateDisasterInfo">Update Disaster</a></li>                           
-                          </ul>
-
-                    </div>
+                    <a class="navbar-brand" href="encoding">  <font color="white">Encode  </font></a>
             </div>
             <!-- /.navbar-header -->
 
@@ -61,10 +54,12 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li ><a href="#"><i class="fa fa-user fa-fw"></i> OCD Personnel</a>
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Administrator</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Roles</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="login"><i class="fa fa-sign-out fa-fw"></i> Login</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -128,36 +123,51 @@
                                         <div class="col-lg-12">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
-                                                    Input New Disaster Details
+                                                    Input New Disaster
                                                 </div>
                                                 <div class="panel-body">
                                                     <div class="row">
                                                         <div class="col-lg-6">
-                                                            <form role="form">
-                                                                <div class="form-group" action="/encodingNewDisasterDetails" method="post">
-                                                                    <label>Select Province</label>
-                                                                    <select class="form-control" name="province">
-                                                                        <option>Cavite</option>
-                                                                        <option>Laguna</option>
-                                                                        <option>Batangas</option>
-                                                                        <option>Rizal</option>
-                                                                        <option>Quezon</option>
+                                                            <form role="form" method="post"> <!--action="/encodingNewDisaster"-->
+                                                                <div class="form-group">
+                                                                    <label>Disaster Type</label>
+                                                                    <select class="form-control" name="disasterType">
+                                                                        <option>Drought</option>
+                                                                        <option>Epidemic</option>
+                                                                        <option>Earthquake</option>
+                                                                        <option>Fire</option>
+                                                                        <option>Flash Flood</option>
+                                                                        <option>Flood</option>
+                                                                        <option>Land Slide</option>
+                                                                        <option>Mud Slide</option>
+                                                                        <option>Tornado</option>
+                                                                        <option>Tropical Cyclone</option>
+                                                                        <option>Tsunami</option>
+                                                                        <option>Volcano</option>
                                                                     </select>
                                                                 </div>
 
                                                                 <div class="form-group">
-                                                                    <div class="form-group col-lg-12">
-                                                                        <label>Casualties</label>
-                                                                    </div>
-                                                                    <div class="form-group col-lg-4">
-                                                                        <p>Dead<input class="form-control" type="number" name="dead">
-                                                                    </div>
-                                                                    <div class="form-group col-lg-4">
-                                                                        <p>Injured<input class="form-control" type="number" name="injured">
-                                                                    </div>
-                                                                    <div class="form-group col-lg-4">
-                                                                        <p>Missing<input class="form-control" type="number" name="missing">
-                                                                    </div>
+                                                                    <label>Region/s Affected by the Disaster</label>
+                                                                        <select multiple class="form-control" name="regionsAffected">
+                                                                            <option>I (Ilocos Region)</option>
+                                                                            <option>II (Cagayan Valley)</option>
+                                                                            <option>III (Central Luzon)</option>
+                                                                            <option>IV-A (CALABARZON)</option>
+                                                                            <option>IV-B (MIMAROPA)</option>
+                                                                            <option>V (Bicol Region)</option>
+                                                                            <option>VI (Western Visayas)</option>
+                                                                            <option>VII (Central Visayas)</option>
+                                                                            <option>VIII (Eastern Visayas)</option>
+                                                                            <option>IX (Zamboanga Peninsula)</option>
+                                                                            <option>X (Northern Mindanao)</option>
+                                                                            <option>XI (Davao Region)</option>
+                                                                            <option>XII (SOCCSKSARGEN)</option>
+                                                                            <option>XIII (Caraga Region)</option>
+                                                                            <option>CAR (Cordillera Administrative Region)</option>
+                                                                            <option>ARMM (Autonomous Region in Muslim Mindanao)</option>
+                                                                            <option>NCR (National Capital Region)</option>
+                                                                        </select>
                                                                 </div>
 
                                                                 <div class="form-group">
@@ -171,6 +181,24 @@
                                                                         <p>Persons<input class="form-control" type="number" name="affectedPersons">
                                                                     </div>
                                                                 </div>
+                                                                <div class="form-group">
+                                                                    <div class="form-group col-lg-12">
+                                                                        <label>Evacuated</label>
+                                                                    </div>
+                                                                    <div class="form-group col-lg-6">
+                                                                        <p>Families<input class="form-control" type="number" name="evacuatedFamilies">
+                                                                    </div>
+                                                                    <div class="form-group col-lg-6">
+                                                                        <p>Persons<input class="form-control" type="number" name="evacuatedPersons">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="form-group col-lg-12">
+                                                                        <label>Evacuation Centers</label>
+                                                                    </div>
+                                                                    <div class="form-group col-lg-6">
+                                                                        <p>Occupied<input class="form-control" type="number" name="numEvacCenters">
+                                                                    </div>
                                                                 <div class="form-group">
                                                                     <div class="form-group col-lg-12">
                                                                         <label>Houses</label>

@@ -15,22 +15,20 @@ use DB;
 
 class queryController extends BaseController
 {
-    private $def  = ['STARTDATE','ENDDATE','SECTOR','SUBSECTORID','DISASTERTYPE','REGION'];
-
+    public $def  = ['STARTDATE','ENDDATE','SECTOR','SUBSECTORID','DISASTERTYPE','REGION'];
     // get input data and pass to other page
     public function passData(Request $req)
     {
         $queryData = QueryModel::getQueryDataFiltered($req);
-
+      
        if(count($queryData) > 0)
        {
-        echo $queryData;
+        return view('queryResults')->with('queryData',$queryData);
        }
        else
        {
-        echo "Nope wala kasing laman";
-       }
-        
+        return view('queryResults');
+       }        
     }
 
     public function getData()
@@ -41,11 +39,6 @@ class queryController extends BaseController
      // Create Default Fields WHAT IF YUNG DEFAULT VARUABLES YUNG NASA LABAS
         $default = $this->def;
         print_r($default);
-        foreach ($default as $defs)
-        {
-          echo $defs;
-        }
-       
        $disasterType = QueryModel::getAllDisasterType();
        $region = DB::table("region")->pluck("REGIONCODE","REGIONID");
        $province = DB::table("province")->pluck("PROVINCE","PROVID");
@@ -115,7 +108,7 @@ class queryController extends BaseController
 
     public function getDataFilter()
     {
-
+        //FUNTION that will send the quer
         
     }
 
@@ -125,8 +118,13 @@ class queryController extends BaseController
      $selected = $req->input('filter');
      $this->def = $selected;
      print_r($this->def);
+   $disasterType = QueryModel::getAllDisasterType();
+   $region = DB::table("region")->pluck("REGIONCODE","REGIONID");
+   $province = DB::table("province")->pluck("PROVINCE","PROVID");
+   $locality = DB::table("locality")->pluck("LOCALITYNAME","LOCALITYID");
+   $sectors = DB::table("sector")->pluck("SECTOR","SECTORID");
 
-    //return redirect('queryBuild');
+            return  view('queryBuild', compact('sectors','region','province','locality'))->with('disasterType',$disasterType)->with('default',$this->def);
     }
 }
 

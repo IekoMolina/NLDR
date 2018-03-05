@@ -99,61 +99,20 @@
             <div class="row">
                 <div class="col-lg-12" align="middle" style="background-color: rgba(100,149,237,0.6);" >               
                  <h2>
-                     <img src="../img/OCDLogo.png" style="width:100px;height:100px;"> 
+                    <img src="../img/OCDLogo.png" style="width:100px;height:100px;">
                     <font color="white"> National Loss and Damage Registry </font>
                  </h2>
                     <!--<font style="font-size: 20px; color: white;">  National Disaster Risk Reduction and Management Council </font> -->                 
                 </div>  
                 <!-- /.col-lg-12 -->
-            </div> 
-             <!-- Panel1 
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Damage per Region
-                        <div class="pull-right">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    Filter
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu pull-right" role="menu">
-                                    <li><a href="/home">Damage per Region</a>
-                                    </li>
-                                    <li><a href="/homeDrillDown">Disaster Event per Region</a>
-                                    </li>
-                                    <li><a href="/homeDrillDown1">Aid Per Province</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>-->
-                    <!-- /.panel-heading 
-                    <div class="panel-body"> -->       
-             <iframe src="https://app.powerbi.com/view?r=eyJrIjoiN2RkNTRlNGYtNWFjNS00NWUxLTliMjItZGVhY2RkYTExNGQ5IiwidCI6ImYzNGEzNWJkLWE2NWQtNDYwNS1iMGZhLWQyNTcxZjgzMWY1ZSIsImMiOjEwfQ%3D%3D" allowFullScreen="true" style="position:absolute; height:100%; width:100%; border: none" align="center" scrolling="no"> </iframe>
-                                         <div class="pull-right">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    Drill
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu pull-right" role="menu">
-                                    <li><a href="/home">Damage per Region</a>
-                                    </li>
-                                    <li><a href="/homeDrillDown">Disaster Event per Region</a>
-                                    </li>
-                                    <li><a href="/homeDrillDown1">Aid Per Province</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <!-- /.panel-body 
-                </div>-->
-                <!-- /.panel -->
-                <!-- Panel2 -->
-                <!-- /.Panel2 -->
+            </div>
+            <div class="row col-lg-12" align="center">
+                <form action="upload.php" method="post" enctype="multipart/form-data">
+                    Select file to upload: <br>
+                    <input type="file" name="fileToUpload" id="fileToUpload"> <br>
+                    <input type="submit" value="Upload" name="submit" style="inline-block">
+                </form>
+            </div>  
         </div>
         <!-- /#page-wrapper -->
 

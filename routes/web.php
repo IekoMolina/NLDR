@@ -1,4 +1,5 @@
-<?php
+
+ <?php
 
 /*
 |--------------------------------------------------------------------------
@@ -97,7 +98,7 @@ Route::get('reports', 'reportController@getData');
 Route::post('generateReport', 'reportController@passData');
 Route::get('reportsVisual', 'reportController@getDataVisual'); 
 Route::post('generateReportVisuals', 'reportController@passDataVisual');   
-
+Route::post('reportsResultDrill', 'reportController@getRegionDetails');
 // Account Creattion routes
 Route::get('adminCreateAccount', function () {
     return view('adminCreateAccount'); 
@@ -124,5 +125,13 @@ Route::get('queryBuildR/ajax/{id}',array('as'=>'queryBuildR.ajax','uses'=>'query
 Route::get('queryBuildC/ajax/{id}',array('as'=>'queryBuildC.ajax','uses'=>'queryController@getCityAjax'));
 Route::post('queryResult', 'queryController@passData');
 
-Route::get('queryBuildFilter', 'queryController@getDataFilter');
+//Route::get('queryBuildFilter', 'queryController@getDataFilter');
 Route::post('queryBuildFilter', 'queryController@passDataFilter');
+
+//Download as excel and csv
+Route::get('importExport', 'MaatwebsiteDemoController@importExport');
+Route::get('downloadExcel/{type}', 'MaatwebsiteDemoController@downloadExcel');
+Route::post('importExcel', 'MaatwebsiteDemoController@importExcel');
+
+// TO BE CLENED AND EVALUATED
+Route::get('/passDataDrill',['uses' => 'reportController@passDataDrill', 'as' => 'disasterKey']);

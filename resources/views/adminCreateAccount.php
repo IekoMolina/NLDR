@@ -35,8 +35,6 @@
 
 </head>
 <body>
-
-
 <div class="wrapper">
     <!-- The start of the Side bar code -->
     <div class="sidebar" data-color="admin" data-image="../img/sidebar-5.jpg">

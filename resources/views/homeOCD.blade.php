@@ -42,8 +42,9 @@
                      <a class="navbar-brand" href="https://www.gov.ph/">
                         <img src="../img/RNP.png" style="width:30px;height:30px; margin: 0px 0px 0px 0px;"> 
                      </a>        
-                    <a class="navbar-brand active" href="home">        <font color="white">Home    </font></a>
+                    <a class="navbar-brand active" href="homeOCD">        <font color="white">Home    </font></a>
                     <a class="navbar-brand" href="reports">     <font color="white">Report  </font></a>
+                      <a class="navbar-brand" href="queryBuild">     <font color="white">Query  </font></a>
                     <div class="dropdown navbar-brand">
                         <a class="dropdown-toggle" data-toggle="dropdown">  <font color="white">Encode  </font> </a>
                           <ul class="dropdown-menu">
@@ -87,41 +88,23 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <!-- row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Damage per Region
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Drill Down
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="/home">Damage per Region</a>
-                                        </li>
-                                        <li><a href="/homeDrillDown">Disaster Event per Region</a>
-                                        </li>
-                                        <li><a href="/homeDrillDown1">Aid Provided per Municipality</a>
-                                        </li>
-                                    </ul>
-                                </div>
+             <iframe src="https://app.powerbi.com/view?r=eyJrIjoiMDkxODU5MWYtNWVkMy00YzMxLWJlYmQtZWE5NzRkNjVlMDIxIiwidCI6ImYzNGEzNWJkLWE2NWQtNDYwNS1iMGZhLWQyNTcxZjgzMWY1ZSIsImMiOjEwfQ%3D%3D" allowFullScreen="true" style="position:absolute; height:100%; width:100%; border: none" align="center" scrolling="no"></iframe>
+                        <div class="pull-right">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    Drill
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu pull-right" role="menu">
+                                    <li><a href="/home">Damage per Region</a>
+                                    </li>
+                                    <li><a href="/homeDrillDown">Disaster Event per Region</a>
+                                    </li>
+                                    <li><a href="/homeDrillDown1">Aid Per Province</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <iframe width="1400" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiMGRlM2U5MWUtYjNmZS00YzQ5LWEyNWYtMDM1NWJlZmQ3ZDAyIiwidCI6ImYzNGEzNWJkLWE2NWQtNDYwNS1iMGZhLWQyNTcxZjgzMWY1ZSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe>
-
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-8 -->
-            </div>
-            <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
 

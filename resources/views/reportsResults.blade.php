@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -164,48 +165,55 @@
                                 <div class = "row"> 
                                     <div class= "col-md-12"> 
                                         <div class = "content table-responsive table full-width"> 
-                                                <table id="example" class="table table-bordered table-striped">
-                                                        <thead bgcolor="#0D4F8B">                                                                       
-                                                            <tr>
-                                                                <th>NAME</th>
-                                                                <th>START</th>
-                                                                <th>END</th>
-                                                                <th>#Locality</th>                                  
-                                                                <th>#Affected</th>
-                                                                <th>#Evacuated</th>
-                                                                <th>#DEAD</th>
-                                                                <th>#INJ</th>
-                                                                <th>#MIS</th>
-                                                                <th>Asset DMG</th>
-                                                                <th>Asset Loss</th>
-                                                                <th>Agri Loss</th>
-                                                                <th>Prod Loss</th>
-                                                                <th>Total Loss</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        @foreach($yearlyData as $allData)                                                                           
-                                                            <tr>
-                                                                <td>{{ $allData->DISASTERNAME}}</td>
-                                                                <td>{{ $allData->STARTDATE}}</td>
-                                                                <td>{{ $allData->ENDDATE}}</td>
-                                                                <form action="/reportsResultDrill" method="post">
-                                                                <td><a type="submit" name="locality" value="PEPE">{{ $allData->CLOC}}</a></td>
-                                                                </form>
-                                                                <td>{{ $allData->SDAP}}</td>
-                                                                <td>{{ $allData->SEP}}</td>
-                                                                <td>{{ $allData->SDEAD}}</td>
-                                                                <td>{{ $allData->SINJ}}</td>
-                                                                <td>{{ $allData->SMISS}}</td>
-                                                                <td>$allData->ADT</td>
-                                                                <td> $allData->ALT</td>
-                                                                <td> $allData->AGLT</td>
-                                                                <td> $allData->PLT</td>
-                                                                <td> $allData->totalLoss</td>
-                                                            </tr> 
-                                                        @endforeach        
-                                                        </tbody>
-                                                 </table>
+                                <table id="example" class="table table-bordered table-striped">
+                                    <thead bgcolor="#00FF00">                                                                       
+                                        <tr>
+                                            <th>NAME</th>
+                                            <th>START</th>
+                                            <th>END</th>
+                                            <th>#Locality</th>                                  
+                                            <th>#Affected</th>
+                                            <th>#Evacuated</th>
+                                            <th>#DEAD</th>
+                                            <th>#INJ</th>
+                                            <th>#MIS</th>
+                                            <th>Asset DMG</th>
+                                            <th>Asset Loss</th>
+                                            <th>Agri Loss</th>
+                                            <th>Prod Loss</th>
+                                            <th>Total Loss</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                <input type="hidden" id="textfield2" name="textfield2" />
+                                @foreach($yearlyData as $allData)                                                                           
+                                        <tr>
+                                            <td>{{ $allData->DISASTERNAME}}</td>
+                                            <td>{{ $allData->STARTDATE}}</td>
+                                            <td>{{ $allData->ENDDATE}}</td>
+                                            <td onClick='newMethod("{{$allData->DISASTERNAME}}")'><li><a href="{!! route('disasterKey',['DISASTERNAME'=>$allData->DISASTERNAME]) !!}" value="{{$allData->DISASTERNAME}}">{{ $allData->CLOC}}</a></td>
+                                            <td>{{ $allData->SDAP}}</td>
+                                            <td>{{ $allData->SEP}}</td>
+                                            <td>{{ $allData->SDEAD}}</td>
+                                            <td>{{ $allData->SINJ}}</td>
+                                            <td>{{ $allData->SMISS}}</td>
+                                    @endforeach  
+                                    @foreach($assetDMG as $dmg)      
+                                            <td>{{ $dmg->ADMG }}</td>
+                                    @endforeach
+                                    @foreach($assetLOSS as $aloss)      
+                                            <td>{{ $aloss->ASLOSS }}</td>
+                                    @endforeach
+                                    @foreach($agriLOSS as $agloss)      
+                                            <td>{{ $agloss->AGLOSS }}</td>
+                                    @endforeach 
+                                    @foreach($prodLOSS as $ploss)      
+                                            <td>{{ $ploss->PLOSS }}</td>
+                                            <td>2345100</td>
+                                            </tr>  
+                                    @endforeach        
+                                    </tbody>
+                                </table>
                                         </div>
                                         <!-- insert here pls -- > 
 
@@ -330,5 +338,50 @@
 
             } );    
     </script>
+<script type="text/javascript">
+    function newMethod($value)
+    {
+        textfield2.allData = $value;
+    }
+</script>
+<script>
+    Morris.Bar({
+      element: 'employee-tardiness',
+      data: [
+        { y: 'Jose Rizal', a: 1 },
+        { y: 'Saturnina Hidalgo', a: 7},
+        { y: 'Paciano Mercado', a: 5 },
+        { y: 'Olympia Hidalgo', a: 6 }
+      ],
+      xkey: 'y',
+      ykeys: ['a'],
+      labels: ['Employees']
+    });
+</script>
+<script type="text/javascript">
+    function myFunction() {
+    window.print();
+}
+</script>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#example').DataTable({
+            "bFilter": false,
+            //  "paging":   false,
+            "info":     false
+        });
+
+    } );
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#create_excel').click(funtion(){
+            var excel_data = $('#example').html();
+            var page = "excel.php?data=" + excel_data;
+            window.location=page;
+        });
+
+    } );    
+</script>
 </html>

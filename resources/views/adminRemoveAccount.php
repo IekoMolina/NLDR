@@ -43,16 +43,14 @@
                      <a class="navbar-brand" href="https://www.gov.ph/">
                         <img src="../img/RNP.png" style="width:30px;height:30px; margin: 0px 0px 0px 0px;"> 
                      </a>        
-                    <a class="navbar-brand active" href="home">        <font color="white">Home    </font></a>
+                    <a class="navbar-brand active" href="homeAdministrator">        <font color="white">Home    </font></a>
                     <a class="navbar-brand" href="reports">     <font color="white">Report  </font></a>
                     <div class="dropdown navbar-brand">
                         <a class="dropdown-toggle" data-toggle="dropdown">  <font color="white">Accounts </font> </a>
                           <ul class="dropdown-menu">
                             <li><a href="adminCreateAccount">Create Account</a></li>
                             <li><a href="adminRemoveAccount">Delete Account</a></li>
-                            <li><a href="#">Deactivate Account</a></li>
                           </ul>
-
                     </div>
             </div>
             <!-- /.navbar-header -->
@@ -95,7 +93,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Glide Information
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Account Information
                             <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -118,7 +116,7 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <center> <h3> Edit Account </hr> </center>
+                            <center> <h3> Edit Account </h3> </center>
                             <div class="row">
                                 <div class="col-lg-12">
                                 <!-- Table -->
@@ -141,63 +139,27 @@
                                            <td>coronelsean</td>
                                            <td> Sean </td> 
                                            <td> Coronel </td>
-                                            <td>Web Designer</td>
-                                           
-                                        </tr>
-                                        < <tr>
-                                           <td><input type="radio" name="optradio"></td>
-                                           <td>coronelsean@gmail.com</td>
-                                           <td>coronelsean</td>
-                                              <td> Sean </td> 
-                                           <td> Coronel </td>
-                                            <td>Web Designer</td>
-                                           
-                                        </tr>
-                                        <tr>
-                                           <td><input type="radio" name="optradio"></td>
-                                           <td>coronelsean@gmail.com</td>
-                                           <td>coronelsean</td>
-                                              <td> Sean </td> 
-                                           <td> Coronel </td>
-                                            <td>Web Designer</td>
+                                            <td>Manager</td>
                                            
                                         </tr>
                                          <tr>
                                            <td><input type="radio" name="optradio"></td>
-                                           <td>coronelsean@gmail.com</td>
-                                           <td>coronelsean</td>
-                                              <td> Sean </td> 
-                                           <td> Coronel </td>
-                                            <td>Web Designer</td>
+                                           <td>timothyisleta@gmail.com</td>
+                                           <td>isletatimothy</td>
+                                              <td> Timothy </td> 
+                                           <td> Isleta </td>
+                                            <td>Project Manager</td>
                                            
                                         </tr>
                                         <tr>
                                            <td><input type="radio" name="optradio"></td>
-                                           <td>coronelsean@gmail.com</td>
-                                           <td>coronelsean</td>
-                                              <td> Sean </td> 
-                                           <td> Coronel </td>
+                                           <td>iekomolina@gmail.com</td>
+                                           <td>iekomolina</td>
+                                              <td> Ieko </td> 
+                                           <td> Molina </td>
                                             <td>Web Designer</td>
                                            
-                                        </tr>  
-                                         <tr>
-                                           <td><input type="radio" name="optradio"></td>
-                                           <td>coronelsean@gmail.com</td>
-                                           <td>coronelsean</td>
-                                              <td> Sean </td> 
-                                           <td> Coronel </td>
-                                            <td>Web Designer</td>
-                                           
-                                        </tr>
-                                        <tr>
-                                           <td><input type="radio" name="optradio"></td>
-                                           <td>coronelsean@gmail.com</td>
-                                           <td>coronelsean</td>
-                                              <td> Sean </td> 
-                                           <td> Coronel </td>
-                                            <td>Web Designer</td>
-                                           
-                                        </tr>                                                                                  
+                                        </tr>                                                                                 
                                         </tbody>
                                     </table>
                                        <center> <button type="button" class="btn btn-danger btn-sm" >Delete</button>
