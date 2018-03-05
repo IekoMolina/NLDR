@@ -57,43 +57,33 @@
 
             <ul class="nav">
                 <li class="active">
-                    <a href="dashboard.html">
+                    <a href="">
                         <i class="fa fa-home"></i>
                         <p>Home</p>
                     </a>
                 </li>
                 <li>
-                    <a href="user.html">
+                    <a href="">
                         <i class="fa fa-user-plus"></i>
                         <p>Create User</p>
                     </a>
                 </li>
+              
                 <li>
-                    <a href="table.html">
+                    <a href="">
                         <i class="fa fa-user-times"></i>
                         <p>Delete User</p>
                     </a>
                 </li>
-                <li>
-                    <a href="typography.html">
-                        <i class="fa fa-pencil-square-o"></i>
-                        <p>Edit User</p>
-                    </a>
-                </li>
-              
+               
                
                 <li>
-                    <a href="notifications.html">
-                        <i class="fa fa-bell"></i>
-                        <p>Alert</p>
+                    <a href="">
+                        <i class="fa fa-database"></i>
+                        <p>Database</p>
                     </a>
                 </li>
-				<li class="active-pro">
-                    <a href="upgrade.html">
-                        <i class="fa fa-users"></i>
-                        <p>Admin</p>
-                    </a>
-                </li>
+			
             </ul>
     	</div>
     </div>
@@ -175,92 +165,32 @@
         </nav>
   <!-- end of header code -->
 
-        <div class="content">
+        <div class="content">   
             <div class="container-fluid">
-                <div class="row">
-                        <center> <h3> Users </hr> </center>
-                    <table id="example" class="table table-bordered table-hover table-striped">
-                        <thead>
-                        <tr>
-                            <th></th>
-                            <th>Email</th>
-                            <th>Username</th>
-                            <th>First Name </th> 
-                            <th>Last Name </th> 
-                            <th>Job Position</th>
-                          
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                           <td><input type="radio" name="optradio"></td>
-                           <td>coronelsean@gmail.com</td>
-                           <td>coronelsean</td>
-                           <td> Sean </td> 
-                           <td> Coronel </td>
-                            <td>Web Designer</td>
-                           
-                        </tr>
-                        <tr>
-                           <td><input type="radio" name="optradio"></td>
-                           <td>coronelsean@gmail.com</td>
-                           <td>coronelsean</td>
-                              <td> Sean </td> 
-                           <td> Coronel </td>
-                            <td>Web Designer</td>
-                           
-                        </tr>
-                        <tr>
-                           <td><input type="radio" name="optradio"></td>
-                           <td>coronelsean@gmail.com</td>
-                           <td>coronelsean</td>
-                              <td> Sean </td> 
-                           <td> Coronel </td>
-                            <td>Web Designer</td>
-                           
-                        </tr>
-                         <tr>
-                           <td><input type="radio" name="optradio"></td>
-                           <td>coronelsean@gmail.com</td>
-                           <td>coronelsean</td>
-                              <td> Sean </td> 
-                           <td> Coronel </td>
-                            <td>Web Designer</td>
-                           
-                        </tr>
-                        <tr>
-                           <td><input type="radio" name="optradio"></td>
-                           <td>coronelsean@gmail.com</td>
-                           <td>coronelsean</td>
-                              <td> Sean </td> 
-                           <td> Coronel </td>
-                            <td>Web Designer</td>
-                           
-                        </tr>  
-                         <tr>
-                           <td><input type="radio" name="optradio"></td>
-                           <td>coronelsean@gmail.com</td>
-                           <td>coronelsean</td>
-                              <td> Sean </td> 
-                           <td> Coronel </td>
-                            <td>Web Designer</td>
-                           
-                        </tr>
-                        <tr>
-                           <td><input type="radio" name="optradio"></td>
-                           <td>coronelsean@gmail.com</td>
-                           <td>coronelsean</td>
-                              <td> Sean </td> 
-                           <td> Coronel </td>
-                            <td>Web Designer</td>
-                           
-                        </tr>                                                                                  
-                        </tbody>
-                    </table>
-                       <center> <button type="button" class="btn btn-danger btn-sm" >Delete</button>
-                       <button type="button" class="btn btn-danger btn-sm">Disable</button></center>
-                          
-                 </div>
+                <!-- row 1 --> 
+                    <div class = "row">  
+
+                     
+
+
+                    </div>
+                    <!-- end of row 1-->
+                    <div class = "row"> 
+                        <div class = "panel panel-primary"> 
+                            <div class = "panel-body"> 
+                                <div class = "row">
+                                  <div class= "col-md-12"> 
+                                        <div class = "header"> 
+                                             
+                                        </div>
+
+                                  </div>
+
+                            </div>
+
+                        </div>
+                            
+                    </div>
             </div>
         </div>
 

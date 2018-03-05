@@ -36,9 +36,10 @@
 </head>
 <body>
 
+
 <div class="wrapper">
     <!-- The start of the Side bar code -->
-    <div class="sidebar" data-color="darkblue" data-image="../img/storm.jpg">
+    <div class="sidebar" data-color="admin" data-image="../img/sidebar-5.jpg">
 
     <!--
 
@@ -50,45 +51,28 @@
     	<div class="sidebar-wrapper">
             <div class="logo">
                 <a href="http://www.creative-tim.com" class="simple-text">
-                    <img src="../img/OCDLogo.png" style="width:150px;height:150px; margin: 0px 0px 0px 0px;"> <b>NDRRMC  </b>  
+                    <img src="../img/OCDLogo.png" style="width:150px;height:150px; margin: 0px 0px 10px 0px;"> <b>NDRRMC  </b>  
                 </a>
             </div>
 
             <ul class="nav">
-                <li class= "active">
-                    <a href="home">
+                <li >
+                    <a href="/homeAdministrator">
                         <i class="fa fa-home"></i>
                         <p>Home</p>
                     </a>
                 </li>
-                <li>
-                    <a href="queryBuild">
-                        <i class="fa fa-search"></i>
-                        <p>Query Builder</p>
+                <li class="active">
+                    <a href="/users">
+                        <i class="fa fa-user-plus"></i>
+                        <p>Create User</p>
                     </a>
                 </li>
-                <li >
-                    <a href="reports">
-                        <i class="fa fa-table   "></i>
-                        <p>Yearly Reports</p>
-                    </a>
-                </li>
-                <li >
-                    <a href="reportsVisual">
-                        <i class="fa fa-bar-chart"></i>
-                        <p>Visual Reports</p>
-                    </a>
-                </li>
+    
                 <li>
                     <a href="">
-                        <i class="fa fa-folder"></i>
-                        <p>Downloadable Reports</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <i class="fa fa-map-marker"></i>
-                        <p>Maps</p>
+                        <i class="fa fa-database"></i>
+                        <p>Database</p>
                     </a>
                 </li>
 			
@@ -121,9 +105,7 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        
-                      
-                      
+                           
                         <li>
                             <a href="#">
                                 <p>Log out</p>
@@ -136,23 +118,132 @@
         </nav>
   <!-- end of header code -->
 
-
         <div class="content">   
             <div class="container-fluid">
                 <!-- row 1 --> 
                     <div class = "row">  
 
+                     
+
 
                     </div>
                     <!-- end of row 1-->
-                    <div class = "row" align = "center"> 
-                       
-                                
-                                
-                                       <iframe width="1000" height="1000" src="https://app.powerbi.com/view?r=eyJrIjoiMGRlM2U5MWUtYjNmZS00YzQ5LWEyNWYtMDM1NWJlZmQ3ZDAyIiwidCI6ImYzNGEzNWJkLWE2NWQtNDYwNS1iMGZhLWQyNTcxZjgzMWY1ZSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true" style="border:none;" align="center" scrolling="no" allowfullscreen="true"></iframe>
+                    <div class = "row"> 
+                        <div class = "panel panel-primary"> 
+                            <div class = "panel-body"> 
+                                <div class = "row">
+                                  <div class= "col-md-12"> 
+                                      
+										<div class = "row"> 
+													<form action="/insert" method="post">
+														{{ csrf_field() }}
+														<div class = "panel-body"> 
+															<center> <h3> Create User </center> </h3>
+															<div class = "col-xs-5"> 
+															<label for="firstName">First Name:</label> 
+															<input type="text" class="form-control input-sm" name="firstName">
 
+															</div>
+															<div class = "col-xs-5"> 
+															<label for="lastName">Last Name:</label> 
+															<input type="text" class="form-control input-sm"name="lastName">
+															
+															</div>
+															<div class = "col-xs-4"> 
+															<label for="userName">User Name:</label> 
+															<input type="text" class="form-control input-sm"name="userName">
 
+															</div>
+															<div class = "col-xs-4"> 
+															<label for="passWord">Password</label> 
+															<input type="Password" class="form-control input-sm"name="passWord">
+
+															</div>
+															<div class = "col-xs-10"> 
+															<label for="email">Email Address</label> 
+															<input type="text" class="form-control input-sm"name="email">
+
+															</div>
+															<div class = "col-xs-2.5"> </div>
+															<div class ="col-xs-3">
+															<label for="position"> Position: </label> 
+															<select class="form-control" name="position">
+																		<option value="1">Administrator</option>
+																		<option value="2">Employee</option>
+																	</select>
+															</div> 	
+															
+
+														</div>
+													
+														<center> <button type="submit" name="submit" value= "add" class="btn btn-primary btn-lg">Create</button></center>
+											
+														
+														
+													</form>
+										</div>
+										
+
+                                  </div>
+
+                            </div>
+
+                        </div>
+                            
                     </div>
+					<div = "row"> 	
+						<div class = "panel panel-primary"> 
+							<div class = "panel-body"> 
+								<div class = "row"> 
+									<div class = "col-md-12"> 
+									<div class="content table-responsive table-full-width"> 
+									<center> <h3><b> Delete User </center> </h3><b>
+											<table class="table table-hover table-striped">
+												<thead>
+													<th>FirstName</th>
+													<th>LastName</th>
+													<th>UserName</th>
+													<th>Password</th>
+													<th>Email</th>
+													<th>Job Position</th>
+													<th>Action</th>
+												</thead>
+												@foreach($data as $value)
+												<tr>
+													<td>{{ $value->FIRSTNAME }}</td>
+													<td>	
+														@if ($value->USERSTATUSID == 1)
+															Active
+														@elseif ($value->USERSTATUSID == 2)
+															Inactive
+														@else
+															Suspended
+														@endif
+													</td>	
+													<td>{{ $value->LASTNAME }}</td>
+													<td>{{ $value->USERNAME}}</td>
+													<td>{{ $value->EMAIL }}</td>
+												
+													<td>	
+														@if ($value->USERTITLESID == 1)
+															Admin
+														@else
+															Employee
+														@endif
+													</td>
+													<td><a href="/delete/{{ $value->USERID }}"><button class="btn btn-primary btn-sm">Delete</button></a></td>
+												</tr>	
+												@endforeach
+											</table>
+
+									</div>
+									</div>
+								</div> 
+							</div>
+						</div>
+						
+
+					</div>
             </div>
         </div>
 
@@ -192,10 +283,21 @@
     </div>
 </div>
 
+<center>
 
+</center>
+
+<!-- ./CRUD PRACTICE FORM -->
+<!-- MODEL PRACTICE this uses model -->
+<center>
+	<div class="container box">
+		<h3>All User</h3>
+
+	</div>
+</center>
+<!-- ./MODEL PRACTICE -->
 </body>
-
-    <!--   Core JS Files   -->
+    <!-- jQuery -->
     <script src="../vendor/bootstrap/js/js/jquery.3.2.1.min.js" type="text/javascript"></script>
 	<script src="../vendor/bootstrap/js/js/bootstrap.min.js" type="text/javascript"></script>
 
@@ -214,21 +316,32 @@
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="../vendor/bootstrap/js/js/demo.js"></script>
 
-	<script type="text/javascript">
-    	$(document).ready(function(){
 
-        	demo.initChartist();
+	<script>
+$(document).ready(function(){
+	$('#btn_tweet').click(function(){
+		var tweet_txt = $('#tweet').val();
+		// trim() used to remove spaces between text
+		if($.trim(tweet_txt) != '')
+		{
+			$.ajax({
+				url:"insert.php",
+				method:"POST",
+				data:{tweet:tweet_txt},
+				dataType:"text",
+				success:function(data)
+				{
+					$('#tweet').val(" ");
+				}
+			});
+		}
+	});
 
-        	$.notify({
-            	icon: 'pe-7s-gift',
-            	message: "Welcome to <b>the National Lost and Damage Registry</b> - A Disaster Management Information System."
-
-            },{
-                type: 'info',
-                timer: 4000
-            });
-
-    	});
-	</script>
+	setInterval(function(){
+		$('#load_tweets').load(fetch.php).fadeIn("slow");
+	},1000);
+});
+</script>
 
 </html>
+

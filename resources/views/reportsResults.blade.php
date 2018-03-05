@@ -67,13 +67,13 @@
                         <p>Query Builder</p>
                     </a>
                 </li>
-                <li >
+                <li class = "active">
                     <a href="reports">
                         <i class="fa fa-table   "></i>
                         <p>Yearly Reports</p>
                     </a>
                 </li>
-                <li class = "active">
+                <li>
                     <a href="reportsVisual">
                         <i class="fa fa-bar-chart"></i>
                         <p>Visual Reports</p>
@@ -143,67 +143,92 @@
                     <div class = "row">  
                      <div class = "panel panel-primary"> 
                         <div class = "panel-body"> 
-                            <div class ="row">  
-                                <div class = "col-md-12"> 
-                                    <div class ="header"> 
-                                        <h5> <b> Generate Report </b></h5>
+                                <div class ="row">  
+                                    <div class = "col-md-12"> 
+                                        <div class ="header"> 
+                                            <br>
+                                            <div class="row" align="center">
+                                                    Department of National Defense               <br>                                       
+                                                <b> OFFICE OF CIVIL DEFENSE </b>                 <br>   
+                                                    Camp Emilio Aguinaldo, Quezon City           <br>
+                                                    @foreach ($date as $d)
+                                                        <option>{{ date('Y', strtotime( $d->STARTDATE))}}</option>
+                                                    @endforeach
+                                            <b>                                         
+                                            </div>
+                                            <br>
+                                        </div>
+                                        
                                     </div>
-                                    
                                 </div>
-                            </div>
-                            <div class = "row"> 
-                                <div class= "col-md-12"> 
-                                    <!-- insert here pls -- > 
-                                                                    <!-- Form -->
-                                     <form action="/generateReportVisuals" method="post">
-                                        <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                        <div class="form-group col-lg-6">
-                                            <label>Disaster Type</label>
-                                            <select class="form-control" name="disasterType">
-                                                @foreach($disasterData as $value)
-                                                <option>{{ $value->DISASTERTYPE }}</option>
-                                                @endforeach 
-                                            </select>
+                                <div class = "row"> 
+                                    <div class= "col-md-12"> 
+                                        <div class = "content table-responsive table full-width"> 
+                                                <table id="example" class="table table-bordered table-striped">
+                                                        <thead bgcolor="#0D4F8B">                                                                       
+                                                            <tr>
+                                                                <th>NAME</th>
+                                                                <th>START</th>
+                                                                <th>END</th>
+                                                                <th>#Locality</th>                                  
+                                                                <th>#Affected</th>
+                                                                <th>#Evacuated</th>
+                                                                <th>#DEAD</th>
+                                                                <th>#INJ</th>
+                                                                <th>#MIS</th>
+                                                                <th>Asset DMG</th>
+                                                                <th>Asset Loss</th>
+                                                                <th>Agri Loss</th>
+                                                                <th>Prod Loss</th>
+                                                                <th>Total Loss</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        @foreach($yearlyData as $allData)                                                                           
+                                                            <tr>
+                                                                <td>{{ $allData->DISASTERNAME}}</td>
+                                                                <td>{{ $allData->STARTDATE}}</td>
+                                                                <td>{{ $allData->ENDDATE}}</td>
+                                                                <form action="/reportsResultDrill" method="post">
+                                                                <td><a type="submit" name="locality" value="PEPE">{{ $allData->CLOC}}</a></td>
+                                                                </form>
+                                                                <td>{{ $allData->SDAP}}</td>
+                                                                <td>{{ $allData->SEP}}</td>
+                                                                <td>{{ $allData->SDEAD}}</td>
+                                                                <td>{{ $allData->SINJ}}</td>
+                                                                <td>{{ $allData->SMISS}}</td>
+                                                                <td>$allData->ADT</td>
+                                                                <td> $allData->ALT</td>
+                                                                <td> $allData->AGLT</td>
+                                                                <td> $allData->PLT</td>
+                                                                <td> $allData->totalLoss</td>
+                                                            </tr> 
+                                                        @endforeach        
+                                                        </tbody>
+                                                 </table>
                                         </div>
+                                        <!-- insert here pls -- > 
 
-                                        <div class="form-group col-lg-6">
-                                            <label>Year</label>
-                                            <select class="form-control" name="year">
-                                                <option>2017</option>
-                                            </select>
-                                        </div>
+    
+                                    </div>
+                                </div> 
+                                <div class="row" align="center">
+                                          <!-- Print Button -->
+                                        <button class="btn btn-primary" onclick="myFunction()" style="inline-block">
+                                            <span class="glyphicon glyphicon-print"></span> Print
+                                        </button> 
+                                        <!-- ./Print Button -->
 
-                                         <div class="form-group col-lg-6">
-                                            <label>Damages (in Millions) </label>
-                                            <select class="form-control" name="damages">
-                                                <option>Infrastructure</option>
-                                                <option>Agriculture</option>
-                                                <option>Private Property</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group col-lg-6">
-                                            <label>Region </label>
-                                            <select class="form-control" name="regions">
-                                                 @foreach($regions as $valueR)
-                                                <option> {{ $valueR->REGIONCODE }}</option> <!-- = date('Y', strtotime($dateData)) -->
-                                                @endforeach 
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group col-lg-6">
-                                            <label>Type of Visual </label>
-                                            <select class="form-control" name="regions">
-                                                <option> Line </option>
-                                                <option> Bar</option> 
-                                                <option> Doughnut </option>  
-                                            </select>
-                                        </div>
-                                        <div align="text-center" class="form-group col-lg-3" >
-                                            <input type="submit" name="submit" value="submit" class = "btn btn-primary">
-                                        </div>
-                                    </form>
-                                    <!-- /.form -->
+                                        <!-- Export Button   <img src ="http://icons.iconarchive.com/icons/ncrow/mega-pack-1/128/Excel-icon.png" width="10%"; height="10%">-->
+                                        <button id="create_excel" class="btn btn-primary" style="inline-block">
+                                            Export to Excel
+                                        </button>
+                                        <!-- ./Export Button -->
+                                        <!-- Print Button -->
+                                        <button class="btn btn-primary" onclick="myFunction()" style="inline-block">
+                                            Export to CSV
+                                        </button> 
+                                        <!-- ./Print Button -->
                                 </div>
                             </div>
 
@@ -279,5 +304,31 @@
 	<script src="../vendor/bootstrap/js/js/demo.js"></script>
 
 
+    <script type="text/javascript">
+    function myFunction() {
+    window.print();
+    }
+    </script>
+
+     <script type="text/javascript">
+            $(document).ready(function() {
+                $('#example').DataTable({
+                    "bFilter": false,
+                    //  "paging":   false,
+                    "info":     false
+                });
+
+            } );
+    </script>
+    <script type="text/javascript">
+            $(document).ready(function() {
+                $('#create_excel').click(funtion(){
+                    var excel_data = $('#example').html();
+                    var page = "excel.php?data=" + excel_data;
+                    window.location=page;
+                });
+
+            } );    
+    </script>
 
 </html>

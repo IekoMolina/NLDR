@@ -1,4 +1,4 @@
-	<?php
+<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -10,12 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// CRUD Practice Routes
-Route::get('/', 'Controller@getData');
-Route::post('/insert','Controller@insert');
-Route::get('/delete/{id}', ['uses' =>'Controller@delete']);
+// Create and Delete User Routes
+Route::get('users', 'UsersController@getData');
+Route::post('/insert','UsersController@insert');
+Route::get('/delete/{id}', ['uses' =>'UsersController@delete']);
+
 Route::get('about', function () {
-	$arrayTest = [];
+    $arrayTest = [];
     return view('about', compact('arrayTest')); //about.blade.php
 });
 
@@ -26,11 +27,9 @@ Route::resource('practice', 'PracticeController');
 Route::get('home', function () {
     return view('home'); //home.blade.php
 });
-Route::get('dashboard', function () {
-    return view('dash'); //dash.blade.php
-});
-Route::get('Admindashboard', function () {
-    return view('admin'); //admin.blade.php
+
+Route::get('reportsV2', function () {
+    return view('reportsV2'); //home.blade.php
 });
 
 Route::get('homeAdministrator', function () {
@@ -50,12 +49,10 @@ Route::get('homeDrillDown1', function () {
 });  
 
 // Login Routes
-//Route::post('generateReport', 'reportController@passData');
-Route::post('loginchecker', 'LoginController@PassUserDetails');
-Route::get('login', 'LoginController@UserTrial');    
-/*
-Route::get('reports', 'reportController@getData');
-*/
+Route::get('login', function () {
+    return view('login'); //login.blade.php
+});  
+
 // Encoding Routes
 Route::get('encodingNewDisaster',  function () {
     return view('encodingNewDisaster');//encodingNewDisaster.blade.php 
@@ -64,6 +61,10 @@ Route::get('encodingNewDisaster',  function () {
 Route::get('encodingNewDisasterAdditional',  function () {
     return view('encodingNewDisasterAdditional');//encodingNewDisasterAdditional.blade.php 
 });
+
+Route::get('encodingNewDisasterCity', function () {
+    return view('encodingNewDisasterCity'); //encodingNewDisasterCity.blade.php
+}); 
 
 Route::get('encodingNewDisasterDetails', function () {
     return view('encodingNewDisasterDetails'); //encodingNewDisasterDetails.blade.php
@@ -86,6 +87,11 @@ Route::get('updateDisasterInfoDetails', function () {
 }); 
 
 
+Route::get('assignRoles', function () {
+    return view('assignRoles'); //assignRoles.blade.php
+}); 
+
+
 // Routes for Report Generation
 Route::get('reports', 'reportController@getData');
 Route::post('generateReport', 'reportController@passData');
@@ -100,3 +106,23 @@ Route::get('adminCreateAccount', function () {
 Route::get('adminRemoveAccount', function () {
     return view('adminRemoveAccount'); //updateDisasterInfoDetails.blade.php
 });   
+
+//Route for Query Building
+//Route::get('queryBuild', 'queryController@getData');
+
+//Route for File Upload
+Route::get('/uploadfile','UploadFileController@careerpage');
+Route::post('/uploadfile','UploadFileController@store');  
+
+Route::get('apply', 'fileController@careerpage');
+Route::post('apply', 'fileController@store');
+
+// Query Builder Routes
+Route::get('queryBuild',array('as'=>'queryBuild','uses'=>'queryController@getData'));
+Route::get('queryBuild/ajax/{id}',array('as'=>'queryBuild.ajax','uses'=>'queryController@getSubsectorAjax'));
+Route::get('queryBuildR/ajax/{id}',array('as'=>'queryBuildR.ajax','uses'=>'queryController@getProvinceAjax'));
+Route::get('queryBuildC/ajax/{id}',array('as'=>'queryBuildC.ajax','uses'=>'queryController@getCityAjax'));
+Route::post('queryResult', 'queryController@passData');
+
+Route::get('queryBuildFilter', 'queryController@getDataFilter');
+Route::post('queryBuildFilter', 'queryController@passDataFilter');

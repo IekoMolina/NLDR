@@ -16,29 +16,39 @@ class reportController extends BaseController
     // get input data and pass to other page
     public function passData(Request $req)
     {
-        $disasterType = $req->input('disasterType');
-        $year = $req->input('year');
+        $date = ReportModel::getDistinctDate();
+        $yearlyData = ReportModel::getReportDataFiltered($req);
 
-
-        //fix this model should be used
-        $yearlyData = ReportModel::getYearlyReportData(); /*->where([
-                                                                    ['REF_GLIDEEVENTTYPE.GLIDEEVENTDESCRIPTION', '=', $disasterType],
-                                                                    ['GLIDEEVENT.STARTDATE', '=', $year],
-                                                                ]);*/
-        //return $yearlyData; 
-        //return view('reportsDrillDown')->with('yearlyData',$yearlyData);
-       return view('reportsDrillDown')->with([
+        if(count($yearlyData)>0)
+        {
+            return view('reportsResults')->with('yearlyData',$yearlyData)->with('date', $date);
+            //print_r($yearlyData);
+        }
+        else
+        {      
+            $yearlyData = array();
+            return view('reportsResults')->with('yearlyData',$yearlyData)->with('date', $date);
+        }       
+      /* return view('reportsDrillDown')->with([
             'disasterType'=> $disasterType,
             'year'=> $year
-            ]);
+            ]); 
+    */
+    }
+    
+    public function getRegionDetails($req)
+    {
+        $temp = $req->input('locality');
+        printf($temp);
+      return view('reportsResultsDrill');
     }
 
     public function getData()
     {
-       $data = ReportModel::getExistingDisaster();
+       $data = ReportModel::getDistinctDate();
        $disasterData = ReportModel::getAllDisaster();
-
-       if(count($data)>0)
+    
+        if(count($data)>0)
         {
             return view('reports')->with('data', $data) ->with('disasterData', $disasterData); 
         }
@@ -67,19 +77,10 @@ class reportController extends BaseController
 
     public function getDataVisual()
     {
-       $data = ReportModel::getExistingDisaster();
-       $disasterData = ReportModel::getAllDisaster();
-       $regions = ReportModel::getAllRegion();
-        
-        if(count($data)>0)
-        {
-            return view('reportsVisual')->with('data', $data)->with('disasterData', $disasterData)->with('regions', $regions); 
-        }
-
-        else
-        {
-            return view('reportsVisual');
-        }
+        $disasterData = ReportModel::getAllDisaster();
+        $regions = ReportModel::getAllRegion();
+        $date = ReportModel::getDistinctDate();
+        return view('reportsVisual')->with('disasterData',$disasterData)->with('regions', $regions);
     }
 }
 

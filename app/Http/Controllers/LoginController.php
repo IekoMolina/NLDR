@@ -25,7 +25,7 @@ class LoginController extends BaseController
           
           $checkLogin = DB::table('users')
           ->Select('users.*')
-          ->where(['username'=>$username,'password'=>$password])
+          ->where(['username'=>$username,'password'=>$password,'usertitleid'=>'1'])
           ->get();
      
         

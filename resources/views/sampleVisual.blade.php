@@ -62,28 +62,21 @@
                         <p>Home</p>
                     </a>
                 </li>
-                <li>
-                    <a href="">
-                        <i class="fa fa-user-plus"></i>
-                        <p>Create User</p>
-                    </a>
-                </li>
+               
               
-                <li>
-                    <a href="">
-                        <i class="fa fa-user-times"></i>
-                        <p>Delete User</p>
-                    </a>
-                </li>
-               
                
                 <li>
                     <a href="">
-                        <i class="fa fa-database"></i>
+                        <i class="fa fa-bell"></i>
                         <p>Database</p>
                     </a>
                 </li>
-			
+				<li class="active-pro">
+                    <a href="">
+                        <i class="fa fa-users"></i>
+                        <p>Admin</p>
+                    </a>
+                </li>
             </ul>
     	</div>
     </div>
@@ -135,6 +128,24 @@
                                <p>Account</p>
                             </a>
                         </li>
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <p>
+										Dropdown
+										<b class="caret"></b>
+									</p>
+
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                              </ul>
+                        </li>
                         <li>
                             <a href="#">
                                 <p>Log out</p>
@@ -150,18 +161,100 @@
         <div class="content">   
             <div class="container-fluid">
                 <!-- row 1 --> 
-                    <div class = "row">  
+                <div class = "row">  
+                    <div class = "col-md-8"> 
+                               <div class = "card" > 
+                                  <div class ="header"> 
+                                    <h4>  <b> Create User </h4></b> 
+                                   </div>    
+                                   
+                                        <div class = "row" > 
+                                            <div class = "col-md-9"> 
+                                                 
+                                                    <div class = "content"> 
+                                                        <form action="/insert" method="post"> 
+                                                            {{ csrf_field() }}
+                                                            <div class = "row"> 
+                                                                    <div class = "col-md-6" > 
+                                                                        <div class = "form-group"> 
+                                                                            <label> First Name </label>
+                                                                            <input type="text" class="form-control" placeholder="Juan " name="firstName">
+                                                                        </div>
+                                                                            
+                                                                    </div>
+                                                                    <div class = "col-md-6" > 
+                                                                        <div class = "form-group"> 
+                                                                            <label> Last Name </label>
+                                                                            <input type="text" class="form-control" placeholder="Rafael" name="lastName">
+                                                                        </div>
+                                                                            
+                                                                    </div>
+                                                                    
+                                                            </div>
+                                                            <div class = "row"> 
+                                                                <div class ="col-md-6"> 
+                                                                    <label> UserName </label> 
+                                                                    <input type="text" class="form-control" placeholder="This is a username" name ="userName">
+                                                                </div>
+                                                                <div class ="col-md-6"> 
+                                                                    <label> Password </label> 
+                                                                    <input type="password" class="form-control" name ="password">
+                                                                </div>
+                                                            
+                                                                
+                                                            </div>
+                                                            <div class = "row"> 
+                                                                 <div class ="col-md-11"> 
+                                                                    <label> Email </label> 
+                                                                    <input type="text" class="form-control" placeholder="nddrmc@gmail.com" name ="email">
+                                                                </div>
 
+                                                            </div>
+                                                            <div class = "row"> 
+                                                                 <div class = "col-md-6"> 
+                                                                     <label> Position </label> 
+                                                                     <select class="form-control" name="position">
+                                                                        <option value="1">Administrator</option>
+                                                                        <option value="2">Employee</option>
+                                                                     </select>
+                                                                 </div>
+
+
+                                                            </div>
+                                                            <button type="submit" name = "submit" value = "Add" class="btn btn-success">Add </button>
+                                                           
+                                                        </form>
+                                                    
+
+                                                    </div>
+                                                    
+                                                
+                                            </div>
+                                        </div> 
+                                   
+                               </div> 
+                        </div> 
+                        <div class = "col-md-4"> 
+                            <div class = "card card-user"> 
+                                <div class = "content"> 
+                                    
+                                        <div = "col-md-4"> 
+                                            <label><b> Alert</b> </label> 
+                                            <textarea row="5" class="form-control" placeholder="nddrmc@gmail.com" name ="email"> </textarea> 
+                                            <button type="button" class="btn btn-danger" >Alert</button>
+
+                                        </div>
+                                    
+                                </div> 
+                            </div>
+
+                        </div>               
 
                     </div>
                     <!-- end of row 1-->
                     <div class = "row"> 
-                       
-                                
-                                
-                                       <iframe width="1000" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiMGRlM2U5MWUtYjNmZS00YzQ5LWEyNWYtMDM1NWJlZmQ3ZDAyIiwidCI6ImYzNGEzNWJkLWE2NWQtNDYwNS1iMGZhLWQyNTcxZjgzMWY1ZSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true" style="border:none;" align="center" scrolling="no" allowfullscreen="true"></iframe>
-
-
+                        
+                            
                     </div>
             </div>
         </div>

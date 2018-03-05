@@ -55,25 +55,25 @@
             </div>
 
             <ul class="nav">
-                <li class= "active">
-                    <a href="home">
+                <li class="active">
+                    <a href="dashboard">
                         <i class="fa fa-home"></i>
                         <p>Home</p>
                     </a>
                 </li>
                 <li>
-                    <a href="queryBuild">
+                    <a href="user.html">
                         <i class="fa fa-search"></i>
                         <p>Query Builder</p>
                     </a>
                 </li>
-                <li >
+                <li>
                     <a href="reports">
                         <i class="fa fa-table   "></i>
                         <p>Yearly Reports</p>
                     </a>
                 </li>
-                <li >
+                <li>
                     <a href="reportsVisual">
                         <i class="fa fa-bar-chart"></i>
                         <p>Visual Reports</p>
@@ -91,7 +91,12 @@
                         <p>Maps</p>
                     </a>
                 </li>
-			
+				<li class="active-pro">
+                    <a>
+                        <i class="fa fa-users"></i>
+                        <p>Job Position</p>
+                    </a>
+                </li>
             </ul>
     	</div>
     </div>
@@ -121,9 +126,46 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        
-                      
-                      
+                            <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                          <i class="fa fa-bell"></i>
+                                          <b class="caret hidden-lg hidden-md"></b>
+                                          <p class="hidden-lg hidden-md">
+                                              5 Notifications
+                                              <b class="caret"></b>
+                                          </p>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                      <li><a href="#">Notification 1</a></li>
+                                      <li><a href="#">Notification 2</a></li>
+                                      <li><a href="#">Notification 3</a></li>
+                                      <li><a href="#">Notification 4</a></li>
+                                      <li><a href="#">Another notification</a></li>
+                                    </ul>
+                              </li>
+                        <li>
+                           <a href="">
+                               <p>Account</p>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <p>
+										Dropdown
+										<b class="caret"></b>
+									</p>
+
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                              </ul>
+                        </li>
                         <li>
                             <a href="#">
                                 <p>Log out</p>
@@ -136,22 +178,63 @@
         </nav>
   <!-- end of header code -->
 
-
         <div class="content">   
             <div class="container-fluid">
-                <!-- row 1 --> 
+                    <!-- row 1 --> 
                     <div class = "row">  
+                     <div class = "panel panel-primary"> 
+                        <div class = "panel-body"> 
+                            <div class ="row">  
+                                <div class = "col-md-12"> 
+                                    <div class ="header"> 
+                                        <h5> <b> Generate Report </b></h5>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class = "row"> 
+                                <div class= "col-md-12"> 
+                                    <!-- insert here pls -- > 
+                                    <!-- Form -->
+                                    <form  class="form-horizontal" role="form" method="post">                             
+                                            <div class="form-group col-lg-4">
+                                                <label>Disaster</label>
+                                                    <select multiple class="form-control" name="regionsAffected">
+                                                        <option>I (Ilocos Region)</option>
+                                                    </select>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label>Region</label>
+                                                    <select multiple class="form-control" name="regionsAffected">
+                                                        <option>I (Ilocos Region)</option>
+                                                    </select>
+                                            </div>
+                                            <div class="form-group col-lg-2">
+                                                <label>Time Range</label>
+                                                    <select class="form-control" name="regionsAffected">
+                                                        <option>Yearly</option>
+                                                        <option>Monthly</option>
+                                                        <option>Weekly</option>
+                                                    </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-lg-2">
+                                        <a type="submit" name="submit" class="btn btn-default" href='/encodingNewDisasterAdditional'>Next</a>
+                                        </div>
+                                    </form>
+                                    <!-- /.form -->
+                                </div>
+                            </div>
 
+                        </div>
+                    </div>
+                
 
                     </div>
                     <!-- end of row 1-->
-                    <div class = "row" align = "center"> 
-                       
-                                
-                                
-                                       <iframe width="1000" height="1000" src="https://app.powerbi.com/view?r=eyJrIjoiMGRlM2U5MWUtYjNmZS00YzQ5LWEyNWYtMDM1NWJlZmQ3ZDAyIiwidCI6ImYzNGEzNWJkLWE2NWQtNDYwNS1iMGZhLWQyNTcxZjgzMWY1ZSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true" style="border:none;" align="center" scrolling="no" allowfullscreen="true"></iframe>
-
-
+                    <div class = "row"> 
+                        
+                            
                     </div>
             </div>
         </div>

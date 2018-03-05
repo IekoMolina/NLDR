@@ -36,9 +36,10 @@
 </head>
 <body>
 
+
 <div class="wrapper">
     <!-- The start of the Side bar code -->
-    <div class="sidebar" data-color="darkblue" data-image="../img/storm.jpg">
+    <div class="sidebar" data-color="admin" data-image="../img/sidebar-5.jpg">
 
     <!--
 
@@ -50,45 +51,36 @@
     	<div class="sidebar-wrapper">
             <div class="logo">
                 <a href="http://www.creative-tim.com" class="simple-text">
-                    <img src="../img/OCDLogo.png" style="width:150px;height:150px; margin: 0px 0px 0px 0px;"> <b>NDRRMC  </b>  
+                    <img src="../img/OCDLogo.png" style="width:150px;height:150px; margin: 0px 0px 10px 0px;"> <b>NDRRMC  </b>  
                 </a>
             </div>
 
             <ul class="nav">
-                <li class= "active">
-                    <a href="home">
+                <li class="active">
+                    <a href="">
                         <i class="fa fa-home"></i>
                         <p>Home</p>
                     </a>
                 </li>
                 <li>
-                    <a href="queryBuild">
-                        <i class="fa fa-search"></i>
-                        <p>Query Builder</p>
+                    <a href="">
+                        <i class="fa fa-user-plus"></i>
+                        <p>Create User</p>
                     </a>
                 </li>
-                <li >
-                    <a href="reports">
-                        <i class="fa fa-table   "></i>
-                        <p>Yearly Reports</p>
-                    </a>
-                </li>
-                <li >
-                    <a href="reportsVisual">
-                        <i class="fa fa-bar-chart"></i>
-                        <p>Visual Reports</p>
-                    </a>
-                </li>
+              
                 <li>
                     <a href="">
-                        <i class="fa fa-folder"></i>
-                        <p>Downloadable Reports</p>
+                        <i class="fa fa-user-times"></i>
+                        <p>Delete User</p>
                     </a>
                 </li>
+               
+               
                 <li>
                     <a href="">
-                        <i class="fa fa-map-marker"></i>
-                        <p>Maps</p>
+                        <i class="fa fa-database"></i>
+                        <p>Database</p>
                     </a>
                 </li>
 			
@@ -121,9 +113,46 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        
-                      
-                      
+                            <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                          <i class="fa fa-bell"></i>
+                                          <b class="caret hidden-lg hidden-md"></b>
+                                          <p class="hidden-lg hidden-md">
+                                              5 Notifications
+                                              <b class="caret"></b>
+                                          </p>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                      <li><a href="#">Notification 1</a></li>
+                                      <li><a href="#">Notification 2</a></li>
+                                      <li><a href="#">Notification 3</a></li>
+                                      <li><a href="#">Notification 4</a></li>
+                                      <li><a href="#">Another notification</a></li>
+                                    </ul>
+                              </li>
+                        <li>
+                           <a href="">
+                               <p>Account</p>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <p>
+										Dropdown
+										<b class="caret"></b>
+									</p>
+
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                              </ul>
+                        </li>
                         <li>
                             <a href="#">
                                 <p>Log out</p>
@@ -136,22 +165,73 @@
         </nav>
   <!-- end of header code -->
 
-
         <div class="content">   
             <div class="container-fluid">
                 <!-- row 1 --> 
                     <div class = "row">  
 
+                     
+
 
                     </div>
                     <!-- end of row 1-->
-                    <div class = "row" align = "center"> 
-                       
-                                
-                                
-                                       <iframe width="1000" height="1000" src="https://app.powerbi.com/view?r=eyJrIjoiMGRlM2U5MWUtYjNmZS00YzQ5LWEyNWYtMDM1NWJlZmQ3ZDAyIiwidCI6ImYzNGEzNWJkLWE2NWQtNDYwNS1iMGZhLWQyNTcxZjgzMWY1ZSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true" style="border:none;" align="center" scrolling="no" allowfullscreen="true"></iframe>
+                    <div class = "row"> 
+                        <div class = "panel panel-primary"> 
+                            <div class = "panel-body"> 
+                                <div class = "row">
+                                  <div class= "col-md-12"> 
+                                        <div class = "header"> 
+                                                <h5> <b>User History    </b></h5>
+                                            </div>
+                                            <div class="content table-responsive table-full-width"> 
+                                                <table class="table table-hover table-striped">
+                                                    <thead> 
+                                                        <th>FirstName</th>
+                                                        <th>LastName</th>
+                                                        <th>UserName</th>
+                                                        <th>Job Position</th>
+                                                        <th>Email</th>
+                                                        <th>Table Edited</th>
+                                                        <th>Date and Time Modified</th>
+                                                        <th>Validation Status</th>
+                                                        </thead>
+                                                        @foreach($data as $value)
+                                                        <tr>
+                                                            <td>{{ $value->FIRSTNAME }}</td>
+                                                            <td>	
+                                                                @if ($value->USERSTATUSID == 1)
+                                                                    Active
+                                                                @elseif ($value->USERSTATUSID == 2)
+                                                                    Inactive
+                                                                @else
+                                                                    Suspended
+                                                                @endif
+                                                            </td>	
+                                                            <td>{{ $value->LASTNAME }}</td>
+                                                            <td>{{ $value->USERNAME}}</td>
+                                                            <td>{{ $value->EMAIL }}</td>
+                                                            <td>
+                                                            <td>	
+                                                                @if ($value->USERTITLESID == 1)
+                                                                    Admin
+                                                                @else
+                                                                    Employee
+                                                                @endif
+                                                            </td>
+                                                            <td><a href="/delete/{{ $value->USERID }}"><button>Delete</button></a></td>
+                                                        </tr>	
+                                                        @endforeach
+                                                </table>
+                                                
+                                            </div>
+                                        </div>
 
+                                  </div>
 
+                            </div>
+
+                        </div>
+                            
                     </div>
             </div>
         </div>

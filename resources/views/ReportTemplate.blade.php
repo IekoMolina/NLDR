@@ -55,8 +55,8 @@
             </div>
 
             <ul class="nav">
-                <li >
-                    <a href="home">
+                <li class="active">
+                    <a href="dashboard">
                         <i class="fa fa-home"></i>
                         <p>Home</p>
                     </a>
@@ -67,13 +67,13 @@
                         <p>Query Builder</p>
                     </a>
                 </li>
-                <li >
+                <li>
                     <a href="reports">
                         <i class="fa fa-table   "></i>
                         <p>Yearly Reports</p>
                     </a>
                 </li>
-                <li class = "active">
+                <li>
                     <a href="reportsVisual">
                         <i class="fa fa-bar-chart"></i>
                         <p>Visual Reports</p>
@@ -91,7 +91,12 @@
                         <p>Maps</p>
                     </a>
                 </li>
-			
+				<li class="active-pro">
+                    <a>
+                        <i class="fa fa-users"></i>
+                        <p>Job Position</p>
+                    </a>
+                </li>
             </ul>
     	</div>
     </div>
@@ -121,9 +126,46 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        
-                      
-                      
+                            <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                          <i class="fa fa-bell"></i>
+                                          <b class="caret hidden-lg hidden-md"></b>
+                                          <p class="hidden-lg hidden-md">
+                                              5 Notifications
+                                              <b class="caret"></b>
+                                          </p>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                      <li><a href="#">Notification 1</a></li>
+                                      <li><a href="#">Notification 2</a></li>
+                                      <li><a href="#">Notification 3</a></li>
+                                      <li><a href="#">Notification 4</a></li>
+                                      <li><a href="#">Another notification</a></li>
+                                    </ul>
+                              </li>
+                        <li>
+                           <a href="">
+                               <p>Account</p>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <p>
+										Dropdown
+										<b class="caret"></b>
+									</p>
+
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                              </ul>
+                        </li>
                         <li>
                             <a href="#">
                                 <p>Log out</p>
@@ -136,130 +178,84 @@
         </nav>
   <!-- end of header code -->
 
-       
-            <!-- row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-primary">
-                        <!-- Panel Body -->
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="panel panel-default">
-                                        <!-- Panel Heading -->
-                                        <div class="panel-heading">    
-                                            <!-- Report Header -->
-                                            <br>
-                                            <div class="row" align="center">
-                                                Department of National Defense <br>                                       
-                                                <b> OFFICE OF CIVIL DEFENSE </b>       <br>   
-                                                Camp Emilio Aguinaldo, Quezon City     <br>
-                                                <b>  AND THEIR  EFFECTS </b>  <br>  
-                                               <b>  Damages per Million in </b>  <br>                       
-                                                     
-                                            </div>
-                                            <br>
-                                             <!-- /.Report Header -->
-                                         </div>
-                                         <!-- /.Panel Heading -->
-                                         <!-- Panel Body -->
-                                         <div class="panel-body">
-                                            
-                                             <div class="row col-lg-12">
-                                                <div id="bar" ></div>
-                                             </div>
-                                            <!-- ./Panel Body -->   
-                                            <div class="row" align="center">
-                                                <!-- Print Button-->
-                                                 <button class="btn btn-primary" onclick="myFunction()" style="inline-block">
-                                                    <span class="glyphicon glyphicon-print"></span> Print
-                                                 </button> 
-                                                 <!-- ./Print Button -->
-                                            </div>
-                                            <!-- /.table-->
-                                        </div>
+        <div class="content">   
+            <div class="container-fluid">
+                    <!-- row 1 --> 
+                    <div class = "row">  
+                     <div class = "panel panel-primary"> 
+                        <div class = "panel-body"> 
+                            <div class ="row">  
+                                <div class = "col-md-12"> 
+                                    <div class ="header"> 
+                                        <br>
+                                     
+                                        <br>
                                     </div>
-                                    <!-- /.panel-->
+                                    
                                 </div>
-                                <!-- /.col-lg-12-->
                             </div>
-                            <!-- /.row -->
+                            <div class = "row"> 
+                                <div class= "col-md-12"> 
+                                    <!-- insert here pls -- > 
+                                    
+
+ 
+                                </div>
+                            </div>
+
                         </div>
-                        <!-- /.panel-body -->
                     </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-8 -->
+                
+
+                    </div>
+                    <!-- end of row 1-->
+                    <div class = "row"> 
+                        
+                            
+                    </div>
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /#page-wrapper -->
+
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav class="pull-left">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <img src="../img/Logo.png" style="width:100px;height:50px; margin: 0px 0px 0px 0px;">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Company
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Portfolio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                               Blog
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <p class="copyright pull-right">
+                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                </p>
+            </div>
+        </footer>
 
     </div>
-    <!-- /#wrapper -->
+</div>
 
-    <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+</body>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="../vendor/raphael/raphael.min.js"></script>
-    <script src="../vendor/morrisjs/morris.min.js"></script>
-    <script src="../data/morris-data.js"></script>
-
-    <!-- Moris Bar chart Content -->
-    <!-- Morris/Graphs -->
-    <script>
-        Morris.Bar({
-          element: 'bar',
-          data: [
-            { y: 'Ilocos Norte', a: 100,},
-            { y: 'Ilocos Sur', a: 75, },
-            { y: 'La Union', a: 50,},
-            { y: 'Pangasinan', a: 75,}
-          ],
-          xkey: 'y',
-          ykeys: ['a'],
-          labels: ['Damages(M)']
-        });
-    </script>   
-
-    <script>
-        new Morris.Line({
-          // ID of the element in which to draw the chart.
-          element: 'line',
-          // Chart data records -- each entry in this array corresponds to a point on
-          // the chart.
-          data: [
-            { year: '2008', value: 20 },
-            { year: '2009', value: 10 },
-            { year: '2010', value: 5 },
-            { year: '2011', value: 5 },
-            { year: '2012', value: 20 }
-          ],
-          // The name of the data record attribute that contains x-values.
-          xkey: 'year',
-          // A list of names of data record attributes that contain y-values.
-          ykeys: ['value'],
-          // Labels for the ykeys -- will be displayed when you hover over the
-          // chart.
-          labels: ['Value']
-        });
-    </script>
-
-    <script type="text/javascript">
-    function myFunction() {
-    window.print();
-    }
-    </script>
+    <!--   Core JS Files   -->
     <script src="../vendor/bootstrap/js/js/jquery.3.2.1.min.js" type="text/javascript"></script>
 	<script src="../vendor/bootstrap/js/js/bootstrap.min.js" type="text/javascript"></script>
 
@@ -278,6 +274,21 @@
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="../vendor/bootstrap/js/js/demo.js"></script>
 
+	<script type="text/javascript">
+    	$(document).ready(function(){
 
-</body>
+        	demo.initChartist();
+
+        	$.notify({
+            	icon: 'pe-7s-gift',
+            	message: "Welcome to <b>the National Lost and Damage Registry</b> - A Disaster Management Information System."
+
+            },{
+                type: 'info',
+                timer: 4000
+            });
+
+    	});
+	</script>
+
 </html>
